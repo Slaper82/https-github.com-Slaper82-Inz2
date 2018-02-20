@@ -38,6 +38,7 @@
             this.btnAddBranch = new System.Windows.Forms.Button();
             this.tvStruct = new System.Windows.Forms.TreeView();
             this.tpDuty = new System.Windows.Forms.TabPage();
+            this.lbProd = new System.Windows.Forms.ListBox();
             this.btnDutyTypeDelete = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbDutyTypes = new System.Windows.Forms.ComboBox();
@@ -45,11 +46,15 @@
             this.btnDutySave = new System.Windows.Forms.Button();
             this.btnDutyDelete = new System.Windows.Forms.Button();
             this.btnAddTypeDuty = new System.Windows.Forms.Button();
-            this.lvProd = new System.Windows.Forms.ListView();
             this.txtDutyName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tvDuty = new System.Windows.Forms.TreeView();
             this.tpElement = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtElemName = new System.Windows.Forms.TextBox();
+            this.tvElem = new System.Windows.Forms.TreeView();
+            this.btnElemDel = new System.Windows.Forms.Button();
+            this.btnElemAdd = new System.Windows.Forms.Button();
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -70,9 +75,12 @@
             this.tvProd = new System.Windows.Forms.TreeView();
             this.btnDeleteType = new System.Windows.Forms.Button();
             this.btnAddType = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbElem = new System.Windows.Forms.ComboBox();
             this.tbDict.SuspendLayout();
             this.tpStruct.SuspendLayout();
             this.tpDuty.SuspendLayout();
+            this.tpElement.SuspendLayout();
             this.tpProduct.SuspendLayout();
             this.tpProdTask.SuspendLayout();
             this.SuspendLayout();
@@ -186,6 +194,7 @@
             // tpDuty
             // 
             this.tpDuty.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpDuty.Controls.Add(this.lbProd);
             this.tpDuty.Controls.Add(this.btnDutyTypeDelete);
             this.tpDuty.Controls.Add(this.label6);
             this.tpDuty.Controls.Add(this.cmbDutyTypes);
@@ -193,7 +202,6 @@
             this.tpDuty.Controls.Add(this.btnDutySave);
             this.tpDuty.Controls.Add(this.btnDutyDelete);
             this.tpDuty.Controls.Add(this.btnAddTypeDuty);
-            this.tpDuty.Controls.Add(this.lvProd);
             this.tpDuty.Controls.Add(this.txtDutyName);
             this.tpDuty.Controls.Add(this.label3);
             this.tpDuty.Controls.Add(this.tvDuty);
@@ -203,6 +211,16 @@
             this.tpDuty.Size = new System.Drawing.Size(1870, 796);
             this.tpDuty.TabIndex = 1;
             this.tpDuty.Text = "Słownik obowiązków";
+            // 
+            // lbProd
+            // 
+            this.lbProd.FormattingEnabled = true;
+            this.lbProd.ItemHeight = 28;
+            this.lbProd.Location = new System.Drawing.Point(317, 285);
+            this.lbProd.Name = "lbProd";
+            this.lbProd.Size = new System.Drawing.Size(262, 340);
+            this.lbProd.TabIndex = 21;
+            this.lbProd.SelectedIndexChanged += new System.EventHandler(this.lbProd_SelectedIndexChanged);
             // 
             // btnDutyTypeDelete
             // 
@@ -287,14 +305,6 @@
             this.btnAddTypeDuty.UseVisualStyleBackColor = true;
             this.btnAddTypeDuty.Click += new System.EventHandler(this.btnAddTypeDuty_Click);
             // 
-            // lvProd
-            // 
-            this.lvProd.Location = new System.Drawing.Point(315, 275);
-            this.lvProd.Name = "lvProd";
-            this.lvProd.Size = new System.Drawing.Size(267, 371);
-            this.lvProd.TabIndex = 4;
-            this.lvProd.UseCompatibleStateImageBehavior = false;
-            // 
             // txtDutyName
             // 
             this.txtDutyName.Location = new System.Drawing.Point(315, 116);
@@ -324,12 +334,73 @@
             // tpElement
             // 
             this.tpElement.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpElement.Controls.Add(this.cmbElem);
+            this.tpElement.Controls.Add(this.label2);
+            this.tpElement.Controls.Add(this.label1);
+            this.tpElement.Controls.Add(this.txtElemName);
+            this.tpElement.Controls.Add(this.tvElem);
+            this.tpElement.Controls.Add(this.btnElemDel);
+            this.tpElement.Controls.Add(this.btnElemAdd);
             this.tpElement.Location = new System.Drawing.Point(4, 37);
             this.tpElement.Name = "tpElement";
             this.tpElement.Padding = new System.Windows.Forms.Padding(3);
             this.tpElement.Size = new System.Drawing.Size(1870, 796);
             this.tpElement.TabIndex = 4;
             this.tpElement.Text = "Elementy";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(325, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(252, 28);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Wprowadź nazwę elementu";
+            // 
+            // txtElemName
+            // 
+            this.txtElemName.Location = new System.Drawing.Point(330, 85);
+            this.txtElemName.Name = "txtElemName";
+            this.txtElemName.Size = new System.Drawing.Size(315, 34);
+            this.txtElemName.TabIndex = 19;
+            // 
+            // tvElem
+            // 
+            this.tvElem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tvElem.Location = new System.Drawing.Point(6, 6);
+            this.tvElem.Name = "tvElem";
+            this.tvElem.Size = new System.Drawing.Size(260, 784);
+            this.tvElem.TabIndex = 18;
+            this.tvElem.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvElem_AfterSelect);
+            // 
+            // btnElemDel
+            // 
+            this.btnElemDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElemDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnElemDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnElemDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnElemDel.Location = new System.Drawing.Point(294, 688);
+            this.btnElemDel.Name = "btnElemDel";
+            this.btnElemDel.Size = new System.Drawing.Size(173, 36);
+            this.btnElemDel.TabIndex = 21;
+            this.btnElemDel.Text = "Usuń ";
+            this.btnElemDel.UseVisualStyleBackColor = true;
+            this.btnElemDel.Click += new System.EventHandler(this.btnElemDel_Click);
+            // 
+            // btnElemAdd
+            // 
+            this.btnElemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElemAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnElemAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnElemAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnElemAdd.Location = new System.Drawing.Point(1134, 85);
+            this.btnElemAdd.Name = "btnElemAdd";
+            this.btnElemAdd.Size = new System.Drawing.Size(173, 36);
+            this.btnElemAdd.TabIndex = 20;
+            this.btnElemAdd.Text = "Dodaj";
+            this.btnElemAdd.UseVisualStyleBackColor = true;
+            this.btnElemAdd.Click += new System.EventHandler(this.btnElemAdd_Click);
             // 
             // tpProduct
             // 
@@ -551,6 +622,23 @@
             this.btnAddType.UseVisualStyleBackColor = true;
             this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(672, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(365, 28);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Wprowadź wybierz zadanie produkcyjne";
+            // 
+            // cmbElem
+            // 
+            this.cmbElem.FormattingEnabled = true;
+            this.cmbElem.Location = new System.Drawing.Point(677, 86);
+            this.cmbElem.Name = "cmbElem";
+            this.cmbElem.Size = new System.Drawing.Size(360, 36);
+            this.cmbElem.TabIndex = 24;
+            // 
             // Dict
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -564,6 +652,8 @@
             this.tpStruct.PerformLayout();
             this.tpDuty.ResumeLayout(false);
             this.tpDuty.PerformLayout();
+            this.tpElement.ResumeLayout(false);
+            this.tpElement.PerformLayout();
             this.tpProduct.ResumeLayout(false);
             this.tpProduct.PerformLayout();
             this.tpProdTask.ResumeLayout(false);
@@ -581,7 +671,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDutyDelete;
         private System.Windows.Forms.Button btnAddTypeDuty;
-        private System.Windows.Forms.ListView lvProd;
         private System.Windows.Forms.TextBox txtDutyName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TreeView tvDuty;
@@ -616,5 +705,13 @@
         private System.Windows.Forms.TreeView tvStruct;
         private System.Windows.Forms.Button btnDeleteStruct;
         private System.Windows.Forms.Button btnDutyTypeDelete;
+        private System.Windows.Forms.ListBox lbProd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtElemName;
+        private System.Windows.Forms.TreeView tvElem;
+        private System.Windows.Forms.Button btnElemDel;
+        private System.Windows.Forms.Button btnElemAdd;
+        private System.Windows.Forms.ComboBox cmbElem;
+        private System.Windows.Forms.Label label2;
     }
 }

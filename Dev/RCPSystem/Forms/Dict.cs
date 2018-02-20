@@ -15,13 +15,13 @@ namespace RCPSystem.Forms
     {
         ProdTypes type;
         ProdDuty duty;
-
-
+        ProdElem elem;
         EFModel context;
         TreeNode Node;
         public int UnitID { get; set; }
         public int TypeID { get; set; }
         public int DutyID { get; set; }
+        public int DutyTypeID { get; set; }
         public Dict()
         {
             context = new EFModel();
@@ -29,7 +29,8 @@ namespace RCPSystem.Forms
             StructTreeLoad(Node);
             tvStruct.ExpandAll();
             type = new ProdTypes(tvProd, btnAddType, btnDeleteType, txtTypeName);
-            duty = new ProdDuty(tvDuty,txtDutyName,lvProd);
+            duty = new ProdDuty(tvDuty,txtDutyName,lbProd,cmbDutyTypes);
+            elem = new ProdElem(tvElem,txtElemName,cmbElem);
         }
         #region Struct
         public void StructTreeLoad(TreeNode node)
@@ -185,12 +186,14 @@ namespace RCPSystem.Forms
         private void tvDuty_AfterSelect(object sender, TreeViewEventArgs e)
         {
             DutyID = Convert.ToInt32(e.Node.Name);
+            duty.ListBoxLoad(DutyID);
+            duty.ComboLoad();
 
         }
       
         private void btnDutySave_Click(object sender, EventArgs e)
         {
-            duty.ButtonAdd();
+            duty.ButtonAdd(txtDutyName.Text);
         }
 
         private void btnDutyDelete_Click(object sender, EventArgs e)
@@ -200,12 +203,43 @@ namespace RCPSystem.Forms
 
         private void btnAddTypeDuty_Click(object sender, EventArgs e)
         {
-            //duty.ButtonTypeAdd();
+            if (DutyID > 0)
+            {
+                duty.ButtonTypeAdd(DutyID, Convert.ToInt32(cmbDutyTypes.SelectedValue));
+            }
+            else
+            {
+                MessageBox.Show("Wybierz obowiązek!");
+            }
         }
 
         private void btnDutyTypeDelete_Click(object sender, EventArgs e)
         {
-            duty.ButtonTypeDelete();
+            duty.ButtonTypeDelete(DutyID,DutyTypeID);
+        }
+        private void lbProd_SelectedIndexChanged(object sender, EventArgs e)
+        {         
+            zadType t = new zadType();
+            t = (zadType)lbProd.SelectedItem;
+            if (t != null) DutyTypeID = t.IdType;
+            else DutyTypeID = 0;
+        }
+        #endregion
+        #region Element
+        private void btnElemAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+       
+
+        private void tvElem_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void btnElemDel_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
     }

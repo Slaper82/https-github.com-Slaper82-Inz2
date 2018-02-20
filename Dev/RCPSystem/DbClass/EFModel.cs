@@ -4,7 +4,7 @@ namespace RCPSystem
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-
+    using RCPSystem.DbClass;
     public partial class EFModel : DbContext
     {
         public EFModel()
@@ -37,7 +37,10 @@ namespace RCPSystem
         public virtual DbSet<rcpUserHarmo> rcpUserHarmoes { get; set; }
         public virtual DbSet<zadOrderProduct> zadOrderProducts { get; set; }
         public virtual DbSet<zadTaskProduction> zadTaskProductions { get; set; }
-
+        public virtual DbSet<zadDuty> zadDutys { get; set; }
+        public virtual DbSet<zadDutyType> zadDutyTypes { get; set; }
+        public virtual DbSet<zadUserDuty> zadUserDutys { get; set; }
+        public virtual DbSet<zadProdElem> zadProdElems { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Calendar>()
@@ -171,11 +174,6 @@ namespace RCPSystem
             modelBuilder.Entity<zadOrder>()
                 .HasMany(e => e.zadTaskLists)
                 .WithRequired(e => e.zadOrder)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<zadProduct>()
-                .HasMany(e => e.zadElements)
-                .WithRequired(e => e.zadProduct)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<zadProduct>()

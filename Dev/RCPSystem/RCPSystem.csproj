@@ -59,10 +59,15 @@
   <ItemGroup>
     <Compile Include="Class\FrmHelpers.cs" />
     <Compile Include="Class\ProdDuty.cs" />
+    <Compile Include="Class\ProdElem.cs" />
     <Compile Include="Class\ProdTypes.cs" />
     <Compile Include="DbClass\Calendar.cs" />
     <Compile Include="Class\Priviliges.cs" />
     <Compile Include="DbClass\EFModel.cs" />
+    <Compile Include="DbClass\zadDuty.cs" />
+    <Compile Include="DbClass\zadDutyType.cs" />
+    <Compile Include="DbClass\zadProdElem.cs" />
+    <Compile Include="DbClass\zadUserDuty.cs" />
     <Compile Include="Forms\Config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +147,22 @@
     <Compile Include="Migrations\201802171139206_AddGender.Designer.cs">
       <DependentUpon>201802171139206_AddGender.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802201823197_zadDuty.cs" />
+    <Compile Include="Migrations\201802201823197_zadDuty.Designer.cs">
+      <DependentUpon>201802201823197_zadDuty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802201902348_zadUserDuties.cs" />
+    <Compile Include="Migrations\201802201902348_zadUserDuties.Designer.cs">
+      <DependentUpon>201802201902348_zadUserDuties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802201926047_zadUserDuties_Update1.cs" />
+    <Compile Include="Migrations\201802201926047_zadUserDuties_Update1.Designer.cs">
+      <DependentUpon>201802201926047_zadUserDuties_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802202123525_zadElementUpdate.cs" />
+    <Compile Include="Migrations\201802202123525_zadElementUpdate.Designer.cs">
+      <DependentUpon>201802202123525_zadElementUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,6 +236,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802171139206_AddGender.resx">
       <DependentUpon>201802171139206_AddGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201823197_zadDuty.resx">
+      <DependentUpon>201802201823197_zadDuty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201902348_zadUserDuties.resx">
+      <DependentUpon>201802201902348_zadUserDuties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201926047_zadUserDuties_Update1.resx">
+      <DependentUpon>201802201926047_zadUserDuties_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802202123525_zadElementUpdate.resx">
+      <DependentUpon>201802202123525_zadElementUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

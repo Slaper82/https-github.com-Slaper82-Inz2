@@ -1,5 +1,6 @@
 namespace RCPSystem
 {
+    using RCPSystem.DbClass;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -12,8 +13,8 @@ namespace RCPSystem
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public zadProduct()
         {
-            zadElements = new HashSet<zadElement>();
             zadOrderProducts = new HashSet<zadOrderProduct>();
+            zadProdElems = new HashSet<zadProdElem>();
         }
 
         [Key]
@@ -23,12 +24,15 @@ namespace RCPSystem
         [StringLength(150)]
         public string Name { get; set; }
 
+        [Required]
+        [StringLength(200)]
+        public string Description { get; set; }
+
         public bool Active { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<zadElement> zadElements { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+          [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<zadOrderProduct> zadOrderProducts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<zadProdElem> zadProdElems { get; set; }
     }
 }

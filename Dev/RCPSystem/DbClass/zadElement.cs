@@ -22,17 +22,9 @@ namespace RCPSystem
         [StringLength(150)]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(200)]
-        public string Description { get; set; }
-
-        public int IdProduct { get; set; }
-
         public int IdType { get; set; }
 
         public bool Active { get; set; }
-
-        public virtual zadProduct zadProduct { get; set; }
 
         public virtual zadType zadType { get; set; }
 
