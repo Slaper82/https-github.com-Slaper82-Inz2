@@ -16,12 +16,16 @@ namespace RCPSystem.Forms
         ProdTypes type;
         ProdDuty duty;
         ProdElem elem;
+        Product product;
         EFModel context;
         TreeNode Node;
         public int UnitID { get; set; }
         public int TypeID { get; set; }
         public int DutyID { get; set; }
         public int DutyTypeID { get; set; }
+        public int ElemeID { get; set; }
+        public int ProductID { get; set; }
+
         public Dict()
         {
             context = new EFModel();
@@ -31,6 +35,7 @@ namespace RCPSystem.Forms
             type = new ProdTypes(tvProd, btnAddType, btnDeleteType, txtTypeName);
             duty = new ProdDuty(tvDuty,txtDutyName,lbProd,cmbDutyTypes);
             elem = new ProdElem(tvElem,txtElemName,cmbElem);
+            product = new Product(tvProduct, txtProdName, cmbProdElem, txtProdDescript,dgvElem,txtQuan);
         }
         #region Struct
         public void StructTreeLoad(TreeNode node)
@@ -228,18 +233,121 @@ namespace RCPSystem.Forms
         #region Element
         private void btnElemAdd_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                elem.ButtonAdd(txtElemName.Text, Convert.ToInt32(cmbElem.SelectedValue));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtElemName.Text = String.Empty;
+                elem.TreeLoad(Node);
+                ElemeID = 0;
+            }
         }
        
 
         private void tvElem_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            ElemeID = Convert.ToInt32(e.Node.Name);
         }
 
         private void btnElemDel_Click(object sender, EventArgs e)
         {
+            if (ElemeID > 0)
+            {
+                elem.ButtonDelete(ElemeID);
+            }
+            ElemeID = 0;
+        }
+        #endregion
+        #region Product
+        private void btnProdAdd_Click(object sender, EventArgs e)
+        {
+            zadProduct prod = new zadProduct();
+            try
+            {
+                prod.Active = true;
+                prod.Description = txtProdDescript.Text;
+                prod.Name = txtProdName.Text;
+                context.zadProducts.Add(prod);
+                context.SaveChanges();
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                product.TreeLoad(Node);
+                txtProdDescript.Text = String.Empty;
+                txtProdName.Text = String.Empty;
+            }
+        }
+
+        private void btnProdDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+
+        private void btnProdElemAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ElementId = Convert.ToInt32(cmbProdElem.SelectedValue);
+                int Quan = Convert.ToInt32(txtQuan.Text);
+                product.ButtonElemAdd(ProductID, ElementId, Quan);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dgvElem.DataSource = null;
+                product.BindGrid(ProductID);
+            }
+        }
+
+        private void btnPodElemeDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
+
+        private void tvProduct_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            ProductID = Convert.ToInt32(e.Node.Name);
+            if (ProductID > 0)
+            {
+                product.BindData(ProductID);
+            }
         }
         #endregion
     }

@@ -61,6 +61,7 @@
     <Compile Include="Class\ProdDuty.cs" />
     <Compile Include="Class\ProdElem.cs" />
     <Compile Include="Class\ProdTypes.cs" />
+    <Compile Include="Class\Product.cs" />
     <Compile Include="DbClass\Calendar.cs" />
     <Compile Include="Class\Priviliges.cs" />
     <Compile Include="DbClass\EFModel.cs" />

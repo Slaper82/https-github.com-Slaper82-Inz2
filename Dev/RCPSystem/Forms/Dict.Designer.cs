@@ -50,6 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tvDuty = new System.Windows.Forms.TreeView();
             this.tpElement = new System.Windows.Forms.TabPage();
+            this.cmbElem = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtElemName = new System.Windows.Forms.TextBox();
             this.tvElem = new System.Windows.Forms.TreeView();
@@ -57,32 +59,34 @@
             this.btnElemAdd = new System.Windows.Forms.Button();
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtProdName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtQuan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.treeView3 = new System.Windows.Forms.TreeView();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.cmbProdElem = new System.Windows.Forms.ComboBox();
+            this.tvProduct = new System.Windows.Forms.TreeView();
+            this.btnPodElemeDel = new System.Windows.Forms.Button();
+            this.btnProdElemAdd = new System.Windows.Forms.Button();
+            this.btnProdDel = new System.Windows.Forms.Button();
+            this.btnProdAdd = new System.Windows.Forms.Button();
             this.tpProdTask = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTypeName = new System.Windows.Forms.TextBox();
             this.tvProd = new System.Windows.Forms.TreeView();
             this.btnDeleteType = new System.Windows.Forms.Button();
             this.btnAddType = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbElem = new System.Windows.Forms.ComboBox();
+            this.dgvElem = new System.Windows.Forms.DataGridView();
+            this.txtProdDescript = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbDict.SuspendLayout();
             this.tpStruct.SuspendLayout();
             this.tpDuty.SuspendLayout();
             this.tpElement.SuspendLayout();
             this.tpProduct.SuspendLayout();
             this.tpProdTask.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).BeginInit();
             this.SuspendLayout();
             // 
             // tbDict
@@ -348,6 +352,23 @@
             this.tpElement.TabIndex = 4;
             this.tpElement.Text = "Elementy";
             // 
+            // cmbElem
+            // 
+            this.cmbElem.FormattingEnabled = true;
+            this.cmbElem.Location = new System.Drawing.Point(677, 86);
+            this.cmbElem.Name = "cmbElem";
+            this.cmbElem.Size = new System.Drawing.Size(360, 36);
+            this.cmbElem.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(672, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(365, 28);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Wprowadź wybierz zadanie produkcyjne";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -405,19 +426,22 @@
             // tpProduct
             // 
             this.tpProduct.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpProduct.Controls.Add(this.label7);
+            this.tpProduct.Controls.Add(this.txtProdDescript);
+            this.tpProduct.Controls.Add(this.dgvElem);
             this.tpProduct.Controls.Add(this.label12);
-            this.tpProduct.Controls.Add(this.textBox7);
+            this.tpProduct.Controls.Add(this.txtProdName);
             this.tpProduct.Controls.Add(this.label11);
             this.tpProduct.Controls.Add(this.label10);
-            this.tpProduct.Controls.Add(this.textBox6);
+            this.tpProduct.Controls.Add(this.txtQuan);
             this.tpProduct.Controls.Add(this.label9);
             this.tpProduct.Controls.Add(this.label8);
-            this.tpProduct.Controls.Add(this.comboBox3);
-            this.tpProduct.Controls.Add(this.treeView3);
-            this.tpProduct.Controls.Add(this.button12);
-            this.tpProduct.Controls.Add(this.button13);
-            this.tpProduct.Controls.Add(this.button11);
-            this.tpProduct.Controls.Add(this.button10);
+            this.tpProduct.Controls.Add(this.cmbProdElem);
+            this.tpProduct.Controls.Add(this.tvProduct);
+            this.tpProduct.Controls.Add(this.btnPodElemeDel);
+            this.tpProduct.Controls.Add(this.btnProdElemAdd);
+            this.tpProduct.Controls.Add(this.btnProdDel);
+            this.tpProduct.Controls.Add(this.btnProdAdd);
             this.tpProduct.Location = new System.Drawing.Point(4, 37);
             this.tpProduct.Name = "tpProduct";
             this.tpProduct.Padding = new System.Windows.Forms.Padding(3);
@@ -434,12 +458,12 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "Wprowadź nazwę produktu";
             // 
-            // textBox7
+            // txtProdName
             // 
-            this.textBox7.Location = new System.Drawing.Point(460, 69);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(327, 34);
-            this.textBox7.TabIndex = 30;
+            this.txtProdName.Location = new System.Drawing.Point(460, 69);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(327, 34);
+            this.txtProdName.TabIndex = 30;
             // 
             // label11
             // 
@@ -459,12 +483,12 @@
             this.label10.TabIndex = 28;
             this.label10.Text = "Usuń zaznaczone";
             // 
-            // textBox6
+            // txtQuan
             // 
-            this.textBox6.Location = new System.Drawing.Point(661, 493);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 34);
-            this.textBox6.TabIndex = 27;
+            this.txtQuan.Location = new System.Drawing.Point(661, 493);
+            this.txtQuan.Name = "txtQuan";
+            this.txtQuan.Size = new System.Drawing.Size(100, 34);
+            this.txtQuan.TabIndex = 27;
             // 
             // label9
             // 
@@ -484,74 +508,79 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Element";
             // 
-            // comboBox3
+            // cmbProdElem
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(460, 493);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(195, 36);
-            this.comboBox3.TabIndex = 24;
+            this.cmbProdElem.FormattingEnabled = true;
+            this.cmbProdElem.Location = new System.Drawing.Point(460, 493);
+            this.cmbProdElem.Name = "cmbProdElem";
+            this.cmbProdElem.Size = new System.Drawing.Size(195, 36);
+            this.cmbProdElem.TabIndex = 24;
             // 
-            // treeView3
+            // tvProduct
             // 
-            this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeView3.Location = new System.Drawing.Point(6, 6);
-            this.treeView3.Name = "treeView3";
-            this.treeView3.Size = new System.Drawing.Size(421, 784);
-            this.treeView3.TabIndex = 4;
+            this.tvProduct.Location = new System.Drawing.Point(6, 6);
+            this.tvProduct.Name = "tvProduct";
+            this.tvProduct.Size = new System.Drawing.Size(421, 784);
+            this.tvProduct.TabIndex = 4;
+            this.tvProduct.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvProduct_AfterSelect);
             // 
-            // button12
+            // btnPodElemeDel
             // 
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button12.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(819, 556);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(147, 36);
-            this.button12.TabIndex = 23;
-            this.button12.Text = "Usuń ";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnPodElemeDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPodElemeDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPodElemeDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnPodElemeDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPodElemeDel.Location = new System.Drawing.Point(485, 605);
+            this.btnPodElemeDel.Name = "btnPodElemeDel";
+            this.btnPodElemeDel.Size = new System.Drawing.Size(147, 36);
+            this.btnPodElemeDel.TabIndex = 23;
+            this.btnPodElemeDel.Text = "Usuń ";
+            this.btnPodElemeDel.UseVisualStyleBackColor = true;
+            this.btnPodElemeDel.Click += new System.EventHandler(this.btnPodElemeDel_Click);
             // 
-            // button13
+            // btnProdElemAdd
             // 
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button13.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(819, 494);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(147, 36);
-            this.button13.TabIndex = 22;
-            this.button13.Text = "Dodaj";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnProdElemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdElemAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdElemAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnProdElemAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdElemAdd.Location = new System.Drawing.Point(819, 494);
+            this.btnProdElemAdd.Name = "btnProdElemAdd";
+            this.btnProdElemAdd.Size = new System.Drawing.Size(147, 36);
+            this.btnProdElemAdd.TabIndex = 22;
+            this.btnProdElemAdd.Text = "Dodaj";
+            this.btnProdElemAdd.UseVisualStyleBackColor = true;
+            this.btnProdElemAdd.Click += new System.EventHandler(this.btnProdElemAdd_Click);
             // 
-            // button11
+            // btnProdDel
             // 
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button11.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(640, 122);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(147, 36);
-            this.button11.TabIndex = 21;
-            this.button11.Text = "Usuń ";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnProdDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnProdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdDel.Location = new System.Drawing.Point(640, 122);
+            this.btnProdDel.Name = "btnProdDel";
+            this.btnProdDel.Size = new System.Drawing.Size(147, 36);
+            this.btnProdDel.TabIndex = 21;
+            this.btnProdDel.Text = "Usuń ";
+            this.btnProdDel.UseVisualStyleBackColor = true;
+            this.btnProdDel.Click += new System.EventHandler(this.btnProdDel_Click);
             // 
-            // button10
+            // btnProdAdd
             // 
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button10.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(460, 122);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(147, 36);
-            this.button10.TabIndex = 19;
-            this.button10.Text = "Dodaj";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnProdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnProdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdAdd.Location = new System.Drawing.Point(460, 122);
+            this.btnProdAdd.Name = "btnProdAdd";
+            this.btnProdAdd.Size = new System.Drawing.Size(147, 36);
+            this.btnProdAdd.TabIndex = 19;
+            this.btnProdAdd.Text = "Dodaj";
+            this.btnProdAdd.UseVisualStyleBackColor = true;
+            this.btnProdAdd.Click += new System.EventHandler(this.btnProdAdd_Click);
             // 
             // tpProdTask
             // 
@@ -622,22 +651,31 @@
             this.btnAddType.UseVisualStyleBackColor = true;
             this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
             // 
-            // label2
+            // dgvElem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(672, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(365, 28);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Wprowadź wybierz zadanie produkcyjne";
+            this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElem.Location = new System.Drawing.Point(460, 248);
+            this.dgvElem.Name = "dgvElem";
+            this.dgvElem.RowTemplate.Height = 24;
+            this.dgvElem.Size = new System.Drawing.Size(301, 196);
+            this.dgvElem.TabIndex = 32;
             // 
-            // cmbElem
+            // txtProdDescript
             // 
-            this.cmbElem.FormattingEnabled = true;
-            this.cmbElem.Location = new System.Drawing.Point(677, 86);
-            this.cmbElem.Name = "cmbElem";
-            this.cmbElem.Size = new System.Drawing.Size(360, 36);
-            this.cmbElem.TabIndex = 24;
+            this.txtProdDescript.Location = new System.Drawing.Point(1146, 69);
+            this.txtProdDescript.Multiline = true;
+            this.txtProdDescript.Name = "txtProdDescript";
+            this.txtProdDescript.Size = new System.Drawing.Size(425, 155);
+            this.txtProdDescript.TabIndex = 33;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1141, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(139, 28);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Opis produktu";
             // 
             // Dict
             // 
@@ -658,6 +696,7 @@
             this.tpProduct.PerformLayout();
             this.tpProdTask.ResumeLayout(false);
             this.tpProdTask.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -683,19 +722,19 @@
         private System.Windows.Forms.TreeView tvProd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tpProduct;
-        private System.Windows.Forms.TreeView treeView3;
+        private System.Windows.Forms.TreeView tvProduct;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtProdName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtQuan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ComboBox cmbProdElem;
+        private System.Windows.Forms.Button btnPodElemeDel;
+        private System.Windows.Forms.Button btnProdElemAdd;
+        private System.Windows.Forms.Button btnProdDel;
+        private System.Windows.Forms.Button btnProdAdd;
         private System.Windows.Forms.TabPage tpElement;
         private System.Windows.Forms.Button btnAddBranchLow;
         private System.Windows.Forms.ComboBox cmbBranch;
@@ -713,5 +752,8 @@
         private System.Windows.Forms.Button btnElemAdd;
         private System.Windows.Forms.ComboBox cmbElem;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvElem;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtProdDescript;
     }
 }
