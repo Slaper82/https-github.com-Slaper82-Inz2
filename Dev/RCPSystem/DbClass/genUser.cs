@@ -14,7 +14,7 @@ namespace RCPSystem
             genLogins = new HashSet<genLogin>();
             genOrgUnitPrivs = new HashSet<genOrgUnitPriv>();
             genOrgUsers = new HashSet<genOrgUser>();
-            rcpTransactions = new HashSet<rcpTransaction>();
+            rcpTransactions = new HashSet<rcpTransactionAll>();
             rcpUserHarmoes = new HashSet<rcpUserHarmo>();
             zadOrders = new HashSet<zadOrder>();
             zadTaskProductions = new HashSet<zadTaskProduction>();
@@ -53,7 +53,7 @@ namespace RCPSystem
         public virtual rcpPairsOnB rcpPairsOnB { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<rcpTransaction> rcpTransactions { get; set; }
+        public virtual ICollection<rcpTransactionAll> rcpTransactions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<rcpUserHarmo> rcpUserHarmoes { get; set; }

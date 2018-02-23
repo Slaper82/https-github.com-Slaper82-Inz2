@@ -34,24 +34,45 @@
             this.tTransactions = new System.Windows.Forms.TabPage();
             this.tPairs = new System.Windows.Forms.TabPage();
             this.gbTime = new System.Windows.Forms.GroupBox();
+            this.btnEnd = new System.Windows.Forms.Button();
+            this.btnBegin = new System.Windows.Forms.Button();
             this.dtpStop = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBegin = new System.Windows.Forms.Button();
-            this.btnEnd = new System.Windows.Forms.Button();
+            this.dgvUserHarmo = new System.Windows.Forms.DataGridView();
+            this.btnHarmoAdd = new System.Windows.Forms.Button();
+            this.btnHarmoDel = new System.Windows.Forms.Button();
+            this.cmbHarChose = new System.Windows.Forms.ComboBox();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvTransactions = new System.Windows.Forms.DataGridView();
+            this.lp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TranId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tran = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcTimeAtt.SuspendLayout();
+            this.tHarmo.SuspendLayout();
+            this.tTransactions.SuspendLayout();
             this.gbTime.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserHarmo)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // tvUsers
             // 
             this.tvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tvUsers.Location = new System.Drawing.Point(16, 230);
+            this.tvUsers.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tvUsers.Location = new System.Drawing.Point(16, 226);
             this.tvUsers.Name = "tvUsers";
-            this.tvUsers.Size = new System.Drawing.Size(325, 712);
+            this.tvUsers.Size = new System.Drawing.Size(325, 723);
             this.tvUsers.TabIndex = 0;
+            this.tvUsers.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvUsers_AfterSelect);
             // 
             // tcTimeAtt
             // 
@@ -64,27 +85,31 @@
             this.tcTimeAtt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tcTimeAtt.Location = new System.Drawing.Point(369, 230);
             this.tcTimeAtt.Name = "tcTimeAtt";
-            this.tcTimeAtt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tcTimeAtt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tcTimeAtt.SelectedIndex = 0;
-            this.tcTimeAtt.Size = new System.Drawing.Size(1471, 712);
+            this.tcTimeAtt.Size = new System.Drawing.Size(1471, 719);
             this.tcTimeAtt.TabIndex = 1;
             // 
             // tHarmo
             // 
+            this.tHarmo.Controls.Add(this.groupBox1);
+            this.tHarmo.Controls.Add(this.btnHarmoDel);
+            this.tHarmo.Controls.Add(this.dgvUserHarmo);
             this.tHarmo.Location = new System.Drawing.Point(4, 37);
             this.tHarmo.Name = "tHarmo";
             this.tHarmo.Padding = new System.Windows.Forms.Padding(3);
-            this.tHarmo.Size = new System.Drawing.Size(1463, 671);
+            this.tHarmo.Size = new System.Drawing.Size(1463, 678);
             this.tHarmo.TabIndex = 0;
             this.tHarmo.Text = "Harmonogram";
             this.tHarmo.UseVisualStyleBackColor = true;
             // 
             // tTransactions
             // 
+            this.tTransactions.Controls.Add(this.dgvTransactions);
             this.tTransactions.Location = new System.Drawing.Point(4, 37);
             this.tTransactions.Name = "tTransactions";
             this.tTransactions.Padding = new System.Windows.Forms.Padding(3);
-            this.tTransactions.Size = new System.Drawing.Size(1463, 671);
+            this.tTransactions.Size = new System.Drawing.Size(1463, 678);
             this.tTransactions.TabIndex = 1;
             this.tTransactions.Text = "Transakcje";
             this.tTransactions.UseVisualStyleBackColor = true;
@@ -95,7 +120,7 @@
             this.tPairs.Location = new System.Drawing.Point(4, 37);
             this.tPairs.Name = "tPairs";
             this.tPairs.Padding = new System.Windows.Forms.Padding(3);
-            this.tPairs.Size = new System.Drawing.Size(1463, 671);
+            this.tPairs.Size = new System.Drawing.Size(1463, 678);
             this.tPairs.TabIndex = 2;
             this.tPairs.Text = "Pary transakcji";
             this.tPairs.UseVisualStyleBackColor = true;
@@ -115,6 +140,26 @@
             this.gbTime.TabIndex = 2;
             this.gbTime.TabStop = false;
             this.gbTime.Text = "Zakres raportu";
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnEnd.Location = new System.Drawing.Point(298, 116);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(188, 34);
+            this.btnEnd.TabIndex = 5;
+            this.btnEnd.Text = "Koniec okresu";
+            this.btnEnd.UseVisualStyleBackColor = true;
+            // 
+            // btnBegin
+            // 
+            this.btnBegin.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBegin.Location = new System.Drawing.Point(298, 55);
+            this.btnBegin.Name = "btnBegin";
+            this.btnBegin.Size = new System.Drawing.Size(188, 34);
+            this.btnBegin.TabIndex = 4;
+            this.btnBegin.Text = "Początek okresu";
+            this.btnBegin.UseVisualStyleBackColor = true;
             // 
             // dtpStop
             // 
@@ -154,39 +199,166 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Początek";
             // 
-            // btnBegin
+            // dgvUserHarmo
             // 
-            this.btnBegin.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnBegin.Location = new System.Drawing.Point(298, 55);
-            this.btnBegin.Name = "btnBegin";
-            this.btnBegin.Size = new System.Drawing.Size(188, 34);
-            this.btnBegin.TabIndex = 4;
-            this.btnBegin.Text = "Początek okresu";
-            this.btnBegin.UseVisualStyleBackColor = true;
+            this.dgvUserHarmo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserHarmo.Location = new System.Drawing.Point(31, 252);
+            this.dgvUserHarmo.Name = "dgvUserHarmo";
+            this.dgvUserHarmo.RowTemplate.Height = 24;
+            this.dgvUserHarmo.Size = new System.Drawing.Size(786, 397);
+            this.dgvUserHarmo.TabIndex = 0;
             // 
-            // btnEnd
+            // btnHarmoAdd
             // 
-            this.btnEnd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnEnd.Location = new System.Drawing.Point(298, 116);
-            this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(188, 34);
-            this.btnEnd.TabIndex = 5;
-            this.btnEnd.Text = "Koniec okresu";
-            this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnHarmoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHarmoAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHarmoAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnHarmoAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 98);
+            this.btnHarmoAdd.Name = "btnHarmoAdd";
+            this.btnHarmoAdd.Size = new System.Drawing.Size(147, 36);
+            this.btnHarmoAdd.TabIndex = 20;
+            this.btnHarmoAdd.Text = "Dodaj";
+            this.btnHarmoAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnHarmoDel
+            // 
+            this.btnHarmoDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHarmoDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHarmoDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnHarmoDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHarmoDel.Location = new System.Drawing.Point(872, 613);
+            this.btnHarmoDel.Name = "btnHarmoDel";
+            this.btnHarmoDel.Size = new System.Drawing.Size(147, 36);
+            this.btnHarmoDel.TabIndex = 22;
+            this.btnHarmoDel.Text = "Usuń ";
+            this.btnHarmoDel.UseVisualStyleBackColor = true;
+            // 
+            // cmbHarChose
+            // 
+            this.cmbHarChose.FormattingEnabled = true;
+            this.cmbHarChose.Location = new System.Drawing.Point(33, 98);
+            this.cmbHarChose.Name = "cmbHarChose";
+            this.cmbHarChose.Size = new System.Drawing.Size(181, 36);
+            this.cmbHarChose.TabIndex = 23;
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(265, 98);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(146, 34);
+            this.dtpFrom.TabIndex = 24;
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(450, 98);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(141, 34);
+            this.dtpTo.TabIndex = 25;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(201, 28);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Wstaw harmonogram";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cmbHarChose);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnHarmoAdd);
+            this.groupBox1.Controls.Add(this.dtpTo);
+            this.groupBox1.Controls.Add(this.dtpFrom);
+            this.groupBox1.Location = new System.Drawing.Point(31, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(860, 183);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Wstaw harmonogram";
+            // 
+            // dgvTransactions
+            // 
+            this.dgvTransactions.AllowUserToAddRows = false;
+            this.dgvTransactions.AllowUserToDeleteRows = false;
+            this.dgvTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvTransactions.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvTransactions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lp,
+            this.TranId,
+            this.Date,
+            this.Tran,
+            this.User});
+            this.dgvTransactions.GridColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvTransactions.Location = new System.Drawing.Point(23, 20);
+            this.dgvTransactions.Name = "dgvTransactions";
+            this.dgvTransactions.RowTemplate.Height = 24;
+            this.dgvTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTransactions.Size = new System.Drawing.Size(893, 652);
+            this.dgvTransactions.TabIndex = 0;
+            this.dgvTransactions.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvTransactions_RowPostPaint);
+            // 
+            // lp
+            // 
+            this.lp.DataPropertyName = "(none)";
+            this.lp.HeaderText = "Lp";
+            this.lp.Name = "lp";
+            this.lp.Width = 50;
+            // 
+            // TranId
+            // 
+            this.TranId.DataPropertyName = "Id";
+            this.TranId.HeaderText = "Id";
+            this.TranId.Name = "TranId";
+            this.TranId.Visible = false;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Data";
+            this.Date.HeaderText = "Data transakcji";
+            this.Date.Name = "Date";
+            this.Date.Width = 200;
+            // 
+            // Tran
+            // 
+            this.Tran.DataPropertyName = "Typ_Transakcji";
+            this.Tran.HeaderText = "Typ transakcji";
+            this.Tran.Name = "Tran";
+            this.Tran.Width = 200;
+            // 
+            // User
+            // 
+            this.User.DataPropertyName = "Nazwa_uzytkownika";
+            this.User.HeaderText = "Użytkownik";
+            this.User.Name = "User";
+            this.User.Width = 400;
             // 
             // TimeAttandance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1874, 917);
+            this.ClientSize = new System.Drawing.Size(1874, 961);
             this.Controls.Add(this.gbTime);
             this.Controls.Add(this.tcTimeAtt);
             this.Controls.Add(this.tvUsers);
             this.Name = "TimeAttandance";
             this.Text = "TimeAttandance";
             this.tcTimeAtt.ResumeLayout(false);
+            this.tHarmo.ResumeLayout(false);
+            this.tTransactions.ResumeLayout(false);
             this.gbTime.ResumeLayout(false);
             this.gbTime.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserHarmo)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,5 +377,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.Button btnBegin;
+        private System.Windows.Forms.DataGridView dgvUserHarmo;
+        private System.Windows.Forms.Button btnHarmoAdd;
+        private System.Windows.Forms.Button btnHarmoDel;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.ComboBox cmbHarChose;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvTransactions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TranId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tran;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
     }
 }

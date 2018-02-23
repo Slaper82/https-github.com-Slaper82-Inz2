@@ -16,8 +16,6 @@ namespace RCPSystem
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdUser { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         public DateTime Start { get; set; }
 
         public DateTime? Stop { get; set; }

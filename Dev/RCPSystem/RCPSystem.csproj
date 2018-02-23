@@ -65,6 +65,7 @@
     <Compile Include="DbClass\Calendar.cs" />
     <Compile Include="Class\Priviliges.cs" />
     <Compile Include="DbClass\EFModel.cs" />
+    <Compile Include="DbClass\rcpTransactionAll.cs" />
     <Compile Include="DbClass\zadDuty.cs" />
     <Compile Include="DbClass\zadDutyType.cs" />
     <Compile Include="DbClass\zadProdElem.cs" />
@@ -164,6 +165,30 @@
     <Compile Include="Migrations\201802202123525_zadElementUpdate.Designer.cs">
       <DependentUpon>201802202123525_zadElementUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802231025145_rcpTranTypes.cs" />
+    <Compile Include="Migrations\201802231025145_rcpTranTypes.Designer.cs">
+      <DependentUpon>201802231025145_rcpTranTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802231034544_TransactionIdentity.cs" />
+    <Compile Include="Migrations\201802231034544_TransactionIdentity.Designer.cs">
+      <DependentUpon>201802231034544_TransactionIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802231429155_TransactAllAdd.cs" />
+    <Compile Include="Migrations\201802231429155_TransactAllAdd.Designer.cs">
+      <DependentUpon>201802231429155_TransactAllAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802231434335_TransactionMod.cs" />
+    <Compile Include="Migrations\201802231434335_TransactionMod.Designer.cs">
+      <DependentUpon>201802231434335_TransactionMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802231449175_zadTranTask.cs" />
+    <Compile Include="Migrations\201802231449175_zadTranTask.Designer.cs">
+      <DependentUpon>201802231449175_zadTranTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802231452391_UserTableMod.cs" />
+    <Compile Include="Migrations\201802231452391_UserTableMod.Designer.cs">
+      <DependentUpon>201802231452391_UserTableMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -249,6 +274,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802202123525_zadElementUpdate.resx">
       <DependentUpon>201802202123525_zadElementUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231025145_rcpTranTypes.resx">
+      <DependentUpon>201802231025145_rcpTranTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231034544_TransactionIdentity.resx">
+      <DependentUpon>201802231034544_TransactionIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231429155_TransactAllAdd.resx">
+      <DependentUpon>201802231429155_TransactAllAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231434335_TransactionMod.resx">
+      <DependentUpon>201802231434335_TransactionMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231449175_zadTranTask.resx">
+      <DependentUpon>201802231449175_zadTranTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802231452391_UserTableMod.resx">
+      <DependentUpon>201802231452391_UserTableMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

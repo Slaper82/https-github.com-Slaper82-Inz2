@@ -36,15 +36,15 @@
             this.btnBreak = new System.Windows.Forms.Button();
             this.gbTimeAttandance = new System.Windows.Forms.GroupBox();
             this.gbTask = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnStartZad = new System.Windows.Forms.Button();
+            this.dgvTask = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dgvMyTasks = new System.Windows.Forms.DataGridView();
             this.btnTaskEnd = new System.Windows.Forms.Button();
             this.gbTimeAttandance.SuspendLayout();
             this.gbTask.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMyTasks)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,6 +66,7 @@
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
@@ -75,6 +76,7 @@
             this.btnStop.TabIndex = 3;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // label3
             // 
@@ -93,6 +95,7 @@
             this.btnBreakOff.TabIndex = 6;
             this.btnBreakOff.Text = "Koniec";
             this.btnBreakOff.UseVisualStyleBackColor = true;
+            this.btnBreakOff.Click += new System.EventHandler(this.btnBreakOff_Click);
             // 
             // btnBreak
             // 
@@ -102,6 +105,7 @@
             this.btnBreak.TabIndex = 5;
             this.btnBreak.Text = "Początek";
             this.btnBreak.UseVisualStyleBackColor = true;
+            this.btnBreak.Click += new System.EventHandler(this.btnBreak_Click);
             // 
             // gbTimeAttandance
             // 
@@ -119,8 +123,8 @@
             // 
             // gbTask
             // 
-            this.gbTask.Controls.Add(this.button1);
-            this.gbTask.Controls.Add(this.dataGridView1);
+            this.gbTask.Controls.Add(this.btnStartZad);
+            this.gbTask.Controls.Add(this.dgvTask);
             this.gbTask.Location = new System.Drawing.Point(38, 397);
             this.gbTask.Name = "gbTask";
             this.gbTask.Size = new System.Drawing.Size(828, 487);
@@ -128,14 +132,24 @@
             this.gbTask.TabStop = false;
             this.gbTask.Text = "Czas pracy zadania";
             // 
-            // dataGridView1
+            // btnStartZad
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 50);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 326);
-            this.dataGridView1.TabIndex = 8;
+            this.btnStartZad.Location = new System.Drawing.Point(30, 396);
+            this.btnStartZad.Name = "btnStartZad";
+            this.btnStartZad.Size = new System.Drawing.Size(194, 70);
+            this.btnStartZad.TabIndex = 7;
+            this.btnStartZad.Text = "Start";
+            this.btnStartZad.UseVisualStyleBackColor = true;
+            this.btnStartZad.Click += new System.EventHandler(this.btnStartZad_Click);
+            // 
+            // dgvTask
+            // 
+            this.dgvTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTask.Location = new System.Drawing.Point(30, 50);
+            this.dgvTask.Name = "dgvTask";
+            this.dgvTask.RowTemplate.Height = 24;
+            this.dgvTask.Size = new System.Drawing.Size(770, 326);
+            this.dgvTask.TabIndex = 8;
             // 
             // label2
             // 
@@ -146,23 +160,14 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Moje zadania";
             // 
-            // dataGridView2
+            // dgvMyTasks
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(1078, 101);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(523, 783);
-            this.dataGridView2.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(30, 396);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 70);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dgvMyTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMyTasks.Location = new System.Drawing.Point(1078, 101);
+            this.dgvMyTasks.Name = "dgvMyTasks";
+            this.dgvMyTasks.RowTemplate.Height = 24;
+            this.dgvMyTasks.Size = new System.Drawing.Size(523, 783);
+            this.dgvMyTasks.TabIndex = 9;
             // 
             // btnTaskEnd
             // 
@@ -172,14 +177,15 @@
             this.btnTaskEnd.TabIndex = 9;
             this.btnTaskEnd.Text = "Zakończ zadanie";
             this.btnTaskEnd.UseVisualStyleBackColor = true;
+            this.btnTaskEnd.Click += new System.EventHandler(this.btnTaskEnd_Click);
             // 
             // Transact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1664, 1415);
+            this.ClientSize = new System.Drawing.Size(1664, 1016);
             this.Controls.Add(this.btnTaskEnd);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvMyTasks);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gbTask);
             this.Controls.Add(this.gbTimeAttandance);
@@ -191,8 +197,8 @@
             this.gbTimeAttandance.ResumeLayout(false);
             this.gbTimeAttandance.PerformLayout();
             this.gbTask.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMyTasks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,10 +214,10 @@
         private System.Windows.Forms.Button btnBreak;
         private System.Windows.Forms.GroupBox gbTimeAttandance;
         private System.Windows.Forms.GroupBox gbTask;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvTask;
+        private System.Windows.Forms.Button btnStartZad;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvMyTasks;
         private System.Windows.Forms.Button btnTaskEnd;
     }
 }

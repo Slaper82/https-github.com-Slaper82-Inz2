@@ -14,6 +14,7 @@ namespace RCPSystem
 {
     public partial class Main : Form
     {
+        public int UserID { get; set; }
         public Users User = null;
         public TimeAttandance TimeAtt= null;
         public Config Config = null;
@@ -23,8 +24,9 @@ namespace RCPSystem
         public Transact Transact = null;
         public List<string> Priviliges = new List<string>();
     
-        public Main(Priviliges.UserType type)
+        public Main(Priviliges.UserType type,int UserId)
         {
+            this.UserID = UserId;
             Priviliges priv = new Priviliges(type);
             
             InitializeComponent();
@@ -148,7 +150,7 @@ namespace RCPSystem
         {
             if (Transact == null || Transact.IsDisposed)
             {
-                Transact = new Transact();
+                Transact = new Transact(UserID);
                 Transact.MdiParent = this;
                 Transact.WindowState = FormWindowState.Maximized;
                 Transact.Show();

@@ -2,29 +2,21 @@ namespace RCPSystem
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+    using System.IO;
     [Table("rcpTransaction")]
     public partial class rcpTransaction
     {
-        [Key]
-        [Column(Order = 0)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity),Key]
         public long IdTrans { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         public DateTime DateAndTime { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdUser { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdTransType { get; set; }
 
         public virtual genUser genUser { get; set; }

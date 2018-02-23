@@ -33,7 +33,7 @@ namespace RCPSystem
         public virtual DbSet<rcpPairsBRK> rcpPairsBRKs { get; set; }
         public virtual DbSet<rcpPairsIO> rcpPairsIOs { get; set; }
         public virtual DbSet<rcpPairsOnB> rcpPairsOnBs { get; set; }
-        public virtual DbSet<rcpTransaction> rcpTransactions { get; set; }
+       // public virtual DbSet<rcpTransaction> rcpTransactions { get; set; }
         public virtual DbSet<rcpUserHarmo> rcpUserHarmoes { get; set; }
         public virtual DbSet<zadOrderProduct> zadOrderProducts { get; set; }
         public virtual DbSet<zadTaskProduction> zadTaskProductions { get; set; }
@@ -41,6 +41,7 @@ namespace RCPSystem
         public virtual DbSet<zadDutyType> zadDutyTypes { get; set; }
         public virtual DbSet<zadUserDuty> zadUserDutys { get; set; }
         public virtual DbSet<zadProdElem> zadProdElems { get; set; }
+        public virtual DbSet<rcpTransactionAll> rcpTransactionAlls { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Calendar>()

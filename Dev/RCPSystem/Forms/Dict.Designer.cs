@@ -58,6 +58,9 @@
             this.btnElemDel = new System.Windows.Forms.Button();
             this.btnElemAdd = new System.Windows.Forms.Button();
             this.tpProduct = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtProdDescript = new System.Windows.Forms.TextBox();
+            this.dgvElem = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.txtProdName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -77,16 +80,14 @@
             this.tvProd = new System.Windows.Forms.TreeView();
             this.btnDeleteType = new System.Windows.Forms.Button();
             this.btnAddType = new System.Windows.Forms.Button();
-            this.dgvElem = new System.Windows.Forms.DataGridView();
-            this.txtProdDescript = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnSaveProdData = new System.Windows.Forms.Button();
             this.tbDict.SuspendLayout();
             this.tpStruct.SuspendLayout();
             this.tpDuty.SuspendLayout();
             this.tpElement.SuspendLayout();
             this.tpProduct.SuspendLayout();
-            this.tpProdTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).BeginInit();
+            this.tpProdTask.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDict
@@ -426,6 +427,7 @@
             // tpProduct
             // 
             this.tpProduct.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpProduct.Controls.Add(this.btnSaveProdData);
             this.tpProduct.Controls.Add(this.label7);
             this.tpProduct.Controls.Add(this.txtProdDescript);
             this.tpProduct.Controls.Add(this.dgvElem);
@@ -448,6 +450,33 @@
             this.tpProduct.Size = new System.Drawing.Size(1870, 796);
             this.tpProduct.TabIndex = 3;
             this.tpProduct.Text = "Produkty";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1141, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(139, 28);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Opis produktu";
+            // 
+            // txtProdDescript
+            // 
+            this.txtProdDescript.Location = new System.Drawing.Point(1146, 69);
+            this.txtProdDescript.Multiline = true;
+            this.txtProdDescript.Name = "txtProdDescript";
+            this.txtProdDescript.Size = new System.Drawing.Size(425, 155);
+            this.txtProdDescript.TabIndex = 33;
+            // 
+            // dgvElem
+            // 
+            this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElem.Location = new System.Drawing.Point(460, 248);
+            this.dgvElem.Name = "dgvElem";
+            this.dgvElem.RowTemplate.Height = 24;
+            this.dgvElem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvElem.Size = new System.Drawing.Size(301, 196);
+            this.dgvElem.TabIndex = 32;
             // 
             // label12
             // 
@@ -651,31 +680,18 @@
             this.btnAddType.UseVisualStyleBackColor = true;
             this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
             // 
-            // dgvElem
+            // btnSaveProdData
             // 
-            this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvElem.Location = new System.Drawing.Point(460, 248);
-            this.dgvElem.Name = "dgvElem";
-            this.dgvElem.RowTemplate.Height = 24;
-            this.dgvElem.Size = new System.Drawing.Size(301, 196);
-            this.dgvElem.TabIndex = 32;
-            // 
-            // txtProdDescript
-            // 
-            this.txtProdDescript.Location = new System.Drawing.Point(1146, 69);
-            this.txtProdDescript.Multiline = true;
-            this.txtProdDescript.Name = "txtProdDescript";
-            this.txtProdDescript.Size = new System.Drawing.Size(425, 155);
-            this.txtProdDescript.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1141, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 28);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Opis produktu";
+            this.btnSaveProdData.Image = global::RCPSystem.Properties.Resources.Floppy2;
+            this.btnSaveProdData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveProdData.Location = new System.Drawing.Point(1146, 294);
+            this.btnSaveProdData.Name = "btnSaveProdData";
+            this.btnSaveProdData.Size = new System.Drawing.Size(201, 71);
+            this.btnSaveProdData.TabIndex = 35;
+            this.btnSaveProdData.Text = "Aktualizuj dane";
+            this.btnSaveProdData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveProdData.UseVisualStyleBackColor = true;
+            this.btnSaveProdData.Click += new System.EventHandler(this.btnSaveProdData_Click);
             // 
             // Dict
             // 
@@ -694,9 +710,9 @@
             this.tpElement.PerformLayout();
             this.tpProduct.ResumeLayout(false);
             this.tpProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).EndInit();
             this.tpProdTask.ResumeLayout(false);
             this.tpProdTask.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -755,5 +771,6 @@
         private System.Windows.Forms.DataGridView dgvElem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtProdDescript;
+        private System.Windows.Forms.Button btnSaveProdData;
     }
 }

@@ -37,19 +37,19 @@ namespace RCPSystem.Forms
                 switch (priv.Name)
                 {
                     case "Administrator":
-                         main = new Main(Class.Priviliges.UserType.Administrator);
+                         main = new Main(Class.Priviliges.UserType.Administrator,user.IdUser);
                         break;
                     case "Boss":
-                         main = new Main(Class.Priviliges.UserType.Boss);
+                         main = new Main(Class.Priviliges.UserType.Boss, user.IdUser);
                         break;
                     case "HumanResorces":
-                        main = new Main(Class.Priviliges.UserType.HumanResorces);
+                        main = new Main(Class.Priviliges.UserType.HumanResorces, user.IdUser);
                         break;
                     case "Supervisor":
-                        main = new Main(Class.Priviliges.UserType.Supervisor);
+                        main = new Main(Class.Priviliges.UserType.Supervisor, user.IdUser);
                         break;
                     case "Worker":
-                        main = new Main(Class.Priviliges.UserType.Worker);
+                        main = new Main(Class.Priviliges.UserType.Worker, user.IdUser);
                         break;
                 }
                 this.Owner = main;

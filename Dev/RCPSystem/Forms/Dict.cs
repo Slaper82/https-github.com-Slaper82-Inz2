@@ -291,17 +291,31 @@ namespace RCPSystem.Forms
 
         private void btnProdDel_Click(object sender, EventArgs e)
         {
-            try
+            if (ProductID > 0)
             {
-
+                DialogResult res = MessageBox.Show("Czy na pewno usunąć wybrany produkt?", "Usuwanie", MessageBoxButtons.OKCancel);
+                if (res == DialogResult.OK)
+                {
+                    try
+                    {
+                        product.ButtonDelete(ProductID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        txtProdDescript.Text = String.Empty;
+                        txtQuan.Text = String.Empty;
+                        txtProdName.Text = String.Empty;
+                        product.TreeLoad(Node);
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-
-            }
-            finally
-            {
-
+                MessageBox.Show("Wybierz produkt!");
             }
         }
 
@@ -326,17 +340,27 @@ namespace RCPSystem.Forms
 
         private void btnPodElemeDel_Click(object sender, EventArgs e)
         {
-            try
+            if (ProductID > 0 && dgvElem.SelectedRows.Count>0)
             {
+                try
+                {
+                    
+                    ElemeID= Convert.ToInt32(dgvElem.SelectedRows[0].Cells["ElemId"].FormattedValue .ToString());
+                    product.ButtonElemDelete(ProductID, ElemeID);
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    product.BindData(ProductID);
+                }
             }
-            catch (Exception ex)
+            else
             {
-
-            }
-            finally
-            {
-
+                MessageBox.Show("Wybierz produkt i jego element!");
             }
 
         }
@@ -347,6 +371,19 @@ namespace RCPSystem.Forms
             if (ProductID > 0)
             {
                 product.BindData(ProductID);
+            }
+        }
+
+        private void btnSaveProdData_Click(object sender, EventArgs e)
+        {
+            if (ProductID > 0)
+            {
+                product.ButtonSave(ProductID);
+                
+            }
+            else
+            {
+                MessageBox.Show("Wybierz produkt!");
             }
         }
         #endregion
