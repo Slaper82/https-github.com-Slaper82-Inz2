@@ -66,6 +66,7 @@
     <Compile Include="Class\Priviliges.cs" />
     <Compile Include="DbClass\EFModel.cs" />
     <Compile Include="DbClass\rcpTransactionAll.cs" />
+    <Compile Include="DbClass\rcpUserHarmoList.cs" />
     <Compile Include="DbClass\zadDuty.cs" />
     <Compile Include="DbClass\zadDutyType.cs" />
     <Compile Include="DbClass\zadProdElem.cs" />
@@ -189,6 +190,18 @@
     <Compile Include="Migrations\201802231452391_UserTableMod.Designer.cs">
       <DependentUpon>201802231452391_UserTableMod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802241302185_UserHarmoChange.cs" />
+    <Compile Include="Migrations\201802241302185_UserHarmoChange.Designer.cs">
+      <DependentUpon>201802241302185_UserHarmoChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802241311142_UserHarmoTableChange.cs" />
+    <Compile Include="Migrations\201802241311142_UserHarmoTableChange.Designer.cs">
+      <DependentUpon>201802241311142_UserHarmoTableChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802241314229_UserHarmoTableChangeNr2.cs" />
+    <Compile Include="Migrations\201802241314229_UserHarmoTableChangeNr2.Designer.cs">
+      <DependentUpon>201802241314229_UserHarmoTableChangeNr2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -292,6 +305,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802231452391_UserTableMod.resx">
       <DependentUpon>201802231452391_UserTableMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802241302185_UserHarmoChange.resx">
+      <DependentUpon>201802241302185_UserHarmoChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802241311142_UserHarmoTableChange.resx">
+      <DependentUpon>201802241311142_UserHarmoTableChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802241314229_UserHarmoTableChangeNr2.resx">
+      <DependentUpon>201802241314229_UserHarmoTableChangeNr2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
