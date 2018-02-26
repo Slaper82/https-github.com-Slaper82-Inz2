@@ -165,5 +165,15 @@ namespace RCPSystem
             }
         }
         #endregion
+
+        private void btnBegin_Click(object sender, EventArgs e)
+        {
+            dtpStart.Value = MonthDays.FirstDayOfMonth(DateTime.Now);
+        }
+
+        private void btnEnd_Click(object sender, EventArgs e)
+        {
+            dtpStop.Value = MonthDays.LastDayOfMonth(DateTime.Now);
+        }
     }
 }

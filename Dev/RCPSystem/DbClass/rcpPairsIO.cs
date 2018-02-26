@@ -17,6 +17,10 @@ namespace RCPSystem
 
         public DateTime? Stop { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Lp { get; set; }
+
         public virtual genUser genUser { get; set; }
+
     }
 }

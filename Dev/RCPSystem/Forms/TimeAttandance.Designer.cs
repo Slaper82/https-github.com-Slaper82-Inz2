@@ -34,10 +34,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbHarChose = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnHarmoAdd = new System.Windows.Forms.Button();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.btnHarmoDel = new System.Windows.Forms.Button();
             this.dgvUserHarmo = new System.Windows.Forms.DataGridView();
             this.tTransactions = new System.Windows.Forms.TabPage();
             this.dgvTransactions = new System.Windows.Forms.DataGridView();
@@ -47,6 +45,7 @@
             this.Tran = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tPairs = new System.Windows.Forms.TabPage();
+            this.dgvTranPairs = new System.Windows.Forms.DataGridView();
             this.gbTime = new System.Windows.Forms.GroupBox();
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnBegin = new System.Windows.Forms.Button();
@@ -54,7 +53,8 @@
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvTranPairs = new System.Windows.Forms.DataGridView();
+            this.btnHarmoAdd = new System.Windows.Forms.Button();
+            this.btnHarmoDel = new System.Windows.Forms.Button();
             this.tcTimeAtt.SuspendLayout();
             this.tHarmo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,8 +62,8 @@
             this.tTransactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.tPairs.SuspendLayout();
-            this.gbTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTranPairs)).BeginInit();
+            this.gbTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // tvUsers
@@ -137,20 +137,6 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Wstaw harmonogram";
             // 
-            // btnHarmoAdd
-            // 
-            this.btnHarmoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHarmoAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnHarmoAdd.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnHarmoAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 98);
-            this.btnHarmoAdd.Name = "btnHarmoAdd";
-            this.btnHarmoAdd.Size = new System.Drawing.Size(147, 36);
-            this.btnHarmoAdd.TabIndex = 20;
-            this.btnHarmoAdd.Text = "Dodaj";
-            this.btnHarmoAdd.UseVisualStyleBackColor = true;
-            this.btnHarmoAdd.Click += new System.EventHandler(this.btnHarmoAdd_Click);
-            // 
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -166,20 +152,6 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(146, 34);
             this.dtpFrom.TabIndex = 24;
-            // 
-            // btnHarmoDel
-            // 
-            this.btnHarmoDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHarmoDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnHarmoDel.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnHarmoDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHarmoDel.Location = new System.Drawing.Point(872, 613);
-            this.btnHarmoDel.Name = "btnHarmoDel";
-            this.btnHarmoDel.Size = new System.Drawing.Size(147, 36);
-            this.btnHarmoDel.TabIndex = 22;
-            this.btnHarmoDel.Text = "Usuń ";
-            this.btnHarmoDel.UseVisualStyleBackColor = true;
-            this.btnHarmoDel.Click += new System.EventHandler(this.btnHarmoDel_Click);
             // 
             // dgvUserHarmo
             // 
@@ -273,6 +245,17 @@
             this.tPairs.Text = "Pary transakcji";
             this.tPairs.UseVisualStyleBackColor = true;
             // 
+            // dgvTranPairs
+            // 
+            this.dgvTranPairs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvTranPairs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTranPairs.Location = new System.Drawing.Point(25, 23);
+            this.dgvTranPairs.Name = "dgvTranPairs";
+            this.dgvTranPairs.RowTemplate.Height = 24;
+            this.dgvTranPairs.Size = new System.Drawing.Size(983, 649);
+            this.dgvTranPairs.TabIndex = 0;
+            // 
             // gbTime
             // 
             this.gbTime.Controls.Add(this.btnEnd);
@@ -298,6 +281,7 @@
             this.btnEnd.TabIndex = 5;
             this.btnEnd.Text = "Koniec okresu";
             this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // btnBegin
             // 
@@ -308,6 +292,7 @@
             this.btnBegin.TabIndex = 4;
             this.btnBegin.Text = "Początek okresu";
             this.btnBegin.UseVisualStyleBackColor = true;
+            this.btnBegin.Click += new System.EventHandler(this.btnBegin_Click);
             // 
             // dtpStop
             // 
@@ -347,16 +332,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Początek";
             // 
-            // dgvTranPairs
+            // btnHarmoAdd
             // 
-            this.dgvTranPairs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvTranPairs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTranPairs.Location = new System.Drawing.Point(25, 23);
-            this.dgvTranPairs.Name = "dgvTranPairs";
-            this.dgvTranPairs.RowTemplate.Height = 24;
-            this.dgvTranPairs.Size = new System.Drawing.Size(983, 649);
-            this.dgvTranPairs.TabIndex = 0;
+            this.btnHarmoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHarmoAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHarmoAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnHarmoAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 98);
+            this.btnHarmoAdd.Name = "btnHarmoAdd";
+            this.btnHarmoAdd.Size = new System.Drawing.Size(147, 36);
+            this.btnHarmoAdd.TabIndex = 20;
+            this.btnHarmoAdd.Text = "Dodaj";
+            this.btnHarmoAdd.UseVisualStyleBackColor = true;
+            this.btnHarmoAdd.Click += new System.EventHandler(this.btnHarmoAdd_Click);
+            // 
+            // btnHarmoDel
+            // 
+            this.btnHarmoDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHarmoDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHarmoDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnHarmoDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHarmoDel.Location = new System.Drawing.Point(872, 613);
+            this.btnHarmoDel.Name = "btnHarmoDel";
+            this.btnHarmoDel.Size = new System.Drawing.Size(147, 36);
+            this.btnHarmoDel.TabIndex = 22;
+            this.btnHarmoDel.Text = "Usuń ";
+            this.btnHarmoDel.UseVisualStyleBackColor = true;
+            this.btnHarmoDel.Click += new System.EventHandler(this.btnHarmoDel_Click);
             // 
             // TimeAttandance
             // 
@@ -376,9 +378,9 @@
             this.tTransactions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.tPairs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTranPairs)).EndInit();
             this.gbTime.ResumeLayout(false);
             this.gbTime.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTranPairs)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -10,6 +10,7 @@ namespace RCPSystem.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(RCPSystem.EFModel context)

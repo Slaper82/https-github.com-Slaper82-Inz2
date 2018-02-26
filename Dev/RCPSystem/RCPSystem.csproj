@@ -202,6 +202,14 @@
     <Compile Include="Migrations\201802241314229_UserHarmoTableChangeNr2.Designer.cs">
       <DependentUpon>201802241314229_UserHarmoTableChangeNr2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802261934562_PairsIOIdentity.cs" />
+    <Compile Include="Migrations\201802261934562_PairsIOIdentity.Designer.cs">
+      <DependentUpon>201802261934562_PairsIOIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802262029471_PairsRestLp.cs" />
+    <Compile Include="Migrations\201802262029471_PairsRestLp.Designer.cs">
+      <DependentUpon>201802262029471_PairsRestLp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -314,6 +322,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802241314229_UserHarmoTableChangeNr2.resx">
       <DependentUpon>201802241314229_UserHarmoTableChangeNr2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802261934562_PairsIOIdentity.resx">
+      <DependentUpon>201802261934562_PairsIOIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802262029471_PairsRestLp.resx">
+      <DependentUpon>201802262029471_PairsRestLp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
