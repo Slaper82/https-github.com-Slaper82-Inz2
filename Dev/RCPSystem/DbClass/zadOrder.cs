@@ -1,5 +1,6 @@
 namespace RCPSystem
 {
+    using RCPSystem.DbClass;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -27,9 +28,13 @@ namespace RCPSystem
         [StringLength(250)]
         public string Description { get; set; }
 
+        public int IdClient { get; set; }
+
         public bool? Done { get; set; }
 
         public bool? Active { get; set; }
+        
+        public virtual zadClient zadClients { get; set; }
 
         public virtual genUser genUser { get; set; }
 

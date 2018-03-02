@@ -67,6 +67,7 @@
     <Compile Include="DbClass\EFModel.cs" />
     <Compile Include="DbClass\rcpTransactionAll.cs" />
     <Compile Include="DbClass\rcpUserHarmoList.cs" />
+    <Compile Include="DbClass\zadClient.cs" />
     <Compile Include="DbClass\zadDuty.cs" />
     <Compile Include="DbClass\zadDutyType.cs" />
     <Compile Include="DbClass\zadProdElem.cs" />
@@ -89,11 +90,11 @@
     <Compile Include="Forms\Dict.Designer.cs">
       <DependentUpon>Dict.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Harmo.cs">
+    <Compile Include="Forms\FrmHarmo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Harmo.Designer.cs">
-      <DependentUpon>Harmo.cs</DependentUpon>
+    <Compile Include="Forms\FrmHarmo.Designer.cs">
+      <DependentUpon>FrmHarmo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Logon.cs">
       <SubType>Form</SubType>
@@ -106,6 +107,12 @@
     </Compile>
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewOrder.Designer.cs">
+      <DependentUpon>NewOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transact.cs">
       <SubType>Form</SubType>
@@ -210,6 +217,18 @@
     <Compile Include="Migrations\201802262029471_PairsRestLp.Designer.cs">
       <DependentUpon>201802262029471_PairsRestLp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803022030037_OrderRebuild.cs" />
+    <Compile Include="Migrations\201803022030037_OrderRebuild.Designer.cs">
+      <DependentUpon>201803022030037_OrderRebuild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803022046347_OrderFieldAdd.cs" />
+    <Compile Include="Migrations\201803022046347_OrderFieldAdd.Designer.cs">
+      <DependentUpon>201803022046347_OrderFieldAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803022105037_ClientAdd.cs" />
+    <Compile Include="Migrations\201803022105037_ClientAdd.Designer.cs">
+      <DependentUpon>201803022105037_ClientAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,14 +270,17 @@
     <EmbeddedResource Include="Forms\Dict.resx">
       <DependentUpon>Dict.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Harmo.resx">
-      <DependentUpon>Harmo.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmHarmo.resx">
+      <DependentUpon>FrmHarmo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Logon.resx">
       <DependentUpon>Logon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewOrder.resx">
+      <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transact.resx">
       <DependentUpon>Transact.cs</DependentUpon>
@@ -328,6 +350,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802262029471_PairsRestLp.resx">
       <DependentUpon>201802262029471_PairsRestLp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803022030037_OrderRebuild.resx">
+      <DependentUpon>201803022030037_OrderRebuild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803022046347_OrderFieldAdd.resx">
+      <DependentUpon>201803022046347_OrderFieldAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803022105037_ClientAdd.resx">
+      <DependentUpon>201803022105037_ClientAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

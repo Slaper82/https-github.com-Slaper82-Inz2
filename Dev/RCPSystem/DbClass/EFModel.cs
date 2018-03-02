@@ -43,6 +43,8 @@ namespace RCPSystem
         public virtual DbSet<zadProdElem> zadProdElems { get; set; }
         public virtual DbSet<rcpTransactionAll> rcpTransactionAlls { get; set; }
         public virtual DbSet<rcpUserHarmoList> rcpUserHarmoes { get; set; }
+
+        public virtual DbSet<zadClient> zadClients { get; set; }
         //rcpUserHarmoList
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
