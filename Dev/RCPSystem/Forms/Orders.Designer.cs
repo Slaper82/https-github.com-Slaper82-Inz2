@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnAddOrder = new System.Windows.Forms.Button();
             this.btnDelOrder = new System.Windows.Forms.Button();
             this.btnEditOrder = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvOrders
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 312);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1709, 485);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.Location = new System.Drawing.Point(12, 312);
+            this.dgvOrders.Name = "dgvOrders";
+            this.dgvOrders.RowTemplate.Height = 24;
+            this.dgvOrders.Size = new System.Drawing.Size(1709, 485);
+            this.dgvOrders.TabIndex = 0;
             // 
             // btnAddOrder
             // 
@@ -52,6 +52,7 @@
             this.btnAddOrder.TabIndex = 1;
             this.btnAddOrder.Text = "Nowe zamówienie";
             this.btnAddOrder.UseVisualStyleBackColor = true;
+            this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
             // 
             // btnDelOrder
             // 
@@ -79,17 +80,17 @@
             this.Controls.Add(this.btnEditOrder);
             this.Controls.Add(this.btnDelOrder);
             this.Controls.Add(this.btnAddOrder);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvOrders);
             this.Name = "Orders";
             this.Text = "Zamówienia";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.Button btnAddOrder;
         private System.Windows.Forms.Button btnDelOrder;
         private System.Windows.Forms.Button btnEditOrder;

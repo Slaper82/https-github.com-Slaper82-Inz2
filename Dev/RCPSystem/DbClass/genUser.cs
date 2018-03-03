@@ -46,11 +46,11 @@ namespace RCPSystem
 
         public virtual genUserDet genUserDet { get; set; }
 
-        public virtual rcpPairsBRK rcpPairsBRK { get; set; }
+      //  public virtual rcpPairsBRK rcpPairsBRK { get; set; }
 
-        public virtual rcpPairsIO rcpPairsIO { get; set; }
+       // public virtual rcpPairsIO rcpPairsIO { get; set; }
 
-        public virtual rcpPairsOnB rcpPairsOnB { get; set; }
+       // public virtual rcpPairsOnB rcpPairsOnB { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<rcpTransactionAll> rcpTransactions { get; set; }
@@ -63,5 +63,15 @@ namespace RCPSystem
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<zadTaskProduction> zadTaskProductions { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<rcpPairsIO> rcpPairsIOs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<rcpPairsBRK> rcpPairsBRK { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<rcpPairsOnB> rcpPairsOnB { get; set; }
+
     }
 }

@@ -229,6 +229,18 @@
     <Compile Include="Migrations\201803022105037_ClientAdd.Designer.cs">
       <DependentUpon>201803022105037_ClientAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803031806462_PopulateClientList.cs" />
+    <Compile Include="Migrations\201803031806462_PopulateClientList.Designer.cs">
+      <DependentUpon>201803031806462_PopulateClientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803031837146_PairsTest.cs" />
+    <Compile Include="Migrations\201803031837146_PairsTest.Designer.cs">
+      <DependentUpon>201803031837146_PairsTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803031843406_PairsRepairRest.cs" />
+    <Compile Include="Migrations\201803031843406_PairsRepairRest.Designer.cs">
+      <DependentUpon>201803031843406_PairsRepairRest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -359,6 +371,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803022105037_ClientAdd.resx">
       <DependentUpon>201803022105037_ClientAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031806462_PopulateClientList.resx">
+      <DependentUpon>201803031806462_PopulateClientList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031837146_PairsTest.resx">
+      <DependentUpon>201803031837146_PairsTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031843406_PairsRepairRest.resx">
+      <DependentUpon>201803031843406_PairsRepairRest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

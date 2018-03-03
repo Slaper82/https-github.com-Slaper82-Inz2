@@ -9,14 +9,13 @@ namespace RCPSystem
     [Table("rcpPairsBRK")]
     public partial class rcpPairsBRK
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdUser { get; set; }
 
         public DateTime? Start { get; set; }
 
         public DateTime? Stop { get; set; }
 
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Lp { get; set; }
 

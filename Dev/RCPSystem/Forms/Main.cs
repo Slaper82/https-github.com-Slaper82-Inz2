@@ -22,6 +22,8 @@ namespace RCPSystem
         public Dict Dictonaries= null;
         public Harmo Harmo = null;
         public Transact Transact = null;
+        public Orders Orders = null;
+
         public List<string> Priviliges = new List<string>();
     
         public Main(Priviliges.UserType type,int UserId)
@@ -158,6 +160,21 @@ namespace RCPSystem
             else
             {
                 Transact.Focus();
+            }
+        }
+
+        private void tsbOrder_Click(object sender, EventArgs e)
+        {
+            if (Orders == null || Orders.IsDisposed)
+            {
+                Orders = new Orders(UserID);
+                Orders.MdiParent = this;
+                Orders.WindowState = FormWindowState.Maximized;
+                Orders.Show();
+            }
+            else
+            {
+                Orders.Focus();
             }
         }
     }

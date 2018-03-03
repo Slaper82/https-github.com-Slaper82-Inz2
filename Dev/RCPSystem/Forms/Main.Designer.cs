@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tsMainMenu = new System.Windows.Forms.ToolStrip();
             this.tsbUsers = new System.Windows.Forms.ToolStripButton();
             this.tsbTimeAtt = new System.Windows.Forms.ToolStripButton();
@@ -36,6 +37,7 @@
             this.tsbDict = new System.Windows.Forms.ToolStripButton();
             this.tsbManage = new System.Windows.Forms.ToolStripButton();
             this.tsbTA = new System.Windows.Forms.ToolStripButton();
+            this.tsbOrder = new System.Windows.Forms.ToolStripButton();
             this.tsMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,8 @@
             this.tsbHarmo,
             this.tsbDict,
             this.tsbManage,
-            this.tsbTA});
+            this.tsbTA,
+            this.tsbOrder});
             this.tsMainMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMainMenu.Name = "tsMainMenu";
             this.tsMainMenu.Size = new System.Drawing.Size(1434, 75);
@@ -148,6 +151,17 @@
             this.tsbTA.Text = "Czas pracy";
             this.tsbTA.Click += new System.EventHandler(this.tsbTA_Click);
             // 
+            // tsbOrder
+            // 
+            this.tsbOrder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbOrder.Image = ((System.Drawing.Image)(resources.GetObject("tsbOrder.Image")));
+            this.tsbOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOrder.Name = "tsbOrder";
+            this.tsbOrder.Size = new System.Drawing.Size(68, 72);
+            this.tsbOrder.Text = "Zamówienia";
+            this.tsbOrder.Click += new System.EventHandler(this.tsbOrder_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -175,6 +189,7 @@
         private System.Windows.Forms.ToolStripButton tsbDict;
         private System.Windows.Forms.ToolStripButton tsbManage;
         private System.Windows.Forms.ToolStripButton tsbTA;
+        private System.Windows.Forms.ToolStripButton tsbOrder;
     }
 }
 
