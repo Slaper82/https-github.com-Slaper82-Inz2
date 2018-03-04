@@ -241,6 +241,18 @@
     <Compile Include="Migrations\201803031843406_PairsRepairRest.Designer.cs">
       <DependentUpon>201803031843406_PairsRepairRest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803040902164_KeyTest.cs" />
+    <Compile Include="Migrations\201803040902164_KeyTest.Designer.cs">
+      <DependentUpon>201803040902164_KeyTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803040905259_KeyOrderAddElse.cs" />
+    <Compile Include="Migrations\201803040905259_KeyOrderAddElse.Designer.cs">
+      <DependentUpon>201803040905259_KeyOrderAddElse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803041059070_Triggers.cs" />
+    <Compile Include="Migrations\201803041059070_Triggers.Designer.cs">
+      <DependentUpon>201803041059070_Triggers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -380,6 +392,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803031843406_PairsRepairRest.resx">
       <DependentUpon>201803031843406_PairsRepairRest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803040902164_KeyTest.resx">
+      <DependentUpon>201803040902164_KeyTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803040905259_KeyOrderAddElse.resx">
+      <DependentUpon>201803040905259_KeyOrderAddElse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803041059070_Triggers.resx">
+      <DependentUpon>201803041059070_Triggers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

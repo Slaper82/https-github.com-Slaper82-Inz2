@@ -9,9 +9,9 @@ namespace RCPSystem
     [Table("zadOrderProduct")]
     public partial class zadOrderProduct
     {
-        [Key]
-        [Column(Order = 0)]
-        public int Id { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
+        public int IdKey { get; set; }
 
         public int IdOrder { get; set; }
 

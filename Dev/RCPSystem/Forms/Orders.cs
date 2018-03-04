@@ -15,10 +15,12 @@ namespace RCPSystem.Forms
     {
         public int UserId { get; set; }
         NewOrder NewOrder;
+        EFModel context;
 
         public Orders(int userId)
         {
             this.UserId = userId;
+            context = new EFModel();
             InitializeComponent();
         }
 
@@ -33,7 +35,11 @@ namespace RCPSystem.Forms
 
         private void GridReload(object sender, EventArgs e)
         {
-            //przeładowanie grida
+            var OrdersList = new List<zadOrder>();
+            OrdersList = context.zadOrders.ToList();
+            OrdersList = OrdersList.FindAll(o => o.Active == true);
+
+            dgvOrders.DataSource = OrdersList;
         }
     }
 }

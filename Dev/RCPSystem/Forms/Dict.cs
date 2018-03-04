@@ -172,6 +172,8 @@ namespace RCPSystem.Forms
         {
             type.ButtonAdd(txtTypeName.Text);
             TypeID = 0;
+            elem.ComboLoad();
+            duty.ComboLoad();
         }
 
         private void btnDeleteType_Click(object sender, EventArgs e)
@@ -236,6 +238,8 @@ namespace RCPSystem.Forms
             try
             {
                 elem.ButtonAdd(txtElemName.Text, Convert.ToInt32(cmbElem.SelectedValue));
+                product.ComboLoad();
+
             }
             catch(Exception ex)
             {
