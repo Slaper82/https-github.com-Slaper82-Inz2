@@ -30,7 +30,7 @@ namespace RCPSystem
             Node = new TreeNode();
             ListaDep = context.genOrgUnits.ToList();
             UsersList = context.genUsers.ToList();
-            helper = new FrmHelpers(tvUser);
+            helper = new FrmHelpers(tvUser,TreeImages);
         }
         private void Users_Load(object sender, EventArgs e)
         {

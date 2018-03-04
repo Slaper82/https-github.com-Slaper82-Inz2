@@ -253,6 +253,10 @@
     <Compile Include="Migrations\201803041059070_Triggers.Designer.cs">
       <DependentUpon>201803041059070_Triggers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803041837356_HarmoDefChenges.cs" />
+    <Compile Include="Migrations\201803041837356_HarmoDefChenges.Designer.cs">
+      <DependentUpon>201803041837356_HarmoDefChenges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -401,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803041059070_Triggers.resx">
       <DependentUpon>201803041059070_Triggers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803041837356_HarmoDefChenges.resx">
+      <DependentUpon>201803041837356_HarmoDefChenges.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

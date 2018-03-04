@@ -29,7 +29,7 @@ namespace RCPSystem
             InitializeComponent();
             ListaDep = context.genOrgUnits.ToList();
             UsersList = context.genUsers.ToList();
-            helper = new FrmHelpers(tvUsers);
+            helper = new FrmHelpers(tvUsers,TreeImages);
             helper.TreeLoad();
             ComboLoad();
             TransactionList = new List<rcpTransactionAll>();

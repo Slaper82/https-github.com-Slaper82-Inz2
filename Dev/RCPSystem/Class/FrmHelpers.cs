@@ -12,6 +12,7 @@ namespace RCPSystem.Class
         EFModel context;
         TreeNode node;
         TreeView TV;
+        ImageList ImageList;
         public List<genOrgUnit> ListaDep { get; set; }
         public List<genUser> UsersList { get; set; }
         public FrmHelpers()
@@ -21,12 +22,13 @@ namespace RCPSystem.Class
             UsersList = context.genUsers.ToList();
           
         }
-        public FrmHelpers(TreeView tv)
+        public FrmHelpers(TreeView tv,ImageList _images)
         {
             ListaDep = new List<genOrgUnit>();
             context = new EFModel();
             ListaDep = context.genOrgUnits.ToList();
             UsersList = context.genUsers.ToList();
+            ImageList = _images;
             this.TV = tv;
         }
         public void EnableDisableControls(Form form )
@@ -36,13 +38,14 @@ namespace RCPSystem.Class
         }
         public void TreeLoad()
         {
-
+            TV.ImageList = ImageList;
             var listaDzialGl = ListaDep.FindAll(x => x.IdHigherOrgUnit == null);
             listaDzialGl.ForEach(delegate (genOrgUnit dep)
             {
                 node = new TreeNode();
                 node.Text = dep.Name;
                 node.Name = dep.IdOrgUnit.ToString();
+                node.ImageIndex = 0;
                 TV.Nodes.Add(node);
                 UsersAdd(node);
                 bool IsParent = (context.genOrgUnits.Count(d => d.IdHigherOrgUnit == dep.IdOrgUnit)) > 0;
@@ -77,7 +80,7 @@ namespace RCPSystem.Class
 
                 if (IsParent)
                 {
-                    listaDzialPdr = ListaDep.FindAll(x => x.IdOrgUnit == Child_dep.IdOrgUnit);
+                    listaDzialPdr = ListaDep.FindAll(x => x.IdHigherOrgUnit == Child_dep.IdOrgUnit);
                     GetChildNodes(listaDzialPdr, childNode);
                 }
 
@@ -98,7 +101,7 @@ namespace RCPSystem.Class
             foreach (genUser user in UserInOrg)
             {
                 TreeNode usernode = new TreeNode();
-                usernode.Text = user.Name;
+                usernode.Text = user.Name + " " + user.Surname;
                 usernode.Name = user.IdUser.ToString();
                 usernode.ImageIndex = 1;
                 usernode.SelectedImageIndex = 1;

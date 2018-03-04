@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeAttandance));
             this.tvUsers = new System.Windows.Forms.TreeView();
             this.tcTimeAtt = new System.Windows.Forms.TabControl();
             this.tHarmo = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbHarChose = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnHarmoAdd = new System.Windows.Forms.Button();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.btnHarmoDel = new System.Windows.Forms.Button();
             this.dgvUserHarmo = new System.Windows.Forms.DataGridView();
             this.tTransactions = new System.Windows.Forms.TabPage();
             this.dgvTransactions = new System.Windows.Forms.DataGridView();
@@ -53,8 +57,7 @@
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnHarmoAdd = new System.Windows.Forms.Button();
-            this.btnHarmoDel = new System.Windows.Forms.Button();
+            this.TreeImages = new System.Windows.Forms.ImageList(this.components);
             this.tcTimeAtt.SuspendLayout();
             this.tHarmo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -137,6 +140,20 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Wstaw harmonogram";
             // 
+            // btnHarmoAdd
+            // 
+            this.btnHarmoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHarmoAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHarmoAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnHarmoAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 98);
+            this.btnHarmoAdd.Name = "btnHarmoAdd";
+            this.btnHarmoAdd.Size = new System.Drawing.Size(147, 36);
+            this.btnHarmoAdd.TabIndex = 20;
+            this.btnHarmoAdd.Text = "Dodaj";
+            this.btnHarmoAdd.UseVisualStyleBackColor = true;
+            this.btnHarmoAdd.Click += new System.EventHandler(this.btnHarmoAdd_Click);
+            // 
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -152,6 +169,20 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(146, 34);
             this.dtpFrom.TabIndex = 24;
+            // 
+            // btnHarmoDel
+            // 
+            this.btnHarmoDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHarmoDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnHarmoDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnHarmoDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHarmoDel.Location = new System.Drawing.Point(872, 613);
+            this.btnHarmoDel.Name = "btnHarmoDel";
+            this.btnHarmoDel.Size = new System.Drawing.Size(147, 36);
+            this.btnHarmoDel.TabIndex = 22;
+            this.btnHarmoDel.Text = "Usuń ";
+            this.btnHarmoDel.UseVisualStyleBackColor = true;
+            this.btnHarmoDel.Click += new System.EventHandler(this.btnHarmoDel_Click);
             // 
             // dgvUserHarmo
             // 
@@ -332,33 +363,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Początek";
             // 
-            // btnHarmoAdd
+            // TreeImages
             // 
-            this.btnHarmoAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHarmoAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnHarmoAdd.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnHarmoAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 98);
-            this.btnHarmoAdd.Name = "btnHarmoAdd";
-            this.btnHarmoAdd.Size = new System.Drawing.Size(147, 36);
-            this.btnHarmoAdd.TabIndex = 20;
-            this.btnHarmoAdd.Text = "Dodaj";
-            this.btnHarmoAdd.UseVisualStyleBackColor = true;
-            this.btnHarmoAdd.Click += new System.EventHandler(this.btnHarmoAdd_Click);
-            // 
-            // btnHarmoDel
-            // 
-            this.btnHarmoDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHarmoDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnHarmoDel.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnHarmoDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHarmoDel.Location = new System.Drawing.Point(872, 613);
-            this.btnHarmoDel.Name = "btnHarmoDel";
-            this.btnHarmoDel.Size = new System.Drawing.Size(147, 36);
-            this.btnHarmoDel.TabIndex = 22;
-            this.btnHarmoDel.Text = "Usuń ";
-            this.btnHarmoDel.UseVisualStyleBackColor = true;
-            this.btnHarmoDel.Click += new System.EventHandler(this.btnHarmoDel_Click);
+            this.TreeImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TreeImages.ImageStream")));
+            this.TreeImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.TreeImages.Images.SetKeyName(0, "Clock.png");
+            this.TreeImages.Images.SetKeyName(1, "Chat.png");
             // 
             // TimeAttandance
             // 
@@ -414,5 +424,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tran;
         private System.Windows.Forms.DataGridViewTextBoxColumn User;
         private System.Windows.Forms.DataGridView dgvTranPairs;
+        private System.Windows.Forms.ImageList TreeImages;
     }
 }

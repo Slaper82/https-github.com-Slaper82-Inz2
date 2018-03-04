@@ -83,6 +83,7 @@ namespace RCPSystem
             if(context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 5) != null)
             {
                 chbThursday.Checked = false;
+                int test = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 5).IdDay;
                 cmbThur.SelectedValue = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 5).IdDay;           
             }
             else
@@ -112,7 +113,7 @@ namespace RCPSystem
             //niedz
             if(context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 1) != null)
             {
-                cmbSun.SelectedIndex = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 1).IdDay;
+                cmbSun.SelectedValue = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 1).IdDay;
                 chbSunday.Checked = false;
             }
             else
@@ -141,15 +142,18 @@ namespace RCPSystem
         private void btnAddHarmo_Click(object sender, EventArgs e)
         {
             txtHarmoName.Text = String.Empty;
+            HarmoID = 0;
+            Harmonogram = null;
             ComboLoad();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool IsEdited = true;
+
+            bool IsEdited = (HarmoID > 0);
             if (this.Harmonogram != null)
             {
-                MonDef = context.rcpHarmoDefs.Single(h => h.IdHarmo == HarmoID && h.WDay == 2);
+                MonDef = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 2);
                 TueDef= context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 3);
                 WedDef = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 4);
                 ThuDef = context.rcpHarmoDefs.FirstOrDefault(h => h.IdHarmo == HarmoID && h.WDay == 5);
@@ -166,7 +170,7 @@ namespace RCPSystem
                 FriDef = new rcpHarmoDef();
                 SatDef = new rcpHarmoDef();
                 SunDef = new rcpHarmoDef();
-                IsEdited = false;
+                //IsEdited = false;
             }
             if (!IsEdited)
             {
@@ -182,15 +186,27 @@ namespace RCPSystem
                 #region Poniedziałek
                 if (!chbMonday.Checked)
                 {
-                    MonDef.IdHarmo = HarmoID;
-                    MonDef.WDay = 2;
-                    MonDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(MonDef);               
-                    context.SaveChanges();
+                    if (MonDef == null)
+                    {
+                        MonDef = new rcpHarmoDef();
+                        MonDef.IdHarmo = HarmoID;
+                        MonDef.WDay = 2;
+                        MonDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
+                        context.rcpHarmoDefs.Add(MonDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        MonDef.IdHarmo = HarmoID;
+                        MonDef.WDay = 2;
+                        MonDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(MonDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&MonDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(MonDef);
                         context.rcpHarmoDefs.Remove(MonDef);
@@ -201,15 +217,27 @@ namespace RCPSystem
                 #region Wtorek
                 if (!chbTuesday.Checked)
                 {
-                    TueDef.IdHarmo = HarmoID;
-                    TueDef.WDay = 3;
-                    TueDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(TueDef);
-                    context.SaveChanges();
+                    if (TueDef == null)
+                    {
+                        TueDef = new rcpHarmoDef();
+                        TueDef.IdHarmo = HarmoID;
+                        TueDef.WDay = 3;
+                        TueDef.IdDay = Convert.ToInt16(cmbTue.SelectedValue);
+                        context.rcpHarmoDefs.Add(TueDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        TueDef.IdHarmo = HarmoID;
+                        TueDef.WDay = 3;
+                        TueDef.IdDay = Convert.ToInt16(cmbTue.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(TueDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&TueDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(TueDef);
                         context.rcpHarmoDefs.Remove(TueDef);
@@ -220,15 +248,27 @@ namespace RCPSystem
                 #region Sroda
                 if (!chbWednesday.Checked)
                 {
-                    WedDef.IdHarmo = HarmoID;
-                    WedDef.WDay = 4;
-                    WedDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(WedDef);
-                    context.SaveChanges();
+                    if (WedDef == null)
+                    {
+                        WedDef = new rcpHarmoDef();
+                        WedDef.IdHarmo = HarmoID;
+                        WedDef.WDay = 4;
+                        WedDef.IdDay = Convert.ToInt16(cmbWed.SelectedValue);
+                        context.rcpHarmoDefs.Add(WedDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        WedDef.IdHarmo = HarmoID;
+                        WedDef.WDay = 4;
+                        WedDef.IdDay = Convert.ToInt16(cmbWed.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(WedDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&WedDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(WedDef);
                         context.rcpHarmoDefs.Remove(WedDef);
@@ -239,15 +279,27 @@ namespace RCPSystem
                 #region Czwartek
                 if (!chbThursday.Checked)
                 {
-                    ThuDef.IdHarmo = HarmoID;
-                    ThuDef.WDay = 5;
-                    ThuDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(ThuDef);
-                    context.SaveChanges();
+                    if (ThuDef == null)
+                    {
+                        ThuDef = new rcpHarmoDef();
+                        ThuDef.IdHarmo = HarmoID;
+                        ThuDef.WDay = 5;
+                        ThuDef.IdDay = Convert.ToInt16(cmbThur.SelectedValue);
+                        context.rcpHarmoDefs.Add(ThuDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        ThuDef.IdHarmo = HarmoID;
+                        ThuDef.WDay = 5;
+                        ThuDef.IdDay = Convert.ToInt16(cmbThur.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(ThuDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&ThuDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(ThuDef);
                         context.rcpHarmoDefs.Remove(ThuDef);
@@ -258,15 +310,27 @@ namespace RCPSystem
                 #region Piatek
                 if (!chbFriday.Checked)
                 {
-                    FriDef.IdHarmo = HarmoID;
-                    FriDef.WDay = 6;
-                    FriDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(FriDef);
-                    context.SaveChanges();
+                    if (FriDef == null)
+                    {
+                        FriDef = new rcpHarmoDef();
+                        FriDef.IdHarmo = HarmoID;
+                        FriDef.WDay = 6;
+                        FriDef.IdDay = Convert.ToInt16(cmbFri.SelectedValue);
+                        context.rcpHarmoDefs.Add(FriDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        FriDef.IdHarmo = HarmoID;
+                        FriDef.WDay = 6;
+                        FriDef.IdDay = Convert.ToInt16(cmbFri.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(FriDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&FriDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(FriDef);
                         context.rcpHarmoDefs.Remove(FriDef);
@@ -277,15 +341,27 @@ namespace RCPSystem
                 #region Sobota
                 if (!chbSaturday.Checked)
                 {
-                    SatDef.IdHarmo = HarmoID;
-                    SatDef.WDay = 7;
-                    SatDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(SatDef);
-                    context.SaveChanges();
+                    if (SatDef == null)
+                    {
+                        SatDef = new rcpHarmoDef();
+                        SatDef.IdHarmo = HarmoID;
+                        SatDef.WDay = 7;
+                        SatDef.IdDay = Convert.ToInt16(cmbSat.SelectedValue);
+                        context.rcpHarmoDefs.Add(SatDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        SatDef.IdHarmo = HarmoID;
+                        SatDef.WDay = 7;
+                        SatDef.IdDay = Convert.ToInt16(cmbSat.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(SatDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&SatDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(SatDef);
                         context.rcpHarmoDefs.Remove(SatDef);
@@ -296,15 +372,27 @@ namespace RCPSystem
                 #region Niedziela
                 if (!chbSunday.Checked)
                 {
-                    SunDef.IdHarmo = HarmoID;
-                    SunDef.WDay = 1;
-                    SunDef.IdDay = Convert.ToInt16(cmbMon.SelectedValue);
-                    if (!IsEdited) context.rcpHarmoDefs.Add(SunDef);
-                    context.SaveChanges();
+                    if (SunDef == null)
+                    {
+                        SunDef = new rcpHarmoDef();
+                        SunDef.IdHarmo = HarmoID;
+                        SunDef.WDay = 1;
+                        SunDef.IdDay = Convert.ToInt16(cmbSun.SelectedValue);
+                        context.rcpHarmoDefs.Add(SunDef);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        SunDef.IdHarmo = HarmoID;
+                        SunDef.WDay = 1;
+                        SunDef.IdDay = Convert.ToInt16(cmbSun.SelectedValue);
+                        if (!IsEdited) context.rcpHarmoDefs.Add(SunDef);
+                        context.SaveChanges();
+                    }
                 }
                 else
                 {
-                    if (IsEdited)
+                    if (IsEdited&&SunDef!=null)
                     {
                         context.rcpHarmoDefs.Attach(SunDef);
                         context.rcpHarmoDefs.Remove(SunDef);
@@ -370,36 +458,41 @@ namespace RCPSystem
 
             if (HarmoID > 0)
             {
-                bool Deleted = true;
-                try
+                DialogResult = MessageBox.Show("Czy na pewno usunąć wybrany harmonogram?", "Usuwanie", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (DialogResult == DialogResult.OK)
                 {
-                    List<rcpHarmoDef> ToDelete = new List<rcpHarmoDef>();
-                    ToDelete = (from def in context.rcpHarmoDefs
-                                join day in context.rcpHarmoes on def.IdHarmo equals day.IdHarmo
-                                where day.IdHarmo == HarmoID
-                                select def).ToList();
-                    foreach (var def in ToDelete)
+                    bool Deleted = true;
+                    try
                     {
-                        context.rcpHarmoDefs.Attach(def);
-                        context.rcpHarmoDefs.Remove(def);
+                        List<rcpHarmoDef> ToDelete = new List<rcpHarmoDef>();
+                        ToDelete = (from def in context.rcpHarmoDefs
+                                    join day in context.rcpHarmoes on def.IdHarmo equals day.IdHarmo
+                                    where day.IdHarmo == HarmoID
+                                    select def).ToList();
+                        foreach (var def in ToDelete)
+                        {
+                            context.rcpHarmoDefs.Attach(def);
+                            context.rcpHarmoDefs.Remove(def);
+                            context.SaveChanges();
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        Deleted = false;
+                    }
+                    if (Deleted)
+                    {
+                        var harmo = context.rcpHarmoes.FirstOrDefault(h => h.IdHarmo == HarmoID);
+                        context.rcpHarmoes.Attach(harmo);
+                        context.rcpHarmoes.Remove(harmo);
                         context.SaveChanges();
                     }
-
+                    txtHarmoName.Text = String.Empty;
+                    tvHarmo.Nodes.Clear();
+                    TreeLoad(Node);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    Deleted = false;
-                }
-                if (Deleted)
-                {
-                    var harmo = context.rcpHarmoes.FirstOrDefault(h => h.IdHarmo == HarmoID);
-                    context.rcpHarmoes.Attach(harmo);
-                    context.rcpHarmoes.Remove(harmo);
-                    context.SaveChanges();
-                }
-                tvHarmo.Nodes.Clear();
-                TreeLoad(Node);
             }
         }
     }

@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbStart = new System.Windows.Forms.GroupBox();
+            this.txtBreak = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtEarly = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtLate = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBreak = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbStart.SuspendLayout();
             this.gbStop.SuspendLayout();
@@ -72,9 +72,9 @@
             this.label1.Location = new System.Drawing.Point(30, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 28);
+            this.label1.Size = new System.Drawing.Size(247, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Rozpoczęcie pracy";
+            this.label1.Text = "Godzina rozpoczęcia pracy";
             // 
             // label2
             // 
@@ -82,9 +82,9 @@
             this.label2.Location = new System.Drawing.Point(30, 135);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 28);
+            this.label2.Size = new System.Drawing.Size(254, 28);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Spóźnienie";
+            this.label2.Text = "Dozwolone spóźnienie(min)";
             // 
             // gbStart
             // 
@@ -104,14 +104,31 @@
             this.gbStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbStart.Name = "gbStart";
             this.gbStart.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbStart.Size = new System.Drawing.Size(1076, 417);
+            this.gbStart.Size = new System.Drawing.Size(1076, 305);
             this.gbStart.TabIndex = 3;
             this.gbStart.TabStop = false;
-            this.gbStart.Text = "Początek pracy";
+            this.gbStart.Text = "Definicja rozpoczęcia pracy";
+            // 
+            // txtBreak
+            // 
+            this.txtBreak.Location = new System.Drawing.Point(381, 248);
+            this.txtBreak.Name = "txtBreak";
+            this.txtBreak.Size = new System.Drawing.Size(59, 34);
+            this.txtBreak.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(30, 248);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(202, 28);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Długość przerwy(min)";
             // 
             // txtEarly
             // 
-            this.txtEarly.Location = new System.Drawing.Point(266, 187);
+            this.txtEarly.Location = new System.Drawing.Point(381, 187);
             this.txtEarly.Name = "txtEarly";
             this.txtEarly.Size = new System.Drawing.Size(59, 34);
             this.txtEarly.TabIndex = 6;
@@ -122,20 +139,20 @@
             this.label4.Location = new System.Drawing.Point(30, 193);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 28);
+            this.label4.Size = new System.Drawing.Size(327, 28);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Wcześniej";
+            this.label4.Text = "Dozwolone przyjście wcześniej (min)";
             // 
             // txtLate
             // 
-            this.txtLate.Location = new System.Drawing.Point(266, 132);
+            this.txtLate.Location = new System.Drawing.Point(381, 132);
             this.txtLate.Name = "txtLate";
             this.txtLate.Size = new System.Drawing.Size(59, 34);
             this.txtLate.TabIndex = 4;
             // 
             // mtxtStart
             // 
-            this.mtxtStart.Location = new System.Drawing.Point(266, 77);
+            this.mtxtStart.Location = new System.Drawing.Point(381, 77);
             this.mtxtStart.Mask = "00:00";
             this.mtxtStart.Name = "mtxtStart";
             this.mtxtStart.Size = new System.Drawing.Size(59, 34);
@@ -155,18 +172,18 @@
             this.gbStop.Controls.Add(this.label6);
             this.gbStop.Controls.Add(this.label7);
             this.gbStop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gbStop.Location = new System.Drawing.Point(395, 614);
+            this.gbStop.Location = new System.Drawing.Point(395, 500);
             this.gbStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbStop.Name = "gbStop";
             this.gbStop.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbStop.Size = new System.Drawing.Size(1076, 398);
+            this.gbStop.Size = new System.Drawing.Size(1076, 257);
             this.gbStop.TabIndex = 4;
             this.gbStop.TabStop = false;
-            this.gbStop.Text = "Koniec pracy";
+            this.gbStop.Text = "Definicja zakończenia pracy";
             // 
             // txtEndLate
             // 
-            this.txtEndLate.Location = new System.Drawing.Point(266, 180);
+            this.txtEndLate.Location = new System.Drawing.Point(381, 186);
             this.txtEndLate.Name = "txtEndLate";
             this.txtEndLate.Size = new System.Drawing.Size(59, 34);
             this.txtEndLate.TabIndex = 12;
@@ -177,20 +194,20 @@
             this.label5.Location = new System.Drawing.Point(30, 186);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 28);
+            this.label5.Size = new System.Drawing.Size(291, 28);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Wcześniej";
+            this.label5.Text = "Dozwolone wyjście później(min)";
             // 
             // txtEndEarly
             // 
-            this.txtEndEarly.Location = new System.Drawing.Point(266, 125);
+            this.txtEndEarly.Location = new System.Drawing.Point(381, 125);
             this.txtEndEarly.Name = "txtEndEarly";
             this.txtEndEarly.Size = new System.Drawing.Size(59, 34);
             this.txtEndEarly.TabIndex = 10;
             // 
             // mtxtEnd
             // 
-            this.mtxtEnd.Location = new System.Drawing.Point(266, 70);
+            this.mtxtEnd.Location = new System.Drawing.Point(381, 67);
             this.mtxtEnd.Mask = "00:00";
             this.mtxtEnd.Name = "mtxtEnd";
             this.mtxtEnd.Size = new System.Drawing.Size(59, 34);
@@ -204,9 +221,9 @@
             this.label6.Location = new System.Drawing.Point(30, 70);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(173, 28);
+            this.label6.Size = new System.Drawing.Size(249, 28);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Rozpoczęcie pracy";
+            this.label6.Text = "Godzina zakończenia pracy";
             // 
             // label7
             // 
@@ -214,9 +231,9 @@
             this.label7.Location = new System.Drawing.Point(30, 128);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 28);
+            this.label7.Size = new System.Drawing.Size(308, 28);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Spóźnienie";
+            this.label7.Text = "Dozwolone wyjście wcześniej(min)";
             // 
             // txtName
             // 
@@ -266,28 +283,11 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 248);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 28);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Przerwa";
-            // 
-            // txtBreak
-            // 
-            this.txtBreak.Location = new System.Drawing.Point(266, 248);
-            this.txtBreak.Name = "txtBreak";
-            this.txtBreak.Size = new System.Drawing.Size(59, 34);
-            this.txtBreak.TabIndex = 8;
-            // 
             // btnSave
             // 
             this.btnSave.Image = global::RCPSystem.Properties.Resources.Floppy2;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(1218, 95);
+            this.btnSave.Location = new System.Drawing.Point(1193, 50);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(225, 71);
             this.btnSave.TabIndex = 23;

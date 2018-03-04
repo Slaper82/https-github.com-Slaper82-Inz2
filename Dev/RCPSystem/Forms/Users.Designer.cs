@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.tvUser = new System.Windows.Forms.TreeView();
             this.gbUser = new System.Windows.Forms.GroupBox();
             this.cmbGender = new System.Windows.Forms.ComboBox();
@@ -54,6 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.TreeImages = new System.Windows.Forms.ImageList(this.components);
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,6 +338,13 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
+            // TreeImages
+            // 
+            this.TreeImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TreeImages.ImageStream")));
+            this.TreeImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.TreeImages.Images.SetKeyName(0, "Home.png");
+            this.TreeImages.Images.SetKeyName(1, "User.png");
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,5 +392,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.ImageList TreeImages;
     }
 }

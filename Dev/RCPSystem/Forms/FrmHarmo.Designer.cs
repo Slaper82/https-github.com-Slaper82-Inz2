@@ -62,7 +62,7 @@
             this.tvHarmo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tvHarmo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tvHarmo.Location = new System.Drawing.Point(16, 21);
+            this.tvHarmo.Location = new System.Drawing.Point(16, 20);
             this.tvHarmo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvHarmo.Name = "tvHarmo";
             this.tvHarmo.Size = new System.Drawing.Size(367, 1380);
@@ -73,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(434, 184);
+            this.label1.Location = new System.Drawing.Point(434, 172);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 28);
@@ -114,7 +114,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(434, 245);
+            this.label2.Location = new System.Drawing.Point(434, 233);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 28);
@@ -125,7 +125,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(434, 306);
+            this.label3.Location = new System.Drawing.Point(434, 286);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 28);
@@ -136,7 +136,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(434, 367);
+            this.label4.Location = new System.Drawing.Point(434, 341);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 28);
@@ -147,7 +147,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(434, 428);
+            this.label5.Location = new System.Drawing.Point(434, 403);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 28);
@@ -158,7 +158,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(434, 489);
+            this.label6.Location = new System.Drawing.Point(434, 469);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 28);
@@ -187,7 +187,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(434, 550);
+            this.label8.Location = new System.Drawing.Point(434, 527);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 28);
@@ -197,7 +197,7 @@
             // cmbMon
             // 
             this.cmbMon.FormattingEnabled = true;
-            this.cmbMon.Location = new System.Drawing.Point(643, 182);
+            this.cmbMon.Location = new System.Drawing.Point(643, 170);
             this.cmbMon.Name = "cmbMon";
             this.cmbMon.Size = new System.Drawing.Size(373, 36);
             this.cmbMon.TabIndex = 21;
@@ -205,7 +205,7 @@
             // cmbTue
             // 
             this.cmbTue.FormattingEnabled = true;
-            this.cmbTue.Location = new System.Drawing.Point(643, 237);
+            this.cmbTue.Location = new System.Drawing.Point(643, 225);
             this.cmbTue.Name = "cmbTue";
             this.cmbTue.Size = new System.Drawing.Size(373, 36);
             this.cmbTue.TabIndex = 22;
@@ -213,7 +213,7 @@
             // cmbWed
             // 
             this.cmbWed.FormattingEnabled = true;
-            this.cmbWed.Location = new System.Drawing.Point(643, 303);
+            this.cmbWed.Location = new System.Drawing.Point(643, 283);
             this.cmbWed.Name = "cmbWed";
             this.cmbWed.Size = new System.Drawing.Size(373, 36);
             this.cmbWed.TabIndex = 23;
@@ -221,7 +221,7 @@
             // cmbThur
             // 
             this.cmbThur.FormattingEnabled = true;
-            this.cmbThur.Location = new System.Drawing.Point(643, 364);
+            this.cmbThur.Location = new System.Drawing.Point(643, 338);
             this.cmbThur.Name = "cmbThur";
             this.cmbThur.Size = new System.Drawing.Size(373, 36);
             this.cmbThur.TabIndex = 24;
@@ -229,7 +229,7 @@
             // cmbFri
             // 
             this.cmbFri.FormattingEnabled = true;
-            this.cmbFri.Location = new System.Drawing.Point(643, 420);
+            this.cmbFri.Location = new System.Drawing.Point(643, 395);
             this.cmbFri.Name = "cmbFri";
             this.cmbFri.Size = new System.Drawing.Size(373, 36);
             this.cmbFri.TabIndex = 25;
@@ -237,7 +237,7 @@
             // cmbSat
             // 
             this.cmbSat.FormattingEnabled = true;
-            this.cmbSat.Location = new System.Drawing.Point(643, 481);
+            this.cmbSat.Location = new System.Drawing.Point(643, 461);
             this.cmbSat.Name = "cmbSat";
             this.cmbSat.Size = new System.Drawing.Size(373, 36);
             this.cmbSat.TabIndex = 26;
@@ -245,7 +245,7 @@
             // cmbSun
             // 
             this.cmbSun.FormattingEnabled = true;
-            this.cmbSun.Location = new System.Drawing.Point(643, 550);
+            this.cmbSun.Location = new System.Drawing.Point(643, 527);
             this.cmbSun.Name = "cmbSun";
             this.cmbSun.Size = new System.Drawing.Size(373, 36);
             this.cmbSun.TabIndex = 27;
@@ -254,18 +254,18 @@
             // 
             this.btnSave.Image = global::RCPSystem.Properties.Resources.Floppy2;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(430, 669);
+            this.btnSave.Location = new System.Drawing.Point(414, 592);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(225, 71);
+            this.btnSave.Size = new System.Drawing.Size(293, 71);
             this.btnSave.TabIndex = 28;
-            this.btnSave.Text = "Zapisz";
+            this.btnSave.Text = "Zapisz zmiany";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // chbMonday
             // 
             this.chbMonday.AutoSize = true;
-            this.chbMonday.Location = new System.Drawing.Point(1121, 186);
+            this.chbMonday.Location = new System.Drawing.Point(1121, 174);
             this.chbMonday.Name = "chbMonday";
             this.chbMonday.Size = new System.Drawing.Size(90, 32);
             this.chbMonday.TabIndex = 29;
@@ -276,7 +276,7 @@
             // chbTuesday
             // 
             this.chbTuesday.AutoSize = true;
-            this.chbTuesday.Location = new System.Drawing.Point(1121, 249);
+            this.chbTuesday.Location = new System.Drawing.Point(1121, 231);
             this.chbTuesday.Name = "chbTuesday";
             this.chbTuesday.Size = new System.Drawing.Size(90, 32);
             this.chbTuesday.TabIndex = 30;
@@ -287,7 +287,7 @@
             // chbWednesday
             // 
             this.chbWednesday.AutoSize = true;
-            this.chbWednesday.Location = new System.Drawing.Point(1121, 306);
+            this.chbWednesday.Location = new System.Drawing.Point(1121, 286);
             this.chbWednesday.Name = "chbWednesday";
             this.chbWednesday.Size = new System.Drawing.Size(90, 32);
             this.chbWednesday.TabIndex = 31;
@@ -298,7 +298,7 @@
             // chbThursday
             // 
             this.chbThursday.AutoSize = true;
-            this.chbThursday.Location = new System.Drawing.Point(1121, 367);
+            this.chbThursday.Location = new System.Drawing.Point(1121, 341);
             this.chbThursday.Name = "chbThursday";
             this.chbThursday.Size = new System.Drawing.Size(90, 32);
             this.chbThursday.TabIndex = 32;
@@ -309,7 +309,7 @@
             // chbFriday
             // 
             this.chbFriday.AutoSize = true;
-            this.chbFriday.Location = new System.Drawing.Point(1121, 433);
+            this.chbFriday.Location = new System.Drawing.Point(1121, 399);
             this.chbFriday.Name = "chbFriday";
             this.chbFriday.Size = new System.Drawing.Size(90, 32);
             this.chbFriday.TabIndex = 33;
@@ -320,7 +320,7 @@
             // chbSaturday
             // 
             this.chbSaturday.AutoSize = true;
-            this.chbSaturday.Location = new System.Drawing.Point(1121, 485);
+            this.chbSaturday.Location = new System.Drawing.Point(1121, 465);
             this.chbSaturday.Name = "chbSaturday";
             this.chbSaturday.Size = new System.Drawing.Size(90, 32);
             this.chbSaturday.TabIndex = 34;
@@ -331,7 +331,7 @@
             // chbSunday
             // 
             this.chbSunday.AutoSize = true;
-            this.chbSunday.Location = new System.Drawing.Point(1121, 548);
+            this.chbSunday.Location = new System.Drawing.Point(1121, 527);
             this.chbSunday.Name = "chbSunday";
             this.chbSunday.Size = new System.Drawing.Size(90, 32);
             this.chbSunday.TabIndex = 35;

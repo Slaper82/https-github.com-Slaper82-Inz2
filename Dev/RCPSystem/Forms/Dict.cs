@@ -32,10 +32,12 @@ namespace RCPSystem.Forms
             InitializeComponent();
             StructTreeLoad(Node);
             tvStruct.ExpandAll();
+            StructComboLoad();
             type = new ProdTypes(tvProd, btnAddType, btnDeleteType, txtTypeName);
             duty = new ProdDuty(tvDuty,txtDutyName,lbProd,cmbDutyTypes);
             elem = new ProdElem(tvElem,txtElemName,cmbElem);
             product = new Product(tvProduct, txtProdName, cmbProdElem, txtProdDescript,dgvElem,txtQuan);
+
         }
         #region Struct
         public void StructTreeLoad(TreeNode node)
@@ -47,6 +49,7 @@ namespace RCPSystem.Forms
                 node = new TreeNode();
                 node.Text = dep.Name;
                 node.Name = dep.IdOrgUnit.ToString();
+                node.ImageIndex = 0;
                 tvStruct.Nodes.Add(node);
                 bool IsParent = (context.genOrgUnits.Count(d => d.IdHigherOrgUnit == dep.IdOrgUnit)) > 0;
 
@@ -77,7 +80,7 @@ namespace RCPSystem.Forms
 
                 if (IsParent)
                 {
-                    listaDzialPdr = ListaDep.FindAll(x => x.IdOrgUnit == Child_dep.IdOrgUnit);
+                    listaDzialPdr = ListaDep.FindAll(x => x.IdHigherOrgUnit == Child_dep.IdOrgUnit);
                     GetChildNodes(listaDzialPdr, childNode);
                 }
 
@@ -129,7 +132,7 @@ namespace RCPSystem.Forms
             tvStruct.ExpandAll();
         }
 
-        private void tpStruct_Enter(object sender, EventArgs e)
+        private void StructComboLoad()
         {
             cmbBranch.DataSource = context.genOrgUnits.ToList();
             cmbBranch.ValueMember = "IdOrgUnit";

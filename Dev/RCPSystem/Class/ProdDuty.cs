@@ -37,8 +37,8 @@ namespace RCPSystem.Class
                                  join duty in context.zadDutyTypes on type.IdType equals duty.IdType
                                  where duty.IdDuty == DutyId
                                  select type).ToList();
-            List<zadType> test = Source.ToList();
-            listBox.DataSource = test;
+            List<zadType> zad= Source.ToList();
+            listBox.DataSource = zad;
             listBox.ValueMember = "IdType";
             listBox.DisplayMember = "TypeName";
            // listView.Items.A = context.zadTypes.ToList();
