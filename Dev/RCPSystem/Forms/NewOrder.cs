@@ -201,44 +201,38 @@ namespace RCPSystem.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //zamówienia
-            try
+            if (OrderId > 0)
             {
-                //produkty zamówienia
-                var orderProd = context.zadOrderProducts.ToList();
-                orderProd = orderProd.FindAll(o => o.IdOrder == OrderId);
-
-                foreach (var op in orderProd)
+                //zamówienia
+                try
                 {
-                    
-                    op.Active = false;
-                    context.Entry(op).State = System.Data.Entity.EntityState.Modified;
-                    //_auctionContext.Entry(paymentAttempt).State = EntityState.Modified;
+                    //produkty zamówienia
+                    var orderProd = context.zadOrderProducts.ToList();
+                    orderProd = orderProd.FindAll(o => o.IdOrder == OrderId);
 
+                    foreach (var op in orderProd)
+                    {
+                        op.Active = false;
+                        context.Entry(op).State = System.Data.Entity.EntityState.Modified;
+                        context.SaveChanges();
+                    }
+
+                    var order = context.zadOrders.FirstOrDefault(o => o.IdOrder == OrderId);
+                    order.Active = false;
+                    context.Entry(order).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
 
-                var order = context.zadOrders.FirstOrDefault(o => o.IdOrder == OrderId);
-                order.Active = false;
-                context.Entry(order).State = System.Data.Entity.EntityState.Modified;
-                context.SaveChanges();
-         
-                //Taski
-                //var tasks = context.zadTaskLists.ToList();
-                //tasks = tasks.FindAll(t => t.IdOrder == OrderId);
-                //foreach(var t in tasks)
-                //{
-                //    t.Active = false;
-                //    context.zadTaskLists.Attach(t);
-                //    context.SaveChanges();
-                //}
+            }
+            else
+            {
                 this.Close();
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
     }
 }

@@ -22,6 +22,10 @@ namespace RCPSystem
         [StringLength(150)]
         public string Name { get; set; }
 
+        [Required]
+        [StringLength(10)]
+        public string Symbol { get; set; }
+
         public int IdType { get; set; }
 
         public bool Active { get; set; }

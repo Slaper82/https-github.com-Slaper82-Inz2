@@ -10,21 +10,20 @@ namespace RCPSystem.Class
     class ProdElem
     {
         EFModel context;
-        TreeView Tree;     
         TextBox Name;
-        TreeNode Node;
         ComboBox combo;
         List<zadElement> Elem;
-        public ProdElem(TreeView _tree, TextBox _name,ComboBox _combo)
+        DataGridView dgv;
+        public ProdElem(TextBox _name,ComboBox _combo, DataGridView _dgv)
         {
 
             context = new EFModel();
-            this.Tree = _tree;
+            this.dgv = _dgv;
             this.Name = _name;
             this.combo = _combo;
             Elem = new List<zadElement>();
-            TreeLoad(Node);
             ComboLoad();
+            GridLoad();
         }
         public void ComboLoad()
         {
@@ -34,24 +33,13 @@ namespace RCPSystem.Class
             combo.ValueMember = "IdType";
             combo.DisplayMember = "TypeName"; 
         }
-        public void TreeLoad(TreeNode node)
+
+        public void GridLoad()
         {
-            Tree.Nodes.Clear();
-            var Types = context.zadElements.ToList();//Find(x => x.IdHigherOrgUnit == null).ToList();
-
-            Types.ForEach(delegate (zadElement dep)
-            {
-                node = new TreeNode();
-                if (dep.Active)
-                {
-                    node.Text = dep.Name;
-                    node.Name = dep.IdElement.ToString();
-
-                    this.Tree.Nodes.Add(node);
-                }
-            }
-            );
-            Tree.ExpandAll();
+            Elem = context.zadElements.ToList();
+            Elem = Elem.FindAll(e => e.Active == true);
+            dgv.AutoGenerateColumns = false;
+            dgv.DataSource = Elem;
         }
         public void ButtonAdd(string Name,int TypeId)
         {
@@ -70,9 +58,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                Tree.Nodes.Clear();
-                TreeLoad(Node);
-                Tree.ExpandAll();
+                GridLoad();
                 this.Name.Text = String.Empty;
             }
         }
@@ -90,9 +76,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                Tree.Nodes.Clear();
-                TreeLoad(Node);
-                Tree.ExpandAll();
+                GridLoad();
                 this.Name.Text = String.Empty;
 
             }

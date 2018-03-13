@@ -62,6 +62,7 @@
             this.btnDelOrder.TabIndex = 2;
             this.btnDelOrder.Text = "Usuń";
             this.btnDelOrder.UseVisualStyleBackColor = true;
+            this.btnDelOrder.Click += new System.EventHandler(this.btnDelOrder_Click);
             // 
             // btnEditOrder
             // 
@@ -71,6 +72,7 @@
             this.btnEditOrder.TabIndex = 3;
             this.btnEditOrder.Text = "Edytuj";
             this.btnEditOrder.UseVisualStyleBackColor = true;
+            this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
             // 
             // Orders
             // 

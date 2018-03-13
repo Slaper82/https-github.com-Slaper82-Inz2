@@ -13,40 +13,33 @@ namespace RCPSystem.Class
         Button Add;
         Button Delete;
         TextBox Name;
-        TreeNode Node;
         List<zadType> Types;
-        public ProdTypes(TreeView _tree,Button _add,Button _delete,TextBox _name)
+        DataGridView dgv;
+        public ProdTypes(Button _add,Button _delete,TextBox _name,DataGridView _dgv)
         {
 
             context = new EFModel();              
-            this.Tree = _tree;
+          //  this.Tree = _tree;
             this.Add = _add;
             this.Delete = _delete;
             this.Name = _name;
+            this.dgv = _dgv;
             Types = new List<zadType>();
-            TreeLoad(Node);
-            
+            GridLoad();
+        }
+
+        public void GridLoad()
+        {
+            var Types = context.zadTypes.ToList();
+            Types = Types.FindAll(t => t.Active == true);
+            dgv.AutoGenerateColumns = false;
+            dgv.DataSource = Types;
 
         }
 
-        public void TreeLoad(TreeNode node)
+        public void ButtonAdd(string Name,out int TypeID)
         {
-            var Types= context.zadTypes.ToList();//Find(x => x.IdHigherOrgUnit == null).ToList();
-            
-            Types.ForEach(delegate (zadType dep)
-            {
-                node = new TreeNode();
-                if (dep.Active)
-                {
-                    node.Text = dep.TypeName;
-                    node.Name = dep.IdType.ToString();
-                    this.Tree.Nodes.Add(node);
-                }
-            }
-            );
-        }
-        public void ButtonAdd(string Name)
-        {
+            TypeID = 0;
             try
             {
                 var zad = new zadType();
@@ -54,6 +47,7 @@ namespace RCPSystem.Class
                 zad.Active = true;
                 context.zadTypes.Add(zad);
                 context.SaveChanges();
+                TypeID =zad.IdType;
             }
             catch(Exception ex)
             {
@@ -61,9 +55,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                Tree.Nodes.Clear();
-                TreeLoad(Node);
-                Tree.ExpandAll();
+                GridLoad();
                 this.Name.Text = String.Empty;
             }
         }
@@ -81,9 +73,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                Tree.Nodes.Clear();
-                TreeLoad(Node);
-                Tree.ExpandAll();
+                GridLoad();
                 this.Name.Text = String.Empty;
 
             }

@@ -16,18 +16,25 @@ namespace RCPSystem.Class
         TreeNode Node;  
         ListBox listBox;
         ComboBox combo;
-      
+        DataGridView dgv;
 
-        public ProdDuty(TreeView _tree, TextBox _name,ListBox _list,ComboBox _combo)
+        public ProdDuty(TextBox _name,ListBox _list,ComboBox _combo, DataGridView _dgv)
         {
             context = new EFModel();
             context.Configuration.ProxyCreationEnabled = false;
-            this.Tree = _tree;
+            this.dgv = _dgv;
             this.Name = _name;
             this.listBox = _list;
             this.combo = _combo;
-            TreeLoad(Node);
+            //TreeLoad(Node);
             ComboLoad();
+            GridLoad();
+        }
+        public void GridLoad()
+        {
+            var duties = context.zadDutys.ToList();
+            dgv.DataSource = duties;
+            dgv.Refresh();
         }
         public void ListBoxLoad(int DutyId)
         {
@@ -50,19 +57,19 @@ namespace RCPSystem.Class
             combo.ValueMember = "IdType";
             combo.DisplayMember = "TypeName";
         }
-        public void TreeLoad(TreeNode node)
-        {
-            var Types = context.zadDutys.ToList();//zmienić typ na nowy
+        //public void TreeLoad(TreeNode node)
+        //{
+        //    var Types = context.zadDutys.ToList();//zmienić typ na nowy
 
-            Types.ForEach(delegate (zadDuty dep)
-            {
-                node = new TreeNode();           
-                    node.Text = dep.Name;
-                    node.Name = dep.IdDuty.ToString();
-                    this.Tree.Nodes.Add(node);             
-            }
-            );
-        }
+        //    Types.ForEach(delegate (zadDuty dep)
+        //    {
+        //        node = new TreeNode();           
+        //            node.Text = dep.Name;
+        //            node.Name = dep.IdDuty.ToString();
+        //            this.Tree.Nodes.Add(node);             
+        //    }
+        //    );
+        //}
         public void ButtonAdd(string Name)
         {
             zadDuty zad = new zadDuty();
@@ -78,9 +85,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                Tree.Nodes.Clear();
-                TreeLoad(Node);
-                Tree.ExpandAll();
+                GridLoad();
                 this.Name.Text = String.Empty;
             }
         }
@@ -107,9 +112,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                Tree.Nodes.Clear();
-                TreeLoad(Node);
-                Tree.ExpandAll();
+                GridLoad();
                 listBox.DataSource = null;
                 this.Name.Text = String.Empty;
 

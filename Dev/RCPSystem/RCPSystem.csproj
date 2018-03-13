@@ -90,6 +90,18 @@
     <Compile Include="Forms\Dict.Designer.cs">
       <DependentUpon>Dict.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmElement.Designer.cs">
+      <DependentUpon>FrmElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmElements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmElements.Designer.cs">
+      <DependentUpon>FrmElements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmHarmo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +269,10 @@
     <Compile Include="Migrations\201803041837356_HarmoDefChenges.Designer.cs">
       <DependentUpon>201803041837356_HarmoDefChenges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803132218402_ElementSymbol.cs" />
+    <Compile Include="Migrations\201803132218402_ElementSymbol.Designer.cs">
+      <DependentUpon>201803132218402_ElementSymbol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -297,6 +313,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dict.resx">
       <DependentUpon>Dict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmElement.resx">
+      <DependentUpon>FrmElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmElements.resx">
+      <DependentUpon>FrmElements.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHarmo.resx">
       <DependentUpon>FrmHarmo.cs</DependentUpon>
@@ -408,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803041837356_HarmoDefChenges.resx">
       <DependentUpon>201803041837356_HarmoDefChenges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803132218402_ElementSymbol.resx">
+      <DependentUpon>201803132218402_ElementSymbol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

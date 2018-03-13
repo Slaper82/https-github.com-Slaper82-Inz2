@@ -58,6 +58,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TreeImages = new System.Windows.Forms.ImageList(this.components);
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnCount = new System.Windows.Forms.Button();
             this.tcTimeAtt.SuspendLayout();
             this.tHarmo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,6 +92,9 @@
             this.tcTimeAtt.Controls.Add(this.tHarmo);
             this.tcTimeAtt.Controls.Add(this.tTransactions);
             this.tcTimeAtt.Controls.Add(this.tPairs);
+            this.tcTimeAtt.Controls.Add(this.tabPage1);
+            this.tcTimeAtt.Controls.Add(this.tabPage2);
+            this.tcTimeAtt.Controls.Add(this.tabPage3);
             this.tcTimeAtt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tcTimeAtt.Location = new System.Drawing.Point(369, 230);
             this.tcTimeAtt.Name = "tcTimeAtt";
@@ -370,11 +377,51 @@
             this.TreeImages.Images.SetKeyName(0, "Clock.png");
             this.TreeImages.Images.SetKeyName(1, "Chat.png");
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 37);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1463, 678);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Pary przerw";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 37);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1463, 678);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "Raport czasu pracy";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 37);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1463, 678);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Text = "Raport czasu zadań";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnCount
+            // 
+            this.btnCount.Location = new System.Drawing.Point(886, 84);
+            this.btnCount.Name = "btnCount";
+            this.btnCount.Size = new System.Drawing.Size(188, 75);
+            this.btnCount.TabIndex = 3;
+            this.btnCount.Text = "Przelicz";
+            this.btnCount.UseVisualStyleBackColor = true;
+            // 
             // TimeAttandance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1874, 961);
+            this.Controls.Add(this.btnCount);
             this.Controls.Add(this.gbTime);
             this.Controls.Add(this.tcTimeAtt);
             this.Controls.Add(this.tvUsers);
@@ -425,5 +472,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn User;
         private System.Windows.Forms.DataGridView dgvTranPairs;
         private System.Windows.Forms.ImageList TreeImages;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnCount;
     }
 }

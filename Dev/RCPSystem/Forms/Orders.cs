@@ -41,5 +41,15 @@ namespace RCPSystem.Forms
 
             dgvOrders.DataSource = OrdersList;
         }
+
+        private void btnEditOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelOrder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
