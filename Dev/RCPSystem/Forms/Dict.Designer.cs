@@ -30,12 +30,9 @@
         {
             this.tbDict = new System.Windows.Forms.TabControl();
             this.tpStruct = new System.Windows.Forms.TabPage();
-            this.btnDeleteStruct = new System.Windows.Forms.Button();
-            this.btnAddBranchLow = new System.Windows.Forms.Button();
             this.cmbBranch = new System.Windows.Forms.ComboBox();
             this.txtBranchLow = new System.Windows.Forms.TextBox();
             this.txtBranch = new System.Windows.Forms.TextBox();
-            this.btnAddBranch = new System.Windows.Forms.Button();
             this.tvStruct = new System.Windows.Forms.TreeView();
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
@@ -45,22 +42,17 @@
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnProdAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnProdDel = new System.Windows.Forms.Button();
             this.txtProdDescript = new System.Windows.Forms.TextBox();
             this.txtProdName = new System.Windows.Forms.TextBox();
-            this.btnSaveProdData = new System.Windows.Forms.Button();
             this.tpProdTask = new System.Windows.Forms.TabPage();
             this.dgvProd = new System.Windows.Forms.DataGridView();
             this.lp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnAddType = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTypeName = new System.Windows.Forms.TextBox();
-            this.btnDeleteType = new System.Windows.Forms.Button();
             this.tpElement = new System.Windows.Forms.TabPage();
             this.dgvElemList = new System.Windows.Forms.DataGridView();
             this.lpElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,27 +60,37 @@
             this.IdElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ElemIdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnElemAdd = new System.Windows.Forms.Button();
             this.cmbElem = new System.Windows.Forms.ComboBox();
             this.txtElemName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnElemDel = new System.Windows.Forms.Button();
             this.tpDuty = new System.Windows.Forms.TabPage();
             this.dgvDuty = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDutyDelete = new System.Windows.Forms.Button();
             this.txtDutyName = new System.Windows.Forms.TextBox();
-            this.btnDutySave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbProd = new System.Windows.Forms.ListBox();
-            this.btnAddTypeDuty = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbDutyTypes = new System.Windows.Forms.ComboBox();
             this.tvDuty = new System.Windows.Forms.TreeView();
+            this.btnDeleteStruct = new System.Windows.Forms.Button();
+            this.btnAddBranchLow = new System.Windows.Forms.Button();
+            this.btnAddBranch = new System.Windows.Forms.Button();
+            this.btnProdAdd = new System.Windows.Forms.Button();
+            this.btnProdDel = new System.Windows.Forms.Button();
+            this.btnSaveProdData = new System.Windows.Forms.Button();
+            this.btnAddType = new System.Windows.Forms.Button();
+            this.btnDeleteType = new System.Windows.Forms.Button();
+            this.btnElemAdd = new System.Windows.Forms.Button();
+            this.btnElemDel = new System.Windows.Forms.Button();
+            this.btnDutyDelete = new System.Windows.Forms.Button();
+            this.btnDutySave = new System.Windows.Forms.Button();
+            this.btnAddTypeDuty = new System.Windows.Forms.Button();
             this.btnDutyTypeDelete = new System.Windows.Forms.Button();
+            this.dgvDutyList = new System.Windows.Forms.DataGridView();
+            this.btnDictManage = new System.Windows.Forms.Button();
             this.tbDict.SuspendLayout();
             this.tpStruct.SuspendLayout();
             this.tpProduct.SuspendLayout();
@@ -105,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuty)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDutyList)).BeginInit();
             this.SuspendLayout();
             // 
             // tbDict
@@ -141,34 +144,6 @@
             this.tpStruct.TabIndex = 0;
             this.tpStruct.Text = "Struktura przedsiębiorstwa";
             // 
-            // btnDeleteStruct
-            // 
-            this.btnDeleteStruct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteStruct.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDeleteStruct.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnDeleteStruct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteStruct.Location = new System.Drawing.Point(297, 754);
-            this.btnDeleteStruct.Name = "btnDeleteStruct";
-            this.btnDeleteStruct.Size = new System.Drawing.Size(122, 36);
-            this.btnDeleteStruct.TabIndex = 20;
-            this.btnDeleteStruct.Text = "Usuń ";
-            this.btnDeleteStruct.UseVisualStyleBackColor = true;
-            this.btnDeleteStruct.Click += new System.EventHandler(this.btnDeleteStruct_Click);
-            // 
-            // btnAddBranchLow
-            // 
-            this.btnAddBranchLow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBranchLow.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddBranchLow.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnAddBranchLow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddBranchLow.Location = new System.Drawing.Point(841, 144);
-            this.btnAddBranchLow.Name = "btnAddBranchLow";
-            this.btnAddBranchLow.Size = new System.Drawing.Size(199, 36);
-            this.btnAddBranchLow.TabIndex = 19;
-            this.btnAddBranchLow.Text = "Dodaj";
-            this.btnAddBranchLow.UseVisualStyleBackColor = true;
-            this.btnAddBranchLow.Click += new System.EventHandler(this.btnAddBranchLow_Click);
-            // 
             // cmbBranch
             // 
             this.cmbBranch.FormattingEnabled = true;
@@ -190,20 +165,6 @@
             this.txtBranch.Name = "txtBranch";
             this.txtBranch.Size = new System.Drawing.Size(235, 34);
             this.txtBranch.TabIndex = 16;
-            // 
-            // btnAddBranch
-            // 
-            this.btnAddBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddBranch.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnAddBranch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddBranch.Location = new System.Drawing.Point(576, 54);
-            this.btnAddBranch.Name = "btnAddBranch";
-            this.btnAddBranch.Size = new System.Drawing.Size(199, 36);
-            this.btnAddBranch.TabIndex = 15;
-            this.btnAddBranch.Text = "Dodaj";
-            this.btnAddBranch.UseVisualStyleBackColor = true;
-            this.btnAddBranch.Click += new System.EventHandler(this.btnAddBranch_Click);
             // 
             // tvStruct
             // 
@@ -305,20 +266,6 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "Wprowadź nazwę produktu";
             // 
-            // btnProdAdd
-            // 
-            this.btnProdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProdAdd.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnProdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdAdd.Location = new System.Drawing.Point(22, 134);
-            this.btnProdAdd.Name = "btnProdAdd";
-            this.btnProdAdd.Size = new System.Drawing.Size(147, 36);
-            this.btnProdAdd.TabIndex = 19;
-            this.btnProdAdd.Text = "Dodaj";
-            this.btnProdAdd.UseVisualStyleBackColor = true;
-            this.btnProdAdd.Click += new System.EventHandler(this.btnProdAdd_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -327,19 +274,6 @@
             this.label7.Size = new System.Drawing.Size(139, 28);
             this.label7.TabIndex = 34;
             this.label7.Text = "Opis produktu";
-            // 
-            // btnProdDel
-            // 
-            this.btnProdDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProdDel.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnProdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdDel.Location = new System.Drawing.Point(202, 134);
-            this.btnProdDel.Name = "btnProdDel";
-            this.btnProdDel.Size = new System.Drawing.Size(147, 36);
-            this.btnProdDel.TabIndex = 21;
-            this.btnProdDel.Text = "Usuń ";
-            this.btnProdDel.UseVisualStyleBackColor = true;
             // 
             // txtProdDescript
             // 
@@ -355,18 +289,6 @@
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(327, 34);
             this.txtProdName.TabIndex = 30;
-            // 
-            // btnSaveProdData
-            // 
-            this.btnSaveProdData.Image = global::RCPSystem.Properties.Resources.Floppy2;
-            this.btnSaveProdData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveProdData.Location = new System.Drawing.Point(839, 36);
-            this.btnSaveProdData.Name = "btnSaveProdData";
-            this.btnSaveProdData.Size = new System.Drawing.Size(201, 71);
-            this.btnSaveProdData.TabIndex = 35;
-            this.btnSaveProdData.Text = "Aktualizuj dane";
-            this.btnSaveProdData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveProdData.UseVisualStyleBackColor = true;
             // 
             // tpProdTask
             // 
@@ -428,20 +350,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Dodaj nowe zadanie";
             // 
-            // btnAddType
-            // 
-            this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddType.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnAddType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddType.Location = new System.Drawing.Point(384, 95);
-            this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(173, 36);
-            this.btnAddType.TabIndex = 14;
-            this.btnAddType.Text = "Dodaj";
-            this.btnAddType.UseVisualStyleBackColor = true;
-            this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -457,20 +365,6 @@
             this.txtTypeName.Name = "txtTypeName";
             this.txtTypeName.Size = new System.Drawing.Size(315, 34);
             this.txtTypeName.TabIndex = 3;
-            // 
-            // btnDeleteType
-            // 
-            this.btnDeleteType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDeleteType.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnDeleteType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteType.Location = new System.Drawing.Point(1054, 215);
-            this.btnDeleteType.Name = "btnDeleteType";
-            this.btnDeleteType.Size = new System.Drawing.Size(173, 36);
-            this.btnDeleteType.TabIndex = 16;
-            this.btnDeleteType.Text = "Usuń ";
-            this.btnDeleteType.UseVisualStyleBackColor = true;
-            this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
             // tpElement
             // 
@@ -541,20 +435,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Dodaj nowy element";
             // 
-            // btnElemAdd
-            // 
-            this.btnElemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElemAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnElemAdd.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnElemAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnElemAdd.Location = new System.Drawing.Point(824, 98);
-            this.btnElemAdd.Name = "btnElemAdd";
-            this.btnElemAdd.Size = new System.Drawing.Size(173, 36);
-            this.btnElemAdd.TabIndex = 20;
-            this.btnElemAdd.Text = "Dodaj";
-            this.btnElemAdd.UseVisualStyleBackColor = true;
-            this.btnElemAdd.Click += new System.EventHandler(this.btnElemAdd_Click);
-            // 
             // cmbElem
             // 
             this.cmbElem.FormattingEnabled = true;
@@ -588,23 +468,11 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Wprowadź nazwę elementu";
             // 
-            // btnElemDel
-            // 
-            this.btnElemDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElemDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnElemDel.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnElemDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnElemDel.Location = new System.Drawing.Point(924, 267);
-            this.btnElemDel.Name = "btnElemDel";
-            this.btnElemDel.Size = new System.Drawing.Size(173, 36);
-            this.btnElemDel.TabIndex = 21;
-            this.btnElemDel.Text = "Usuń ";
-            this.btnElemDel.UseVisualStyleBackColor = true;
-            this.btnElemDel.Click += new System.EventHandler(this.btnElemDel_Click);
-            // 
             // tpDuty
             // 
             this.tpDuty.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpDuty.Controls.Add(this.btnDictManage);
+            this.tpDuty.Controls.Add(this.dgvDutyList);
             this.tpDuty.Controls.Add(this.dgvDuty);
             this.tpDuty.Controls.Add(this.groupBox2);
             this.tpDuty.Controls.Add(this.groupBox1);
@@ -624,8 +492,9 @@
             this.dgvDuty.Name = "dgvDuty";
             this.dgvDuty.RowTemplate.Height = 24;
             this.dgvDuty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDuty.Size = new System.Drawing.Size(934, 439);
+            this.dgvDuty.Size = new System.Drawing.Size(515, 439);
             this.dgvDuty.TabIndex = 24;
+            this.dgvDuty.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDuty_RowStateChanged);
             // 
             // groupBox2
             // 
@@ -635,7 +504,7 @@
             this.groupBox2.Controls.Add(this.btnDutySave);
             this.groupBox2.Location = new System.Drawing.Point(21, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(934, 183);
+            this.groupBox2.Size = new System.Drawing.Size(515, 254);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Wprowadź nowy obowiązek";
@@ -649,40 +518,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Wpisz nazwę";
             // 
-            // btnDutyDelete
-            // 
-            this.btnDutyDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDutyDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDutyDelete.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnDutyDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDutyDelete.Location = new System.Drawing.Point(628, 100);
-            this.btnDutyDelete.Name = "btnDutyDelete";
-            this.btnDutyDelete.Size = new System.Drawing.Size(176, 36);
-            this.btnDutyDelete.TabIndex = 15;
-            this.btnDutyDelete.Text = "Usuń ";
-            this.btnDutyDelete.UseVisualStyleBackColor = true;
-            this.btnDutyDelete.Click += new System.EventHandler(this.btnDutyDelete_Click);
-            // 
             // txtDutyName
             // 
             this.txtDutyName.Location = new System.Drawing.Point(25, 102);
             this.txtDutyName.Name = "txtDutyName";
-            this.txtDutyName.Size = new System.Drawing.Size(317, 34);
+            this.txtDutyName.Size = new System.Drawing.Size(414, 34);
             this.txtDutyName.TabIndex = 3;
-            // 
-            // btnDutySave
-            // 
-            this.btnDutySave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDutySave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDutySave.Image = global::RCPSystem.Properties.Resources.Edit;
-            this.btnDutySave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDutySave.Location = new System.Drawing.Point(395, 100);
-            this.btnDutySave.Name = "btnDutySave";
-            this.btnDutySave.Size = new System.Drawing.Size(173, 36);
-            this.btnDutySave.TabIndex = 17;
-            this.btnDutySave.Text = "Zapisz";
-            this.btnDutySave.UseVisualStyleBackColor = true;
-            this.btnDutySave.Click += new System.EventHandler(this.btnDutySave_Click);
             // 
             // groupBox1
             // 
@@ -691,9 +532,9 @@
             this.groupBox1.Controls.Add(this.btnAddTypeDuty);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmbDutyTypes);
-            this.groupBox1.Location = new System.Drawing.Point(970, 38);
+            this.groupBox1.Location = new System.Drawing.Point(1206, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(847, 437);
+            this.groupBox1.Size = new System.Drawing.Size(611, 437);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodaj zadania do wybranego obowiązku";
@@ -716,21 +557,6 @@
             this.lbProd.Size = new System.Drawing.Size(262, 340);
             this.lbProd.TabIndex = 21;
             this.lbProd.SelectedIndexChanged += new System.EventHandler(this.lbProd_SelectedIndexChanged);
-            // 
-            // btnAddTypeDuty
-            // 
-            this.btnAddTypeDuty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTypeDuty.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddTypeDuty.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnAddTypeDuty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddTypeDuty.Location = new System.Drawing.Point(691, 74);
-            this.btnAddTypeDuty.Name = "btnAddTypeDuty";
-            this.btnAddTypeDuty.Size = new System.Drawing.Size(117, 36);
-            this.btnAddTypeDuty.TabIndex = 14;
-            this.btnAddTypeDuty.Text = "Dodaj";
-            this.btnAddTypeDuty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddTypeDuty.UseVisualStyleBackColor = true;
-            this.btnAddTypeDuty.Click += new System.EventHandler(this.btnAddTypeDuty_Click);
             // 
             // label6
             // 
@@ -759,19 +585,218 @@
             this.tvDuty.TabIndex = 1;
             this.tvDuty.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDuty_AfterSelect);
             // 
+            // btnDeleteStruct
+            // 
+            this.btnDeleteStruct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStruct.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDeleteStruct.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnDeleteStruct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteStruct.Location = new System.Drawing.Point(297, 754);
+            this.btnDeleteStruct.Name = "btnDeleteStruct";
+            this.btnDeleteStruct.Size = new System.Drawing.Size(122, 36);
+            this.btnDeleteStruct.TabIndex = 20;
+            this.btnDeleteStruct.Text = "Usuń ";
+            this.btnDeleteStruct.UseVisualStyleBackColor = true;
+            this.btnDeleteStruct.Click += new System.EventHandler(this.btnDeleteStruct_Click);
+            // 
+            // btnAddBranchLow
+            // 
+            this.btnAddBranchLow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBranchLow.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddBranchLow.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnAddBranchLow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddBranchLow.Location = new System.Drawing.Point(841, 144);
+            this.btnAddBranchLow.Name = "btnAddBranchLow";
+            this.btnAddBranchLow.Size = new System.Drawing.Size(199, 36);
+            this.btnAddBranchLow.TabIndex = 19;
+            this.btnAddBranchLow.Text = "Dodaj";
+            this.btnAddBranchLow.UseVisualStyleBackColor = true;
+            this.btnAddBranchLow.Click += new System.EventHandler(this.btnAddBranchLow_Click);
+            // 
+            // btnAddBranch
+            // 
+            this.btnAddBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddBranch.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnAddBranch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddBranch.Location = new System.Drawing.Point(576, 54);
+            this.btnAddBranch.Name = "btnAddBranch";
+            this.btnAddBranch.Size = new System.Drawing.Size(199, 36);
+            this.btnAddBranch.TabIndex = 15;
+            this.btnAddBranch.Text = "Dodaj";
+            this.btnAddBranch.UseVisualStyleBackColor = true;
+            this.btnAddBranch.Click += new System.EventHandler(this.btnAddBranch_Click);
+            // 
+            // btnProdAdd
+            // 
+            this.btnProdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnProdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdAdd.Location = new System.Drawing.Point(22, 134);
+            this.btnProdAdd.Name = "btnProdAdd";
+            this.btnProdAdd.Size = new System.Drawing.Size(147, 36);
+            this.btnProdAdd.TabIndex = 19;
+            this.btnProdAdd.Text = "Dodaj";
+            this.btnProdAdd.UseVisualStyleBackColor = true;
+            this.btnProdAdd.Click += new System.EventHandler(this.btnProdAdd_Click);
+            // 
+            // btnProdDel
+            // 
+            this.btnProdDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnProdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdDel.Location = new System.Drawing.Point(202, 134);
+            this.btnProdDel.Name = "btnProdDel";
+            this.btnProdDel.Size = new System.Drawing.Size(147, 36);
+            this.btnProdDel.TabIndex = 21;
+            this.btnProdDel.Text = "Usuń ";
+            this.btnProdDel.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveProdData
+            // 
+            this.btnSaveProdData.Image = global::RCPSystem.Properties.Resources.Floppy2;
+            this.btnSaveProdData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveProdData.Location = new System.Drawing.Point(839, 36);
+            this.btnSaveProdData.Name = "btnSaveProdData";
+            this.btnSaveProdData.Size = new System.Drawing.Size(201, 71);
+            this.btnSaveProdData.TabIndex = 35;
+            this.btnSaveProdData.Text = "Aktualizuj dane";
+            this.btnSaveProdData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveProdData.UseVisualStyleBackColor = true;
+            // 
+            // btnAddType
+            // 
+            this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddType.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnAddType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddType.Location = new System.Drawing.Point(384, 95);
+            this.btnAddType.Name = "btnAddType";
+            this.btnAddType.Size = new System.Drawing.Size(173, 36);
+            this.btnAddType.TabIndex = 14;
+            this.btnAddType.Text = "Dodaj";
+            this.btnAddType.UseVisualStyleBackColor = true;
+            this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
+            // 
+            // btnDeleteType
+            // 
+            this.btnDeleteType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDeleteType.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnDeleteType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteType.Location = new System.Drawing.Point(1054, 215);
+            this.btnDeleteType.Name = "btnDeleteType";
+            this.btnDeleteType.Size = new System.Drawing.Size(173, 36);
+            this.btnDeleteType.TabIndex = 16;
+            this.btnDeleteType.Text = "Usuń ";
+            this.btnDeleteType.UseVisualStyleBackColor = true;
+            this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
+            // 
+            // btnElemAdd
+            // 
+            this.btnElemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElemAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnElemAdd.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnElemAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnElemAdd.Location = new System.Drawing.Point(824, 98);
+            this.btnElemAdd.Name = "btnElemAdd";
+            this.btnElemAdd.Size = new System.Drawing.Size(173, 36);
+            this.btnElemAdd.TabIndex = 20;
+            this.btnElemAdd.Text = "Dodaj";
+            this.btnElemAdd.UseVisualStyleBackColor = true;
+            this.btnElemAdd.Click += new System.EventHandler(this.btnElemAdd_Click);
+            // 
+            // btnElemDel
+            // 
+            this.btnElemDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElemDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnElemDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnElemDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnElemDel.Location = new System.Drawing.Point(924, 267);
+            this.btnElemDel.Name = "btnElemDel";
+            this.btnElemDel.Size = new System.Drawing.Size(173, 36);
+            this.btnElemDel.TabIndex = 21;
+            this.btnElemDel.Text = "Usuń ";
+            this.btnElemDel.UseVisualStyleBackColor = true;
+            this.btnElemDel.Click += new System.EventHandler(this.btnElemDel_Click);
+            // 
+            // btnDutyDelete
+            // 
+            this.btnDutyDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDutyDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDutyDelete.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnDutyDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDutyDelete.Location = new System.Drawing.Point(263, 172);
+            this.btnDutyDelete.Name = "btnDutyDelete";
+            this.btnDutyDelete.Size = new System.Drawing.Size(176, 36);
+            this.btnDutyDelete.TabIndex = 15;
+            this.btnDutyDelete.Text = "Usuń ";
+            this.btnDutyDelete.UseVisualStyleBackColor = true;
+            this.btnDutyDelete.Click += new System.EventHandler(this.btnDutyDelete_Click);
+            // 
+            // btnDutySave
+            // 
+            this.btnDutySave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDutySave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDutySave.Image = global::RCPSystem.Properties.Resources.Edit;
+            this.btnDutySave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDutySave.Location = new System.Drawing.Point(25, 172);
+            this.btnDutySave.Name = "btnDutySave";
+            this.btnDutySave.Size = new System.Drawing.Size(173, 36);
+            this.btnDutySave.TabIndex = 17;
+            this.btnDutySave.Text = "Zapisz";
+            this.btnDutySave.UseVisualStyleBackColor = true;
+            this.btnDutySave.Click += new System.EventHandler(this.btnDutySave_Click);
+            // 
+            // btnAddTypeDuty
+            // 
+            this.btnAddTypeDuty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTypeDuty.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddTypeDuty.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnAddTypeDuty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddTypeDuty.Location = new System.Drawing.Point(691, 74);
+            this.btnAddTypeDuty.Name = "btnAddTypeDuty";
+            this.btnAddTypeDuty.Size = new System.Drawing.Size(117, 36);
+            this.btnAddTypeDuty.TabIndex = 14;
+            this.btnAddTypeDuty.Text = "Dodaj";
+            this.btnAddTypeDuty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddTypeDuty.UseVisualStyleBackColor = true;
+            this.btnAddTypeDuty.Click += new System.EventHandler(this.btnAddTypeDuty_Click);
+            // 
             // btnDutyTypeDelete
             // 
             this.btnDutyTypeDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDutyTypeDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDutyTypeDelete.Image = global::RCPSystem.Properties.Resources.Delete;
             this.btnDutyTypeDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDutyTypeDelete.Location = new System.Drawing.Point(1148, 571);
+            this.btnDutyTypeDelete.Location = new System.Drawing.Point(1246, 535);
             this.btnDutyTypeDelete.Name = "btnDutyTypeDelete";
-            this.btnDutyTypeDelete.Size = new System.Drawing.Size(157, 36);
+            this.btnDutyTypeDelete.Size = new System.Drawing.Size(133, 36);
             this.btnDutyTypeDelete.TabIndex = 20;
             this.btnDutyTypeDelete.Text = "Usuń ";
             this.btnDutyTypeDelete.UseVisualStyleBackColor = true;
             this.btnDutyTypeDelete.Click += new System.EventHandler(this.btnDutyTypeDelete_Click);
+            // 
+            // dgvDutyList
+            // 
+            this.dgvDutyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDutyList.Location = new System.Drawing.Point(749, 38);
+            this.dgvDutyList.Name = "dgvDutyList";
+            this.dgvDutyList.RowTemplate.Height = 24;
+            this.dgvDutyList.Size = new System.Drawing.Size(256, 313);
+            this.dgvDutyList.TabIndex = 25;
+            // 
+            // btnDictManage
+            // 
+            this.btnDictManage.Location = new System.Drawing.Point(840, 394);
+            this.btnDictManage.Name = "btnDictManage";
+            this.btnDictManage.Size = new System.Drawing.Size(165, 69);
+            this.btnDictManage.TabIndex = 26;
+            this.btnDictManage.Text = "Zarządzaj obowiązkami";
+            this.btnDictManage.UseVisualStyleBackColor = true;
+            this.btnDictManage.Click += new System.EventHandler(this.btnDictManage_Click);
             // 
             // Dict
             // 
@@ -804,6 +829,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDutyList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -871,5 +897,7 @@
         private System.Windows.Forms.Button btnAddElemnt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDictManage;
+        private System.Windows.Forms.DataGridView dgvDutyList;
     }
 }

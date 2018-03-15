@@ -90,6 +90,12 @@
     <Compile Include="Forms\Dict.Designer.cs">
       <DependentUpon>Dict.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmDuty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDuty.Designer.cs">
+      <DependentUpon>FrmDuty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmElement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dict.resx">
       <DependentUpon>Dict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDuty.resx">
+      <DependentUpon>FrmDuty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmElement.resx">
       <DependentUpon>FrmElement.cs</DependentUpon>

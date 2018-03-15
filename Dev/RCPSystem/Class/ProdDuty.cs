@@ -10,31 +10,43 @@ namespace RCPSystem.Class
 {
     public class ProdDuty
     {
-        EFModel context;
-        TreeView Tree;      
-        TextBox Name;
-        TreeNode Node;  
+        EFModel context;    
+        TextBox Name; 
         ListBox listBox;
         ComboBox combo;
-        DataGridView dgv;
+        DataGridView dgvDuty;
+        DataGridView dgvTask;
 
-        public ProdDuty(TextBox _name,ListBox _list,ComboBox _combo, DataGridView _dgv)
+        public ProdDuty(TextBox _name,ListBox _list, DataGridView _dgvDuty, DataGridView _dgvTask)
         {
             context = new EFModel();
             context.Configuration.ProxyCreationEnabled = false;
-            this.dgv = _dgv;
+            this.dgvDuty = _dgvDuty;
+            this.dgvTask = _dgvTask;
             this.Name = _name;
             this.listBox = _list;
-            this.combo = _combo;
-            //TreeLoad(Node);
-            ComboLoad();
-            GridLoad();
+            //ComboLoad();
+            GridDutyLoad();
         }
-        public void GridLoad()
+        public void GridDutyLoad()
         {
             var duties = context.zadDutys.ToList();
-            dgv.DataSource = duties;
-            dgv.Refresh();
+            dgvDuty.DataSource = duties;
+            dgvDuty.Refresh();
+        }
+
+        public void GridDutyTaskLoad(int DutyID)
+        {
+            var list = context.zadTypes.ToList();
+            var Source = (from type in context.zadTypes
+                          join duty in context.zadDutyTypes on type.IdType equals duty.IdType
+                          where duty.IdDuty == DutyID
+                          select type).ToList();
+            List<zadType> zad = Source.ToList();
+
+            var duties = context.zadDutys.ToList();
+            dgvTask.DataSource = zad;
+            dgvTask.Refresh();
         }
         public void ListBoxLoad(int DutyId)
         {
@@ -50,13 +62,13 @@ namespace RCPSystem.Class
             listBox.DisplayMember = "TypeName";
            // listView.Items.A = context.zadTypes.ToList();
         }
-        public void ComboLoad()
-        {
-            var list = context.zadTypes.ToList();
-            combo.DataSource = list.FindAll(l => l.Active != false);
-            combo.ValueMember = "IdType";
-            combo.DisplayMember = "TypeName";
-        }
+        //public void ComboLoad()
+        //{
+        //    var list = context.zadTypes.ToList();
+        //    combo.DataSource = list.FindAll(l => l.Active != false);
+        //    combo.ValueMember = "IdType";
+        //    combo.DisplayMember = "TypeName";
+        //}
         //public void TreeLoad(TreeNode node)
         //{
         //    var Types = context.zadDutys.ToList();//zmienić typ na nowy
@@ -85,7 +97,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                GridLoad();
+                GridDutyLoad();
                 this.Name.Text = String.Empty;
             }
         }
@@ -112,7 +124,7 @@ namespace RCPSystem.Class
             }
             finally
             {
-                GridLoad();
+                GridDutyLoad();
                 listBox.DataSource = null;
                 this.Name.Text = String.Empty;
 
@@ -135,8 +147,8 @@ namespace RCPSystem.Class
             }
             finally
             {
-               
-                ListBoxLoad(DutyId);
+                GridDutyTaskLoad(DutyId);
+                //ListBoxLoad(DutyId);
                 //listView.Load pewnie contextem.
                 this.Name.Text = String.Empty;
 
@@ -161,7 +173,8 @@ namespace RCPSystem.Class
             finally
             {              
                 this.Name.Text = String.Empty;
-                ListBoxLoad(DutyId);
+                GridDutyTaskLoad(DutyId);
+                //ListBoxLoad(DutyId);
                 //listView.Load pewnie contextem.
                 this.Name.Text = String.Empty;
 

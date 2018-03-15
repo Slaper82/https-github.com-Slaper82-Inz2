@@ -35,7 +35,7 @@ namespace RCPSystem.Forms
             tvStruct.ExpandAll();
             StructComboLoad();
             type = new ProdTypes( btnAddType, btnDeleteType, txtTypeName,dgvProd);
-            duty = new ProdDuty(txtDutyName,lbProd,cmbDutyTypes,dgvDuty);
+            duty = new ProdDuty(txtDutyName,lbProd,dgvDuty,dgvDutyList);
             elem = new ProdElem(txtElemName,cmbElem,dgvElemList);
             product = new Product( txtProdName, txtProdDescript,dgvProducts,dgvElem);
 
@@ -190,7 +190,6 @@ namespace RCPSystem.Forms
                 if (dgvProd.SelectedRows.Count > 0)
                     TypeID = Convert.ToInt32(dgvProd.SelectedRows[0].Cells["IdType"].Value.ToString());
             }
-
         }
 
         private void btnDeleteType_Click(object sender, EventArgs e)
@@ -206,7 +205,7 @@ namespace RCPSystem.Forms
         {
             DutyID = Convert.ToInt32(e.Node.Name);
             duty.ListBoxLoad(DutyID);
-            duty.ComboLoad();
+          //  duty.ComboLoad();
 
         }
       
@@ -229,6 +228,18 @@ namespace RCPSystem.Forms
             else
             {
                 MessageBox.Show("Wybierz obowiązek!");
+            }
+        }
+        private void dgvDuty_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
+            else
+            {
+                if (dgvDuty.SelectedRows.Count > 0)
+                {
+                    DutyID = Convert.ToInt32(dgvDuty.SelectedRows[0].Cells["IdDuty"].Value.ToString());
+                    duty.GridDutyTaskLoad(DutyID);
+                }
             }
         }
 
@@ -450,6 +461,17 @@ namespace RCPSystem.Forms
             this.dgvProd.Rows[e.RowIndex].Cells["lp"].Value = (e.RowIndex + 1).ToString();
         }
 
-     
+        private void btnDictManage_Click(object sender, EventArgs e)
+        {
+            if (DutyID > 0)
+            {
+                FrmDuty DutyManage = new FrmDuty(DutyID);
+                DutyManage.Changed += duty.GridDutyTaskLoad;
+                DutyManage.ShowDialog();
+            }
+
+        }
+
+   
     }
 }
