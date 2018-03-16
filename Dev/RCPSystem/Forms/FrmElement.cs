@@ -15,6 +15,7 @@ namespace RCPSystem.Forms
     {
         EFModel context;
         public int ProdId { get; set; }
+        public int ElemID { get; set; }
         public event Refresh Added;
 
         public FrmElement(int _prodId)
@@ -27,9 +28,14 @@ namespace RCPSystem.Forms
 
         public void GridLoad()
         {
-            var elems = context.zadProdElems.ToList();
-            elems = elems.FindAll(e => e.IdProduct == ProdId);
-            dgvElem.DataSource = elems;
+            var elem = (from el in context.zadElements
+                        join prod in context.zadProdElems on el.IdElement equals prod.IdElement
+                        where prod.IdProduct == ProdId
+                        select new { Id = el.IdElement,el.Symbol, el.Name, prod.Quantity }).ToList();
+
+            dgvElem.DataSource = elem;
+            dgvElem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvElem.AutoResizeColumns();
         }
 
         private void btnAddElem_Click(object sender, EventArgs e)
@@ -65,12 +71,50 @@ namespace RCPSystem.Forms
                 {
                     GridLoad();
                     Added(ProdId);
+                    txtName.Text = String.Empty;
+                    txtSymbol.Text = String.Empty;
+                    txtQuan.Text = String.Empty;
                 }
             }
             else
             {
                 MessageBox.Show("Uzupełnij wszystkie pola!");
             } 
+        }
+
+        private void btnPodElemeDel_Click(object sender, EventArgs e)
+        {
+            if (ElemID > 0)
+            {
+                try
+                {
+                    var elem = context.zadProdElems.FirstOrDefault(el => el.IdElement.Equals(ElemID) && el.IdProduct.Equals(ProdId));
+                    context.zadProdElems.Attach(elem);
+                    context.zadProdElems.Remove(elem);
+                    context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    GridLoad();
+                    Added(ProdId);
+                }
+            }
+        }
+
+        private void dgvElem_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
+            else
+            {
+                if (dgvElem.SelectedRows.Count > 0)
+                {
+                    ElemID = Convert.ToInt32(dgvElem.SelectedRows[0].Cells["Id"].Value.ToString());
+                }
+            }
         }
     }
 }

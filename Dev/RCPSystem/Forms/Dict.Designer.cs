@@ -47,9 +47,6 @@
             this.txtProdName = new System.Windows.Forms.TextBox();
             this.tpProdTask = new System.Windows.Forms.TabPage();
             this.dgvProd = new System.Windows.Forms.DataGridView();
-            this.lp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTypeName = new System.Windows.Forms.TextBox();
@@ -65,16 +62,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpDuty = new System.Windows.Forms.TabPage();
+            this.btnDictManage = new System.Windows.Forms.Button();
+            this.dgvDutyList = new System.Windows.Forms.DataGridView();
             this.dgvDuty = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDutyName = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbProd = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbDutyTypes = new System.Windows.Forms.ComboBox();
-            this.tvDuty = new System.Windows.Forms.TreeView();
+            this.ProdLp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeleteStruct = new System.Windows.Forms.Button();
             this.btnAddBranchLow = new System.Windows.Forms.Button();
             this.btnAddBranch = new System.Windows.Forms.Button();
@@ -87,10 +87,15 @@
             this.btnElemDel = new System.Windows.Forms.Button();
             this.btnDutyDelete = new System.Windows.Forms.Button();
             this.btnDutySave = new System.Windows.Forms.Button();
-            this.btnAddTypeDuty = new System.Windows.Forms.Button();
-            this.btnDutyTypeDelete = new System.Windows.Forms.Button();
-            this.dgvDutyList = new System.Windows.Forms.DataGridView();
-            this.btnDictManage = new System.Windows.Forms.Button();
+            this.lp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Binded = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTypeDict = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeNameDict = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LpDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DutyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbDict.SuspendLayout();
             this.tpStruct.SuspendLayout();
             this.tpProduct.SuspendLayout();
@@ -104,10 +109,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvElemList)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.tpDuty.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDutyList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuty)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDutyList)).BeginInit();
             this.SuspendLayout();
             // 
             // tbDict
@@ -178,12 +182,13 @@
             // 
             this.tpProduct.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tpProduct.Controls.Add(this.label9);
+            this.tpProduct.Controls.Add(this.btnProdAdd);
+            this.tpProduct.Controls.Add(this.btnProdDel);
             this.tpProduct.Controls.Add(this.label8);
             this.tpProduct.Controls.Add(this.btnAddElemnt);
             this.tpProduct.Controls.Add(this.dgvElem);
             this.tpProduct.Controls.Add(this.dgvProducts);
             this.tpProduct.Controls.Add(this.groupBox3);
-            this.tpProduct.Controls.Add(this.btnSaveProdData);
             this.tpProduct.Location = new System.Drawing.Point(4, 37);
             this.tpProduct.Name = "tpProduct";
             this.tpProduct.Padding = new System.Windows.Forms.Padding(3);
@@ -194,7 +199,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(785, 302);
+            this.label9.Location = new System.Drawing.Point(840, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(178, 28);
             this.label9.TabIndex = 39;
@@ -214,7 +219,7 @@
             this.btnAddElemnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddElemnt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddElemnt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddElemnt.Location = new System.Drawing.Point(1083, 241);
+            this.btnAddElemnt.Location = new System.Drawing.Point(1144, 522);
             this.btnAddElemnt.Name = "btnAddElemnt";
             this.btnAddElemnt.Size = new System.Drawing.Size(213, 51);
             this.btnAddElemnt.TabIndex = 35;
@@ -224,8 +229,16 @@
             // 
             // dgvElem
             // 
+            this.dgvElem.AllowUserToAddRows = false;
+            this.dgvElem.AllowUserToDeleteRows = false;
             this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvElem.Location = new System.Drawing.Point(790, 334);
+            this.dgvElem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdElem,
+            this.Symbol,
+            this.NameElem,
+            this.Quantity});
+            this.dgvElem.Location = new System.Drawing.Point(851, 48);
+            this.dgvElem.MultiSelect = false;
             this.dgvElem.Name = "dgvElem";
             this.dgvElem.RowTemplate.Height = 24;
             this.dgvElem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -235,21 +248,25 @@
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProdLp,
+            this.ProdName,
+            this.IdProduct});
             this.dgvProducts.Location = new System.Drawing.Point(14, 334);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(521, 456);
+            this.dgvProducts.Size = new System.Drawing.Size(740, 456);
             this.dgvProducts.TabIndex = 38;
+            this.dgvProducts.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProducts_RowPostPaint);
             this.dgvProducts.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvProducts_RowStateChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.btnProdAdd);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.btnProdDel);
             this.groupBox3.Controls.Add(this.txtProdDescript);
             this.groupBox3.Controls.Add(this.txtProdName);
+            this.groupBox3.Controls.Add(this.btnSaveProdData);
             this.groupBox3.Location = new System.Drawing.Point(14, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(776, 264);
@@ -280,7 +297,7 @@
             this.txtProdDescript.Location = new System.Drawing.Point(409, 68);
             this.txtProdDescript.Multiline = true;
             this.txtProdDescript.Name = "txtProdDescript";
-            this.txtProdDescript.Size = new System.Drawing.Size(307, 155);
+            this.txtProdDescript.Size = new System.Drawing.Size(331, 155);
             this.txtProdDescript.TabIndex = 33;
             // 
             // txtProdName
@@ -310,7 +327,8 @@
             this.dgvProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lp,
             this.TypeName,
-            this.IdType});
+            this.IdType,
+            this.Binded});
             this.dgvProd.Location = new System.Drawing.Point(26, 269);
             this.dgvProd.MultiSelect = false;
             this.dgvProd.Name = "dgvProd";
@@ -320,23 +338,6 @@
             this.dgvProd.TabIndex = 19;
             this.dgvProd.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProd_RowPostPaint);
             this.dgvProd.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvProd_RowStateChanged);
-            // 
-            // lp
-            // 
-            this.lp.HeaderText = "Lp";
-            this.lp.Name = "lp";
-            // 
-            // TypeName
-            // 
-            this.TypeName.DataPropertyName = "TypeName";
-            this.TypeName.HeaderText = "Nazwa zadania";
-            this.TypeName.Name = "TypeName";
-            // 
-            // IdType
-            // 
-            this.IdType.DataPropertyName = "IdType";
-            this.IdType.HeaderText = "Id";
-            this.IdType.Name = "IdType";
             // 
             // groupBox5
             // 
@@ -475,9 +476,6 @@
             this.tpDuty.Controls.Add(this.dgvDutyList);
             this.tpDuty.Controls.Add(this.dgvDuty);
             this.tpDuty.Controls.Add(this.groupBox2);
-            this.tpDuty.Controls.Add(this.groupBox1);
-            this.tpDuty.Controls.Add(this.tvDuty);
-            this.tpDuty.Controls.Add(this.btnDutyTypeDelete);
             this.tpDuty.Location = new System.Drawing.Point(4, 37);
             this.tpDuty.Name = "tpDuty";
             this.tpDuty.Padding = new System.Windows.Forms.Padding(3);
@@ -485,15 +483,42 @@
             this.tpDuty.TabIndex = 1;
             this.tpDuty.Text = "Słownik obowiązków";
             // 
+            // btnDictManage
+            // 
+            this.btnDictManage.Location = new System.Drawing.Point(1049, 396);
+            this.btnDictManage.Name = "btnDictManage";
+            this.btnDictManage.Size = new System.Drawing.Size(165, 69);
+            this.btnDictManage.TabIndex = 26;
+            this.btnDictManage.Text = "Zarządzaj obowiązkami";
+            this.btnDictManage.UseVisualStyleBackColor = true;
+            this.btnDictManage.Click += new System.EventHandler(this.btnDictManage_Click);
+            // 
+            // dgvDutyList
+            // 
+            this.dgvDutyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDutyList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdTypeDict,
+            this.TypeNameDict});
+            this.dgvDutyList.Location = new System.Drawing.Point(749, 38);
+            this.dgvDutyList.Name = "dgvDutyList";
+            this.dgvDutyList.RowTemplate.Height = 24;
+            this.dgvDutyList.Size = new System.Drawing.Size(465, 313);
+            this.dgvDutyList.TabIndex = 25;
+            // 
             // dgvDuty
             // 
             this.dgvDuty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDuty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LpDuty,
+            this.IdDuty,
+            this.DutyName});
             this.dgvDuty.Location = new System.Drawing.Point(21, 309);
             this.dgvDuty.Name = "dgvDuty";
             this.dgvDuty.RowTemplate.Height = 24;
             this.dgvDuty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDuty.Size = new System.Drawing.Size(515, 439);
+            this.dgvDuty.Size = new System.Drawing.Size(636, 439);
             this.dgvDuty.TabIndex = 24;
+            this.dgvDuty.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDuty_RowPostPaint);
             this.dgvDuty.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDuty_RowStateChanged);
             // 
             // groupBox2
@@ -504,7 +529,7 @@
             this.groupBox2.Controls.Add(this.btnDutySave);
             this.groupBox2.Location = new System.Drawing.Point(21, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(515, 254);
+            this.groupBox2.Size = new System.Drawing.Size(636, 254);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Wprowadź nowy obowiązek";
@@ -525,65 +550,47 @@
             this.txtDutyName.Size = new System.Drawing.Size(414, 34);
             this.txtDutyName.TabIndex = 3;
             // 
-            // groupBox1
+            // ProdLp
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.lbProd);
-            this.groupBox1.Controls.Add(this.btnAddTypeDuty);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.cmbDutyTypes);
-            this.groupBox1.Location = new System.Drawing.Point(1206, 38);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 437);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dodaj zadania do wybranego obowiązku";
+            this.ProdLp.HeaderText = "Lp";
+            this.ProdLp.Name = "ProdLp";
             // 
-            // label4
+            // ProdName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(85, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 28);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Lista zadań";
+            this.ProdName.DataPropertyName = "Name";
+            this.ProdName.HeaderText = "Nazwa";
+            this.ProdName.Name = "ProdName";
             // 
-            // lbProd
+            // IdProduct
             // 
-            this.lbProd.FormattingEnabled = true;
-            this.lbProd.ItemHeight = 28;
-            this.lbProd.Location = new System.Drawing.Point(25, 85);
-            this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(262, 340);
-            this.lbProd.TabIndex = 21;
-            this.lbProd.SelectedIndexChanged += new System.EventHandler(this.lbProd_SelectedIndexChanged);
+            this.IdProduct.DataPropertyName = "IdProduct";
+            this.IdProduct.HeaderText = "IdProduct";
+            this.IdProduct.Name = "IdProduct";
+            this.IdProduct.Visible = false;
             // 
-            // label6
+            // IdElem
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(400, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(191, 28);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Dodaj do listy zadań";
+            this.IdElem.DataPropertyName = "Id";
+            this.IdElem.HeaderText = "Id";
+            this.IdElem.Name = "IdElem";
             // 
-            // cmbDutyTypes
+            // Symbol
             // 
-            this.cmbDutyTypes.FormattingEnabled = true;
-            this.cmbDutyTypes.Location = new System.Drawing.Point(405, 74);
-            this.cmbDutyTypes.Name = "cmbDutyTypes";
-            this.cmbDutyTypes.Size = new System.Drawing.Size(267, 36);
-            this.cmbDutyTypes.TabIndex = 18;
+            this.Symbol.DataPropertyName = "Symbol";
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
             // 
-            // tvDuty
+            // NameElem
             // 
-            this.tvDuty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tvDuty.Location = new System.Drawing.Point(1426, 502);
-            this.tvDuty.Name = "tvDuty";
-            this.tvDuty.Size = new System.Drawing.Size(279, 288);
-            this.tvDuty.TabIndex = 1;
-            this.tvDuty.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDuty_AfterSelect);
+            this.NameElem.DataPropertyName = "Name";
+            this.NameElem.HeaderText = "Nazwa";
+            this.NameElem.Name = "NameElem";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Ilość";
+            this.Quantity.Name = "Quantity";
             // 
             // btnDeleteStruct
             // 
@@ -633,7 +640,7 @@
             this.btnProdAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnProdAdd.Image = global::RCPSystem.Properties.Resources.Add1;
             this.btnProdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdAdd.Location = new System.Drawing.Point(22, 134);
+            this.btnProdAdd.Location = new System.Drawing.Point(776, 754);
             this.btnProdAdd.Name = "btnProdAdd";
             this.btnProdAdd.Size = new System.Drawing.Size(147, 36);
             this.btnProdAdd.TabIndex = 19;
@@ -647,24 +654,26 @@
             this.btnProdDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnProdDel.Image = global::RCPSystem.Properties.Resources.Delete;
             this.btnProdDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdDel.Location = new System.Drawing.Point(202, 134);
+            this.btnProdDel.Location = new System.Drawing.Point(965, 754);
             this.btnProdDel.Name = "btnProdDel";
             this.btnProdDel.Size = new System.Drawing.Size(147, 36);
             this.btnProdDel.TabIndex = 21;
             this.btnProdDel.Text = "Usuń ";
             this.btnProdDel.UseVisualStyleBackColor = true;
+            this.btnProdDel.Click += new System.EventHandler(this.btnProdDel_Click);
             // 
             // btnSaveProdData
             // 
             this.btnSaveProdData.Image = global::RCPSystem.Properties.Resources.Floppy2;
             this.btnSaveProdData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveProdData.Location = new System.Drawing.Point(839, 36);
+            this.btnSaveProdData.Location = new System.Drawing.Point(22, 174);
             this.btnSaveProdData.Name = "btnSaveProdData";
-            this.btnSaveProdData.Size = new System.Drawing.Size(201, 71);
+            this.btnSaveProdData.Size = new System.Drawing.Size(209, 49);
             this.btnSaveProdData.TabIndex = 35;
             this.btnSaveProdData.Text = "Aktualizuj dane";
             this.btnSaveProdData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSaveProdData.UseVisualStyleBackColor = true;
+            this.btnSaveProdData.Click += new System.EventHandler(this.btnSaveProdData_Click);
             // 
             // btnAddType
             // 
@@ -750,53 +759,57 @@
             this.btnDutySave.UseVisualStyleBackColor = true;
             this.btnDutySave.Click += new System.EventHandler(this.btnDutySave_Click);
             // 
-            // btnAddTypeDuty
+            // lp
             // 
-            this.btnAddTypeDuty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTypeDuty.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddTypeDuty.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnAddTypeDuty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddTypeDuty.Location = new System.Drawing.Point(691, 74);
-            this.btnAddTypeDuty.Name = "btnAddTypeDuty";
-            this.btnAddTypeDuty.Size = new System.Drawing.Size(117, 36);
-            this.btnAddTypeDuty.TabIndex = 14;
-            this.btnAddTypeDuty.Text = "Dodaj";
-            this.btnAddTypeDuty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddTypeDuty.UseVisualStyleBackColor = true;
-            this.btnAddTypeDuty.Click += new System.EventHandler(this.btnAddTypeDuty_Click);
+            this.lp.HeaderText = "Lp";
+            this.lp.Name = "lp";
             // 
-            // btnDutyTypeDelete
+            // TypeName
             // 
-            this.btnDutyTypeDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDutyTypeDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDutyTypeDelete.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnDutyTypeDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDutyTypeDelete.Location = new System.Drawing.Point(1246, 535);
-            this.btnDutyTypeDelete.Name = "btnDutyTypeDelete";
-            this.btnDutyTypeDelete.Size = new System.Drawing.Size(133, 36);
-            this.btnDutyTypeDelete.TabIndex = 20;
-            this.btnDutyTypeDelete.Text = "Usuń ";
-            this.btnDutyTypeDelete.UseVisualStyleBackColor = true;
-            this.btnDutyTypeDelete.Click += new System.EventHandler(this.btnDutyTypeDelete_Click);
+            this.TypeName.DataPropertyName = "Nazwa";
+            this.TypeName.HeaderText = "Nazwa zadania";
+            this.TypeName.Name = "TypeName";
             // 
-            // dgvDutyList
+            // IdType
             // 
-            this.dgvDutyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDutyList.Location = new System.Drawing.Point(749, 38);
-            this.dgvDutyList.Name = "dgvDutyList";
-            this.dgvDutyList.RowTemplate.Height = 24;
-            this.dgvDutyList.Size = new System.Drawing.Size(256, 313);
-            this.dgvDutyList.TabIndex = 25;
+            this.IdType.DataPropertyName = "IdType";
+            this.IdType.HeaderText = "Id";
+            this.IdType.Name = "IdType";
             // 
-            // btnDictManage
+            // Binded
             // 
-            this.btnDictManage.Location = new System.Drawing.Point(840, 394);
-            this.btnDictManage.Name = "btnDictManage";
-            this.btnDictManage.Size = new System.Drawing.Size(165, 69);
-            this.btnDictManage.TabIndex = 26;
-            this.btnDictManage.Text = "Zarządzaj obowiązkami";
-            this.btnDictManage.UseVisualStyleBackColor = true;
-            this.btnDictManage.Click += new System.EventHandler(this.btnDictManage_Click);
+            this.Binded.DataPropertyName = "Przypisany";
+            this.Binded.HeaderText = "Przypisany element";
+            this.Binded.Name = "Binded";
+            // 
+            // IdTypeDict
+            // 
+            this.IdTypeDict.DataPropertyName = "IdType";
+            this.IdTypeDict.HeaderText = "Id";
+            this.IdTypeDict.Name = "IdTypeDict";
+            // 
+            // TypeNameDict
+            // 
+            this.TypeNameDict.DataPropertyName = "TypeName";
+            this.TypeNameDict.HeaderText = "Nazwa ";
+            this.TypeNameDict.Name = "TypeNameDict";
+            // 
+            // LpDuty
+            // 
+            this.LpDuty.HeaderText = "Lp";
+            this.LpDuty.Name = "LpDuty";
+            // 
+            // IdDuty
+            // 
+            this.IdDuty.DataPropertyName = "IdDuty";
+            this.IdDuty.HeaderText = "Id";
+            this.IdDuty.Name = "IdDuty";
+            // 
+            // DutyName
+            // 
+            this.DutyName.DataPropertyName = "Name";
+            this.DutyName.HeaderText = "Nazwa";
+            this.DutyName.Name = "DutyName";
             // 
             // Dict
             // 
@@ -824,12 +837,10 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.tpDuty.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDutyList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuty)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDutyList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -840,19 +851,14 @@
         private System.Windows.Forms.TabPage tpStruct;
         private System.Windows.Forms.TabPage tpDuty;
         private System.Windows.Forms.TabPage tpProdTask;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDutyDelete;
-        private System.Windows.Forms.Button btnAddTypeDuty;
         private System.Windows.Forms.TextBox txtDutyName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TreeView tvDuty;
         private System.Windows.Forms.Button btnDutySave;
-        private System.Windows.Forms.ComboBox cmbDutyTypes;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeleteType;
         private System.Windows.Forms.Button btnAddType;
         private System.Windows.Forms.TextBox txtTypeName;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tpProduct;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtProdName;
@@ -866,8 +872,6 @@
         private System.Windows.Forms.Button btnAddBranch;
         private System.Windows.Forms.TreeView tvStruct;
         private System.Windows.Forms.Button btnDeleteStruct;
-        private System.Windows.Forms.Button btnDutyTypeDelete;
-        private System.Windows.Forms.ListBox lbProd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtElemName;
         private System.Windows.Forms.Button btnElemDel;
@@ -879,16 +883,12 @@
         private System.Windows.Forms.TextBox txtProdDescript;
         private System.Windows.Forms.Button btnSaveProdData;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView dgvProd;
         private System.Windows.Forms.DataGridView dgvElemList;
         private System.Windows.Forms.DataGridView dgvDuty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdType;
         private System.Windows.Forms.DataGridViewTextBoxColumn lpElem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdElement;
@@ -899,5 +899,21 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnDictManage;
         private System.Windows.Forms.DataGridView dgvDutyList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdLp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdElem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameElem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Binded;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTypeDict;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeNameDict;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LpDuty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdDuty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DutyName;
     }
 }

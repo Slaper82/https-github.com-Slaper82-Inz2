@@ -13,25 +13,26 @@ namespace RCPSystem.Class
         EFModel context;    
         TextBox Name; 
         ListBox listBox;
-        ComboBox combo;
         DataGridView dgvDuty;
         DataGridView dgvTask;
 
-        public ProdDuty(TextBox _name,ListBox _list, DataGridView _dgvDuty, DataGridView _dgvTask)
+        public ProdDuty(TextBox _name, DataGridView _dgvDuty, DataGridView _dgvTask)
         {
             context = new EFModel();
             context.Configuration.ProxyCreationEnabled = false;
             this.dgvDuty = _dgvDuty;
             this.dgvTask = _dgvTask;
             this.Name = _name;
-            this.listBox = _list;
             //ComboLoad();
             GridDutyLoad();
         }
         public void GridDutyLoad()
         {
             var duties = context.zadDutys.ToList();
-            dgvDuty.DataSource = duties;
+            dgvDuty.AutoGenerateColumns = false;
+            dgvDuty.DataSource = duties;         
+            dgvDuty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvDuty.AutoResizeColumns();
             dgvDuty.Refresh();
         }
 
@@ -41,11 +42,14 @@ namespace RCPSystem.Class
             var Source = (from type in context.zadTypes
                           join duty in context.zadDutyTypes on type.IdType equals duty.IdType
                           where duty.IdDuty == DutyID
-                          select type).ToList();
-            List<zadType> zad = Source.ToList();
+                          select new { type.IdType,type.TypeName }).ToList();
+            dgvTask.AutoGenerateColumns = false;
 
-            var duties = context.zadDutys.ToList();
-            dgvTask.DataSource = zad;
+            //var duties = context.zadDutys.ToList();
+            dgvTask.DataSource = Source;
+           
+            dgvTask.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvTask.AutoResizeColumns();
             dgvTask.Refresh();
         }
         public void ListBoxLoad(int DutyId)
@@ -60,28 +64,8 @@ namespace RCPSystem.Class
             listBox.DataSource = zad;
             listBox.ValueMember = "IdType";
             listBox.DisplayMember = "TypeName";
-           // listView.Items.A = context.zadTypes.ToList();
         }
-        //public void ComboLoad()
-        //{
-        //    var list = context.zadTypes.ToList();
-        //    combo.DataSource = list.FindAll(l => l.Active != false);
-        //    combo.ValueMember = "IdType";
-        //    combo.DisplayMember = "TypeName";
-        //}
-        //public void TreeLoad(TreeNode node)
-        //{
-        //    var Types = context.zadDutys.ToList();//zmienić typ na nowy
 
-        //    Types.ForEach(delegate (zadDuty dep)
-        //    {
-        //        node = new TreeNode();           
-        //            node.Text = dep.Name;
-        //            node.Name = dep.IdDuty.ToString();
-        //            this.Tree.Nodes.Add(node);             
-        //    }
-        //    );
-        //}
         public void ButtonAdd(string Name)
         {
             zadDuty zad = new zadDuty();
@@ -125,7 +109,7 @@ namespace RCPSystem.Class
             finally
             {
                 GridDutyLoad();
-                listBox.DataSource = null;
+               // listBox.DataSource = null;
                 this.Name.Text = String.Empty;
 
             }

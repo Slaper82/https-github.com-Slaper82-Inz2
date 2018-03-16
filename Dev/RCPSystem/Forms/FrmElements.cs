@@ -14,38 +14,62 @@ namespace RCPSystem.Forms
     {
         EFModel context;
         public int TypeID { get; set; }
+        public int ElemID { get; set; }
         List<zadElement> ElemList;
+        public event RefreshDgv Ref;
         public FrmElements(int _typeID)
         {
             ElemList = new List<zadElement>();
             context = new EFModel();
             this.TypeID = _typeID;
             InitializeComponent();
-            ListLoad();
+            GridLoad();
         }
-        public void ListLoad()
+ 
+        public void GridLoad()
         {
             ElemList = context.zadElements.ToList();
-            lbElems.DataSource = ElemList;
-            lbElems.DisplayMember = "Name";
-            lbElems.ValueMember = "IdElement";
+            ElemList = ElemList.FindAll(e => e.IdType.Equals(1));
+            dgvElems.DataSource = ElemList;
+            dgvElems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvElems.AutoResizeColumns();
         }
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
             try
             {
-                int elementID = Convert.ToInt32(lbElems.SelectedValue);
-                var elem = context.zadElements.FirstOrDefault(el => el.IdElement == elementID);
-                elem.IdType = TypeID;
-                context.Entry(elem).State = System.Data.Entity.EntityState.Modified;
-                context.SaveChanges();
+                if (ElemID > 0)
+                {
+                    int elementID = ElemID;
+                    var elem = context.zadElements.FirstOrDefault(el => el.IdElement == elementID);
+                    elem.IdType = TypeID;
+                    context.Entry(elem).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                }
                // context.zadElements.Attach(elem);
 
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Ref();
+                this.Close();
+            }
+        }
+
+        private void dgvElems_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
+            else
+            {
+                if (dgvElems.SelectedRows.Count > 0)
+                {
+                    ElemID = Convert.ToInt32(dgvElems.SelectedRows[0].Cells["IdElement"].Value.ToString());
+                }
             }
         }
     }

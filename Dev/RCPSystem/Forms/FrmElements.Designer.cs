@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.btnChoose = new System.Windows.Forms.Button();
-            this.lbElems = new System.Windows.Forms.ListBox();
+            this.dgvElems = new System.Windows.Forms.DataGridView();
+            this.IdElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElems)).BeginInit();
             this.SuspendLayout();
             // 
             // btnChoose
@@ -42,24 +46,50 @@
             this.btnChoose.UseVisualStyleBackColor = true;
             this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
-            // lbElems
+            // dgvElems
             // 
-            this.lbElems.FormattingEnabled = true;
-            this.lbElems.ItemHeight = 16;
-            this.lbElems.Location = new System.Drawing.Point(58, 31);
-            this.lbElems.Name = "lbElems";
-            this.lbElems.Size = new System.Drawing.Size(330, 260);
-            this.lbElems.TabIndex = 1;
+            this.dgvElems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdElement,
+            this.ElemName,
+            this.Symbol});
+            this.dgvElems.Location = new System.Drawing.Point(26, 50);
+            this.dgvElems.Name = "dgvElems";
+            this.dgvElems.RowTemplate.Height = 24;
+            this.dgvElems.Size = new System.Drawing.Size(435, 260);
+            this.dgvElems.TabIndex = 2;
+            this.dgvElems.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvElems_RowStateChanged);
+            // 
+            // IdElement
+            // 
+            this.IdElement.DataPropertyName = "IdElement";
+            this.IdElement.HeaderText = "Id";
+            this.IdElement.Name = "IdElement";
+            // 
+            // ElemName
+            // 
+            this.ElemName.DataPropertyName = "Name";
+            this.ElemName.HeaderText = "Nazwa";
+            this.ElemName.Name = "ElemName";
+            // 
+            // Symbol
+            // 
+            this.Symbol.DataPropertyName = "Symbol";
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
             // 
             // FrmElements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 498);
-            this.Controls.Add(this.lbElems);
+            this.ClientSize = new System.Drawing.Size(501, 498);
+            this.Controls.Add(this.dgvElems);
             this.Controls.Add(this.btnChoose);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmElements";
             this.Text = "Wybierz element";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElems)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -67,6 +97,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnChoose;
-        private System.Windows.Forms.ListBox lbElems;
+        private System.Windows.Forms.DataGridView dgvElems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdElement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
     }
 }

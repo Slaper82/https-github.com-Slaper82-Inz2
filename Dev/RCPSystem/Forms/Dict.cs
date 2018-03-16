@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace RCPSystem.Forms
 {
     public delegate void Refresh(int ProdId);
+    public delegate void RefreshDgv();
     public partial class Dict : Form
     {
         ProdTypes type;
@@ -35,7 +36,7 @@ namespace RCPSystem.Forms
             tvStruct.ExpandAll();
             StructComboLoad();
             type = new ProdTypes( btnAddType, btnDeleteType, txtTypeName,dgvProd);
-            duty = new ProdDuty(txtDutyName,lbProd,dgvDuty,dgvDutyList);
+            duty = new ProdDuty(txtDutyName,dgvDuty,dgvDutyList);
             elem = new ProdElem(txtElemName,cmbElem,dgvElemList);
             product = new Product( txtProdName, txtProdDescript,dgvProducts,dgvElem);
 
@@ -174,12 +175,10 @@ namespace RCPSystem.Forms
         #region Types
         private void btnAddType_Click(object sender, EventArgs e)
         {
-            //int Type;
             type.ButtonAdd(txtTypeName.Text, out int Type);
             FrmElements elem = new FrmElements(Type);
-            elem.ShowDialog();
-           
-
+            elem.Ref += type.GridLoad;
+            elem.ShowDialog();          
         }
 
         private void dgvProd_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -190,6 +189,10 @@ namespace RCPSystem.Forms
                 if (dgvProd.SelectedRows.Count > 0)
                     TypeID = Convert.ToInt32(dgvProd.SelectedRows[0].Cells["IdType"].Value.ToString());
             }
+        }
+        private void dgvProd_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.dgvProd.Rows[e.RowIndex].Cells["lp"].Value = (e.RowIndex + 1).ToString();
         }
 
         private void btnDeleteType_Click(object sender, EventArgs e)
@@ -204,14 +207,15 @@ namespace RCPSystem.Forms
         private void tvDuty_AfterSelect(object sender, TreeViewEventArgs e)
         {
             DutyID = Convert.ToInt32(e.Node.Name);
-            duty.ListBoxLoad(DutyID);
-          //  duty.ComboLoad();
-
+            duty.ListBoxLoad(DutyID);      
         }
       
         private void btnDutySave_Click(object sender, EventArgs e)
         {
-            duty.ButtonAdd(txtDutyName.Text);
+            if (txtDutyName.Text.Length > 0)
+            {
+                duty.ButtonAdd(txtDutyName.Text);
+            }
         }
 
         private void btnDutyDelete_Click(object sender, EventArgs e)
@@ -219,17 +223,6 @@ namespace RCPSystem.Forms
             duty.ButtonDelete(DutyID);
         }
 
-        private void btnAddTypeDuty_Click(object sender, EventArgs e)
-        {
-            if (DutyID > 0)
-            {
-                duty.ButtonTypeAdd(DutyID, Convert.ToInt32(cmbDutyTypes.SelectedValue));
-            }
-            else
-            {
-                MessageBox.Show("Wybierz obowiązek!");
-            }
-        }
         private void dgvDuty_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
@@ -247,13 +240,7 @@ namespace RCPSystem.Forms
         {
             duty.ButtonTypeDelete(DutyID,DutyTypeID);
         }
-        private void lbProd_SelectedIndexChanged(object sender, EventArgs e)
-        {         
-            zadType t = new zadType();
-            t = (zadType)lbProd.SelectedItem;
-            if (t != null) DutyTypeID = t.IdType;
-            else DutyTypeID = 0;
-        }
+
         #endregion
         #region Element
         private void btnElemAdd_Click(object sender, EventArgs e)
@@ -306,28 +293,26 @@ namespace RCPSystem.Forms
         #endregion
         #region Product
         private void btnProdAdd_Click(object sender, EventArgs e)
+        {          
+            FrmProdAdd newProd = new FrmProdAdd();
+            newProd.Added += product.GridProdLoad;
+            newProd.ShowDialog();
+        }
+
+        private void btnDictManage_Click(object sender, EventArgs e)
         {
-            zadProduct prod = new zadProduct();
-            try
+            if (DutyID > 0)
             {
-                prod.Active = true;
-                prod.Description = txtProdDescript.Text;
-                prod.Name = txtProdName.Text;
-                context.zadProducts.Add(prod);
-                context.SaveChanges();
+                FrmDuty DutyManage = new FrmDuty(DutyID);
+                DutyManage.Changed += duty.GridDutyTaskLoad;
+                DutyManage.ShowDialog();
+            }
 
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
+        }
 
-                product.GridProdLoad();
-                txtProdDescript.Text = String.Empty;
-                txtProdName.Text = String.Empty;
-            }
+        private void dgvProducts_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.dgvProducts.Rows[e.RowIndex].Cells["ProdLp"].Value = (e.RowIndex + 1).ToString();
         }
 
         private void dgvProducts_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -339,6 +324,7 @@ namespace RCPSystem.Forms
                 {
                     ProductID = Convert.ToInt32(dgvProducts.SelectedRows[0].Cells["IdProduct"].Value.ToString());
                     product.GridElemLoad(ProductID);
+                    product.BindData(ProductID);
                 }
 
             }
@@ -357,35 +343,34 @@ namespace RCPSystem.Forms
             }
         }
 
-        //private void btnProdDel_Click(object sender, EventArgs e)
-        //{
-        //    if (ProductID > 0)
-        //    {
-        //        DialogResult res = MessageBox.Show("Czy na pewno usunąć wybrany produkt?", "Usuwanie", MessageBoxButtons.OKCancel);
-        //        if (res == DialogResult.OK)
-        //        {
-        //            try
-        //            {
-        //                product.ButtonDelete(ProductID);
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                MessageBox.Show(ex.Message);
-        //            }
-        //            finally
-        //            {
-        //                txtProdDescript.Text = String.Empty;
-        //                txtQuan.Text = String.Empty;
-        //                txtProdName.Text = String.Empty;
-        //                product.TreeLoad(Node);
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Wybierz produkt!");
-        //    }
-        //}
+        private void btnProdDel_Click(object sender, EventArgs e)
+        {
+            if (ProductID > 0)
+            {
+                DialogResult res = MessageBox.Show("Czy na pewno usunąć wybrany produkt?", "Usuwanie", MessageBoxButtons.OKCancel);
+                if (res == DialogResult.OK)
+                {
+                    try
+                    {
+                        product.ButtonDelete(ProductID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        txtProdDescript.Text = String.Empty;
+                        txtProdName.Text = String.Empty;
+                        product.GridProdLoad();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wybierz produkt!");
+            }
+        }
 
         //private void btnProdElemAdd_Click(object sender, EventArgs e)
         //{
@@ -412,7 +397,7 @@ namespace RCPSystem.Forms
         //    {
         //        try
         //        {
-                    
+
         //            ElemeID= Convert.ToInt32(dgvElem.SelectedRows[0].Cells["ElemId"].FormattedValue .ToString());
         //            product.ButtonElemDelete(ProductID, ElemeID);
 
@@ -442,36 +427,26 @@ namespace RCPSystem.Forms
         //    }
         //}
 
-        //private void btnSaveProdData_Click(object sender, EventArgs e)
-        //{
-        //    if (ProductID > 0)
-        //    {
-        //        product.ButtonSave(ProductID);              
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Wybierz produkt!");
-        //    }
-        //}
+        private void btnSaveProdData_Click(object sender, EventArgs e)
+        {
+            if (ProductID > 0)
+            {
+                product.ButtonSave(ProductID);
+            }
+            else
+            {
+                MessageBox.Show("Wybierz produkt!");
+            }
+        }
+
+
+
 
         #endregion
 
-        private void dgvProd_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void dgvDuty_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            this.dgvProd.Rows[e.RowIndex].Cells["lp"].Value = (e.RowIndex + 1).ToString();
+            this.dgvDuty.Rows[e.RowIndex].Cells["LpDuty"].Value = (e.RowIndex + 1).ToString();
         }
-
-        private void btnDictManage_Click(object sender, EventArgs e)
-        {
-            if (DutyID > 0)
-            {
-                FrmDuty DutyManage = new FrmDuty(DutyID);
-                DutyManage.Changed += duty.GridDutyTaskLoad;
-                DutyManage.ShowDialog();
-            }
-
-        }
-
-   
     }
 }

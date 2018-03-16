@@ -12,12 +12,8 @@ namespace RCPSystem.Class
     class Product
     {
         EFModel context;
-        TreeView Tree;
         TextBox Name;
         TextBox Description;
-        TextBox Quant;
-        TreeNode Node;
-        ComboBox combo;
         DataGridView dgvProd;
         DataGridView dgvElem;
         List<zadProduct> ProdList;
@@ -31,49 +27,30 @@ namespace RCPSystem.Class
             this.dgvElem = _dgvElem;
             ProdList = new List<zadProduct>();
             GridProdLoad();
-           // TreeLoad(Node);
-           // ComboLoad();
         }
-        //public void ComboLoad()
-        //{
-        //    var List = context.zadElements.ToList();
-        //    List = List.FindAll(l => l.Active != false);
-        //    combo.DataSource = List;
-        //    combo.ValueMember = "IdElement";
-        //    combo.DisplayMember = "Name";
-        //}
 
         public void GridProdLoad()
         {
             var ProdList = new List<zadProduct>();
             ProdList = context.zadProducts.ToList();
+            dgvProd.AutoGenerateColumns = false;
             dgvProd.DataSource = ProdList;
+            dgvProd.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvProd.AutoResizeColumns();
+
         }
         public void GridElemLoad(int ProdID)
         {
-            var ElemList = new List<zadProdElem>();
-            ElemList = context.zadProdElems.ToList();
-            ElemList = ElemList.FindAll(e => e.IdProduct == ProdID);
-            dgvElem.DataSource = ElemList;
-        }
-        //public void TreeLoad(TreeNode node)
-        //{
-        //    Tree.Nodes.Clear();
-        //    var Types = context.zadProducts.ToList();//Find(x => x.IdHigherOrgUnit == null).ToList();
+            var elem = (from el in context.zadElements
+                        join prod in context.zadProdElems on el.IdElement equals prod.IdElement
+                        where prod.IdProduct == ProdID
+                        select new { Id = el.IdElement, el.Symbol, el.Name, prod.Quantity }).ToList();
 
-        //    Types.ForEach(delegate (zadProduct dep)
-        //    {
-        //        node = new TreeNode();
-        //        if (dep.Active)
-        //        {
-        //            node.Text = dep.Name;
-        //            node.Name = dep.IdProduct.ToString();
-        //            this.Tree.Nodes.Add(node);
-        //        }
-        //    }
-        //    );
-        //    Tree.ExpandAll();
-        //}
+            dgvElem.DataSource = elem;
+            dgvElem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvElem.AutoResizeColumns();
+        }
+
         public void ButtonAdd(string Name,string Description)
         {
             zadProduct prod = new zadProduct();
@@ -91,73 +68,57 @@ namespace RCPSystem.Class
             }
             finally
             {
-                //Tree.Nodes.Clear();
-                //TreeLoad(Node);
-                //Tree.ExpandAll();
+                GridProdLoad();
+                this.Name.Text = String.Empty;
+            }
+        }
+
+        public void BindData(int ProductID)
+        {
+            try
+            {
+                zadProduct prod = new zadProduct();
+                prod = context.zadProducts.FirstOrDefault(p => p.IdProduct == ProductID);
+                this.Name.Text = prod.Name;
+                this.Description.Text = prod.Description;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void ButtonDelete(int ProductID)
+        {
+            var listElem = context.zadProdElems.ToList();
+            listElem = listElem.FindAll(e => e.IdProduct == ProductID);
+            var Prod = context.zadProducts.FirstOrDefault(p => p.IdProduct == ProductID);
+            try
+            {
+                foreach (zadProdElem z in listElem)
+                {
+                    context.zadProdElems.Attach(z);
+                    context.zadProdElems.Remove(z);
+                    context.SaveChanges();
+                }
+                context.zadProducts.Attach(Prod);
+                context.zadProducts.Remove(Prod);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GridProdLoad();
                 this.Name.Text = String.Empty;
 
             }
         }
-
-        //public void BindData(int ProductID)
-        //{
-        //    try
-        //    {
-        //        zadProduct prod = new zadProduct();
-        //        prod = context.zadProducts.FirstOrDefault(p => p.IdProduct == ProductID);
-        //        this.Name.Text = prod.Name;
-        //        this.Description.Text = prod.Description;
-        //        BindGrid(ProductID);
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-        //public void BindGrid(int ProductID)
-        //{
-        //    dgv.DataSource = null;
-        //    var ListElem = (from elem in context.zadElements
-        //                join pro in context.zadProdElems on elem.IdElement equals pro.IdElement
-        //                where pro.IdProduct == ProductID
-        //                select new {Nazwa=elem.Name ,Ilosc = pro.Quantity ,ElemId = elem.IdElement }).ToList();
-        //    dgv.DataSource = ListElem;
-        //}
-
-        //public void ButtonDelete(int ProductID)
-        //{
-        //    var listElem = context.zadProdElems.ToList();
-        //    listElem = listElem.FindAll(e => e.IdProduct == ProductID);
-        //    var Prod= context.zadProducts.FirstOrDefault(p => p.IdProduct== ProductID);
-        //    try
-        //    {
-        //        foreach (zadProdElem z in listElem)
-        //        {
-        //            context.zadProdElems.Attach(z);
-        //            context.zadProdElems.Remove(z);
-        //            context.SaveChanges();
-        //        }
-        //        context.zadProducts.Attach(Prod);
-        //        context.zadProducts.Remove(Prod);
-        //        context.SaveChanges();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        Tree.Nodes.Clear();
-        //        TreeLoad(Node);
-        //        Tree.ExpandAll();
-        //        dgv.DataSource = null;
-        //        this.Name.Text = String.Empty;
-
-        //    }
-        //}
         //public void ButtonElemAdd(int ProductId,int ElementId,int Quantity)
         //{
-           
+
         //    try
         //    {
         //        zadProdElem ProdElem = new zadProdElem
@@ -200,24 +161,23 @@ namespace RCPSystem.Class
         //        BindData(ProductId);
         //    }
         //}
-        //public void ButtonSave(int ProductID)
-        //{
-        //    try
-        //    {
-        //        var prod = context.zadProducts.FirstOrDefault(p => p.IdProduct == ProductID);
-        //        prod.Description = Description.Text;
-        //        prod.Name = Name.Text;
-        //        context.SaveChanges();
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        BindData(ProductID);
-        //        TreeLoad(Node);
-        //    }
-        //}
+        public void ButtonSave(int ProductID)
+        {
+            try
+            {
+                var prod = context.zadProducts.FirstOrDefault(p => p.IdProduct == ProductID);
+                prod.Description = Description.Text;
+                prod.Name = Name.Text;
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GridProdLoad();
+            }
+        }
     }
 }

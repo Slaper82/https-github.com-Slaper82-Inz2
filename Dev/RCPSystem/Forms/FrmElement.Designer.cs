@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnPodElemeDel = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSymbol = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.dgvElem = new System.Windows.Forms.DataGridView();
+            this.btnAddElem = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtQuan = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtSymbol = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAddElem = new System.Windows.Forms.Button();
-            this.btnPodElemeDel = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElementName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).BeginInit();
             this.SuspendLayout();
@@ -62,15 +66,81 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Wprowadź elementy";
             // 
+            // btnPodElemeDel
+            // 
+            this.btnPodElemeDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPodElemeDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPodElemeDel.Image = global::RCPSystem.Properties.Resources.Delete;
+            this.btnPodElemeDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPodElemeDel.Location = new System.Drawing.Point(541, 87);
+            this.btnPodElemeDel.Name = "btnPodElemeDel";
+            this.btnPodElemeDel.Size = new System.Drawing.Size(147, 36);
+            this.btnPodElemeDel.TabIndex = 39;
+            this.btnPodElemeDel.Text = "Usuń ";
+            this.btnPodElemeDel.UseVisualStyleBackColor = true;
+            this.btnPodElemeDel.Click += new System.EventHandler(this.btnPodElemeDel_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(156, 428);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 17);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Symbol";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 428);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Nazwa";
+            // 
+            // txtSymbol
+            // 
+            this.txtSymbol.Location = new System.Drawing.Point(159, 448);
+            this.txtSymbol.Name = "txtSymbol";
+            this.txtSymbol.Size = new System.Drawing.Size(100, 22);
+            this.txtSymbol.TabIndex = 34;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(16, 448);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 22);
+            this.txtName.TabIndex = 33;
+            // 
             // dgvElem
             // 
             this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Symbol,
+            this.ElementName,
+            this.Quantity});
             this.dgvElem.Location = new System.Drawing.Point(16, 87);
             this.dgvElem.Name = "dgvElem";
             this.dgvElem.RowTemplate.Height = 24;
             this.dgvElem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvElem.Size = new System.Drawing.Size(506, 296);
             this.dgvElem.TabIndex = 32;
+            this.dgvElem.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvElem_RowStateChanged);
+            // 
+            // btnAddElem
+            // 
+            this.btnAddElem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddElem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddElem.Image = global::RCPSystem.Properties.Resources.Add1;
+            this.btnAddElem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddElem.Location = new System.Drawing.Point(541, 439);
+            this.btnAddElem.Name = "btnAddElem";
+            this.btnAddElem.Size = new System.Drawing.Size(147, 36);
+            this.btnAddElem.TabIndex = 22;
+            this.btnAddElem.Text = "Dodaj";
+            this.btnAddElem.UseVisualStyleBackColor = true;
+            this.btnAddElem.Click += new System.EventHandler(this.btnAddElem_Click);
             // 
             // label11
             // 
@@ -97,64 +167,29 @@
             this.txtQuan.Size = new System.Drawing.Size(100, 22);
             this.txtQuan.TabIndex = 27;
             // 
-            // txtName
+            // Id
             // 
-            this.txtName.Location = new System.Drawing.Point(16, 448);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 22);
-            this.txtName.TabIndex = 33;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
             // 
-            // txtSymbol
+            // Symbol
             // 
-            this.txtSymbol.Location = new System.Drawing.Point(159, 448);
-            this.txtSymbol.Name = "txtSymbol";
-            this.txtSymbol.Size = new System.Drawing.Size(100, 22);
-            this.txtSymbol.TabIndex = 34;
+            this.Symbol.DataPropertyName = "Symbol";
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
             // 
-            // label1
+            // ElementName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 428);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Nazwa";
+            this.ElementName.DataPropertyName = "Name";
+            this.ElementName.HeaderText = "Nazwa elementu";
+            this.ElementName.Name = "ElementName";
             // 
-            // label2
+            // Quantity
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(156, 428);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 17);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Symbol";
-            // 
-            // btnAddElem
-            // 
-            this.btnAddElem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddElem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddElem.Image = global::RCPSystem.Properties.Resources.Add1;
-            this.btnAddElem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddElem.Location = new System.Drawing.Point(541, 439);
-            this.btnAddElem.Name = "btnAddElem";
-            this.btnAddElem.Size = new System.Drawing.Size(147, 36);
-            this.btnAddElem.TabIndex = 22;
-            this.btnAddElem.Text = "Dodaj";
-            this.btnAddElem.UseVisualStyleBackColor = true;
-            this.btnAddElem.Click += new System.EventHandler(this.btnAddElem_Click);
-            // 
-            // btnPodElemeDel
-            // 
-            this.btnPodElemeDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPodElemeDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPodElemeDel.Image = global::RCPSystem.Properties.Resources.Delete;
-            this.btnPodElemeDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPodElemeDel.Location = new System.Drawing.Point(541, 87);
-            this.btnPodElemeDel.Name = "btnPodElemeDel";
-            this.btnPodElemeDel.Size = new System.Drawing.Size(147, 36);
-            this.btnPodElemeDel.TabIndex = 39;
-            this.btnPodElemeDel.Text = "Usuń ";
-            this.btnPodElemeDel.UseVisualStyleBackColor = true;
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Ilość";
+            this.Quantity.Name = "Quantity";
             // 
             // FrmElement
             // 
@@ -184,5 +219,9 @@
         private System.Windows.Forms.TextBox txtSymbol;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnPodElemeDel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElementName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }

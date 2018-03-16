@@ -30,10 +30,15 @@ namespace RCPSystem.Class
 
         public void GridLoad()
         {
-            var Types = context.zadTypes.ToList();
-            Types = Types.FindAll(t => t.Active == true);
+            var Types = (from t in context.zadTypes
+                       join el in context.zadElements on t.IdType equals el.IdType
+                       where t.Active.Equals(true)
+                       select new { t.IdType,Nazwa = t.TypeName,Przypisany=el.Name }).ToList();
+
             dgv.AutoGenerateColumns = false;
             dgv.DataSource = Types;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.AutoResizeColumns();
 
         }
 

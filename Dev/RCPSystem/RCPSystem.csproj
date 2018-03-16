@@ -114,6 +114,12 @@
     <Compile Include="Forms\FrmHarmo.Designer.cs">
       <DependentUpon>FrmHarmo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmProdAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmProdAdd.Designer.cs">
+      <DependentUpon>FrmProdAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Logon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmHarmo.resx">
       <DependentUpon>FrmHarmo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmProdAdd.resx">
+      <DependentUpon>FrmProdAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Logon.resx">
       <DependentUpon>Logon.cs</DependentUpon>
