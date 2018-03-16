@@ -23,7 +23,6 @@ namespace RCPSystem.Class
             this.dgvDuty = _dgvDuty;
             this.dgvTask = _dgvTask;
             this.Name = _name;
-            //ComboLoad();
             GridDutyLoad();
         }
         public void GridDutyLoad()
@@ -44,8 +43,6 @@ namespace RCPSystem.Class
                           where duty.IdDuty == DutyID
                           select new { type.IdType,type.TypeName }).ToList();
             dgvTask.AutoGenerateColumns = false;
-
-            //var duties = context.zadDutys.ToList();
             dgvTask.DataSource = Source;
            
             dgvTask.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -109,7 +106,6 @@ namespace RCPSystem.Class
             finally
             {
                 GridDutyLoad();
-               // listBox.DataSource = null;
                 this.Name.Text = String.Empty;
 
             }
@@ -122,7 +118,6 @@ namespace RCPSystem.Class
                 zadTyp.IdDuty = DutyId;
                 zadTyp.IdType = TypeId;
                context.zadDutyTypes.Add(zadTyp);
-                //zad.Active = false;
                 context.SaveChanges();
             }
             catch (Exception ex)
@@ -132,8 +127,6 @@ namespace RCPSystem.Class
             finally
             {
                 GridDutyTaskLoad(DutyId);
-                //ListBoxLoad(DutyId);
-                //listView.Load pewnie contextem.
                 this.Name.Text = String.Empty;
 
             }
@@ -147,8 +140,6 @@ namespace RCPSystem.Class
                 context.zadDutyTypes.Attach(zadTyp);
                 context.zadDutyTypes.Remove(zadTyp);
                 context.SaveChanges();
-                //zad.Active = false;
-                //context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -158,8 +149,6 @@ namespace RCPSystem.Class
             {              
                 this.Name.Text = String.Empty;
                 GridDutyTaskLoad(DutyId);
-                //ListBoxLoad(DutyId);
-                //listView.Load pewnie contextem.
                 this.Name.Text = String.Empty;
 
             }

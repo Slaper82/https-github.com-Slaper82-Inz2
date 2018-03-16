@@ -13,8 +13,10 @@ namespace RCPSystem.Forms
     public partial class NewOrder : Form
     {
         EFModel context;
+        bool EditMode;
         public int UserId { get; set; }
         public int OrderId { get; set; }
+        public int ProdID { get; set; }
         public event ReloadValue Reload;
 
         List<zadClient> ClientList = new List<zadClient>();
@@ -26,13 +28,13 @@ namespace RCPSystem.Forms
         zadClient Client = new zadClient();
         zadProduct Product = new zadProduct();
         zadOrder NewOrderClick;
-        zadOrderProduct NewProduct;
+      //  zadOrderProduct NewProduct;
 
 
 
         public NewOrder(int userId)
         {
-
+            this.EditMode = false;
             this.UserId = userId;
             InitializeComponent();
             context = new EFModel();
@@ -40,6 +42,21 @@ namespace RCPSystem.Forms
             ComboLoad(Product);
 
         }
+
+        public NewOrder(int userId,int orderId)
+        {
+            this.EditMode = true;
+            this.UserId = userId;
+            this.OrderId = orderId;
+            InitializeComponent();
+            this.Name = "Edycja zamówenia nr: " + orderId.ToString();
+            context = new EFModel();
+            ComboLoad(Client);
+            ComboLoad(Product);
+            FormEditMode();
+        }
+     
+
 
         private void ComboLoad(object o)
         {
@@ -60,7 +77,7 @@ namespace RCPSystem.Forms
             }
             
         }
-
+        //Dodać warunki jeśli Edytujemy
         private void btnSave_Click(object sender, EventArgs e)
         {
             List<zadProduct> ProdToTask = new List<zadProduct>();
@@ -100,7 +117,7 @@ namespace RCPSystem.Forms
                     }
                 }
 
-                Reload(this, e);
+                Reload();
             }
             catch(Exception ex)
             {
@@ -110,45 +127,85 @@ namespace RCPSystem.Forms
            
         }
 
+        private void FormEditMode()
+        {
+            var order = new zadOrder();
+            order = context.zadOrders.FirstOrDefault(o => o.IdOrder.Equals(OrderId));
+            txtDescription.Text = order.Description;
+            cmbClient.SelectedValue = order.IdClient;
+            //dgv załadować produktami
+            dgvLoad(OrderId);
+
+        }
+
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (txtDescription.Text != String.Empty)
+            if (!EditMode)
             {
-                int clientId = Convert.ToInt32(cmbClient.SelectedValue);
-                Client = context.zadClients.FirstOrDefault(c => c.IdClient == clientId);
-                cmbProduct.Enabled = true;
-                txtQuant.Enabled = true;
-                btnAddProduct.Enabled = true;
-                //wyłączamy
-                btnAccept.Enabled = false;
-                cmbClient.Enabled = false;
-                txtDescription.Enabled = false;
-                //
+                if (txtDescription.Text != String.Empty)
+                {
+                    int clientId = Convert.ToInt32(cmbClient.SelectedValue);
+                    Client = context.zadClients.FirstOrDefault(c => c.IdClient == clientId);
+                    cmbProduct.Enabled = true;
+                    txtQuant.Enabled = true;
+                    btnAddProduct.Enabled = true;
+                    //wyłączamy
+                    btnAccept.Enabled = false;
+                    cmbClient.Enabled = false;
+                    txtDescription.Enabled = false;
+                    //
 
-                NewOrderClick = new zadOrder()
-                {
-                    IdUser = UserId,
-                    CreateDate = DateTime.Now,
-                    Description = txtDescription.Text,
-                    Done = false,
-                    Active = true,
-                    IdClient = Client.IdClient
-                };
-                try
-                {
-                    context.zadOrders.Add(NewOrderClick);
-                    context.SaveChanges();
-                    OrderId = NewOrderClick.IdOrder;
+                    NewOrderClick = new zadOrder()
+                    {
+                        IdUser = UserId,
+                        CreateDate = DateTime.Now,
+                        Description = txtDescription.Text,
+                        Done = false,
+                        Active = true,
+                        IdClient = Client.IdClient
+                    };
+                    try
+                    {
+                        context.zadOrders.Add(NewOrderClick);
+                        context.SaveChanges();
+                        OrderId = NewOrderClick.IdOrder;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Trzeba dodać opis");//do zmiany na pointera
                 }
             }
             else
             {
-                MessageBox.Show("Trzeba dodać opis");//do zmiany na pointera
+                AcceptEdited();
             }
+        }
+
+        private void AcceptEdited()
+        {
+            var order = context.zadOrders.FirstOrDefault(o => o.IdOrder.Equals(OrderId));
+            order.Description = txtDescription.Text;
+            order.IdClient = Convert.ToInt32(cmbClient.SelectedValue);
+            context.Entry(order).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+            //kontrolki
+            btnAccept.Enabled = false;
+            cmbClient.Enabled = false;
+            txtDescription.Enabled = false;
+            cmbProduct.Enabled = true;
+            txtQuant.Enabled = true;
+            btnAddProduct.Enabled = true;
+
+        }
+
+        private void AddProductEdited()
+        {
+
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -201,37 +258,62 @@ namespace RCPSystem.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (OrderId > 0)
-            {
-                //zamówienia
-                try
+                if (OrderId > 0&&!EditMode)
                 {
-                    //produkty zamówienia
-                    var orderProd = context.zadOrderProducts.ToList();
-                    orderProd = orderProd.FindAll(o => o.IdOrder == OrderId);
-
-                    foreach (var op in orderProd)
+                    //zamówienia
+                    try
                     {
-                        op.Active = false;
-                        context.Entry(op).State = System.Data.Entity.EntityState.Modified;
+                        //produkty zamówienia
+                        var orderProd = context.zadOrderProducts.ToList();
+                        orderProd = orderProd.FindAll(o => o.IdOrder == OrderId);
+
+                        foreach (var op in orderProd)
+                        {
+                            op.Active = false;
+                            context.Entry(op).State = System.Data.Entity.EntityState.Modified;
+                            context.SaveChanges();
+                        }
+
+                        var order = context.zadOrders.FirstOrDefault(o => o.IdOrder == OrderId);
+                        order.Active = false;
+                        context.Entry(order).State = System.Data.Entity.EntityState.Modified;
                         context.SaveChanges();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
 
-                    var order = context.zadOrders.FirstOrDefault(o => o.IdOrder == OrderId);
-                    order.Active = false;
-                    context.Entry(order).State = System.Data.Entity.EntityState.Modified;
-                    context.SaveChanges();
-                    this.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
-                }
+                    this.Close();
+                }          
+        }
 
-            }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+           // var orderProd = context.zadOrderProducts.ToList();
+            var orderProd = context.zadOrderProducts.FirstOrDefault(o => o.IdOrder.Equals(OrderId) && o.IdProduct.Equals(ProdID));
+            context.zadOrderProducts.Attach(orderProd);
+            context.zadOrderProducts.Remove(orderProd);
+            context.SaveChanges();
+
+            //usuwanie z tasków
+
+        }
+
+        private void dgvProd_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
             else
             {
-                this.Close();
+                if (dgvProd.SelectedRows.Count > 0)
+                {
+                    ProdID = Convert.ToInt32(dgvProd.SelectedRows[0].Cells["Id"].Value.ToString());
+                }
+
             }
         }
     }

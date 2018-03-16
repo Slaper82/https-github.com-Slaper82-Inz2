@@ -23,6 +23,8 @@ namespace RCPSystem.Forms
             this.UserID = _userId;
             context = new EFModel();
             InitializeComponent();
+            dgvTaskLoad();
+            dgvMyTaskLoad();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -92,6 +94,29 @@ namespace RCPSystem.Forms
             {
                 MessageBox.Show("Wybierz zadanie z listy");
             }
+        }
+
+        private void dgvTaskLoad()
+        {
+
+            var TaskIds =(from id in context.zadTaskProductions
+                       select id.IdTask).ToList();
+
+            var tasks = (context.zadTaskLists.Where(t => !TaskIds.Any(tp => tp.Value == t.IdTask))).ToList();
+
+            dgvTask.DataSource = tasks;
+            //dodać wszystkie potrzbne ustawienia dgv
+
+            //var tasks = from t in context.zadTaskLists
+            //            where TaskIds.Contains(t.IdTask)
+            //            select t;
+        }
+        private void dgvMyTaskLoad()
+        {
+            var task = context.zadTaskProductions.ToList();
+            task = task.FindAll(t => t.IdUser.Equals(UserID));
+            dgvMyTasks.DataSource = task;
+            //dodać wszystkie potrzbne ustawienia dgv
         }
 
         private void btnTaskEnd_Click(object sender, EventArgs e)

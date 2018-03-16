@@ -47,7 +47,6 @@ namespace RCPSystem.Forms
                     context.Entry(elem).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                 }
-               // context.zadElements.Attach(elem);
 
             }
             catch(Exception ex)

@@ -50,7 +50,6 @@ namespace RCPSystem.Forms
             dgvSelected.AutoGenerateColumns = false;
             dgvSelected.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvSelected.AutoResizeColumns();
-          //  dgvSelected.Refresh();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -96,7 +95,6 @@ namespace RCPSystem.Forms
                 if (dgvTyp.SelectedRows.Count > 0)
                 {
                     TypeID = Convert.ToInt32(dgvTyp.SelectedRows[0].Cells["IdTypeL"].Value.ToString());
-                  //  product.GridElemLoad(ProductID);
                 }
 
             }
@@ -110,7 +108,6 @@ namespace RCPSystem.Forms
                 if (dgvSelected.SelectedRows.Count > 0)
                 {
                     TypeID = Convert.ToInt32(dgvSelected.SelectedRows[0].Cells["IdTypeR"].Value.ToString());
-                   // product.GridElemLoad(ProductID);
                 }
 
             }

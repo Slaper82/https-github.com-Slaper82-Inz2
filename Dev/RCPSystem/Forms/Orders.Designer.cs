@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.IdZam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Utworzono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddOrder = new System.Windows.Forms.Button();
             this.btnDelOrder = new System.Windows.Forms.Button();
             this.btnEditOrder = new System.Windows.Forms.Button();
@@ -38,11 +44,57 @@
             // dgvOrders
             // 
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdZam,
+            this.Utworzono,
+            this.Name,
+            this.Opis,
+            this.CLientID,
+            this.Done});
             this.dgvOrders.Location = new System.Drawing.Point(12, 312);
+            this.dgvOrders.MultiSelect = false;
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowTemplate.Height = 24;
+            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrders.Size = new System.Drawing.Size(1709, 485);
             this.dgvOrders.TabIndex = 0;
+            this.dgvOrders.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvOrders_RowStateChanged);
+            // 
+            // IdZam
+            // 
+            this.IdZam.DataPropertyName = "IdZamowienia";
+            this.IdZam.HeaderText = "Numer zamówienia";
+            this.IdZam.Name = "IdZam";
+            // 
+            // Utworzono
+            // 
+            this.Utworzono.DataPropertyName = "Utworzono";
+            this.Utworzono.HeaderText = "Utworzone";
+            this.Utworzono.Name = "Utworzono";
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Names";
+            this.Name.HeaderText = "Kto utworzył";
+            this.Name.Name = "Names";
+            // 
+            // Opis
+            // 
+            this.Opis.DataPropertyName = "Opis";
+            this.Opis.HeaderText = "Opis";
+            this.Opis.Name = "Opis";
+            // 
+            // CLientID
+            // 
+            this.CLientID.DataPropertyName = "Klient";
+            this.CLientID.HeaderText = "Nazwa klienta";
+            this.CLientID.Name = "CLientID";
+            // 
+            // Done
+            // 
+            this.Done.DataPropertyName = "Done";
+            this.Done.HeaderText = "Zrealizowane";
+            this.Done.Name = "Done";
             // 
             // btnAddOrder
             // 
@@ -83,7 +135,7 @@
             this.Controls.Add(this.btnDelOrder);
             this.Controls.Add(this.btnAddOrder);
             this.Controls.Add(this.dgvOrders);
-            this.Name = "Orders";
+            this.Name.Name = "Orders";
             this.Text = "Zamówienia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
@@ -96,5 +148,11 @@
         private System.Windows.Forms.Button btnAddOrder;
         private System.Windows.Forms.Button btnDelOrder;
         private System.Windows.Forms.Button btnEditOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdZam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Utworzono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Done;
     }
 }
