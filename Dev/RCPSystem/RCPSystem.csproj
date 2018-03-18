@@ -285,6 +285,14 @@
     <Compile Include="Migrations\201803132218402_ElementSymbol.Designer.cs">
       <DependentUpon>201803132218402_ElementSymbol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803170854322_zadProdTasksCleaning.cs" />
+    <Compile Include="Migrations\201803170854322_zadProdTasksCleaning.Designer.cs">
+      <DependentUpon>201803170854322_zadProdTasksCleaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803171213239_zadProdTasksConfig.cs" />
+    <Compile Include="Migrations\201803171213239_zadProdTasksConfig.Designer.cs">
+      <DependentUpon>201803171213239_zadProdTasksConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbClass\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -451,6 +459,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803132218402_ElementSymbol.resx">
       <DependentUpon>201803132218402_ElementSymbol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803170854322_zadProdTasksCleaning.resx">
+      <DependentUpon>201803170854322_zadProdTasksCleaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803171213239_zadProdTasksConfig.resx">
+      <DependentUpon>201803171213239_zadProdTasksConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -17,6 +17,8 @@ namespace RCPSystem.Forms
         EFModel context;
         public int UserID { get; set; }
         public int TaskID { get; set; }
+
+        public int MyTaskID { get; set; }
         public string ErrorMessage { get; set; }
         public Transact(int _userId)
         {
@@ -70,23 +72,30 @@ namespace RCPSystem.Forms
 
         private void btnStartZad_Click(object sender, EventArgs e)
         {
-            if (dgvTask.SelectedRows.Count > 0)
+            if (TaskID > 0)
             {
                 try
                 {
-                    TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].FormattedValue.ToString());
+                   // TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].FormattedValue.ToString());
                     zadTaskProduction task = new zadTaskProduction()
                     {
                         IdUser = UserID,
+                        IdTask=TaskID,
                         Start = DateTime.Now,
                         Active = true,
                         Stop = null
                     };
-                    context.zadTaskProductions.Add(task);
+                   context.zadTaskProductions.Add(task);
+                    context.SaveChanges();
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    dgvTaskLoad();
+                    dgvMyTaskLoad();
                 }
 
             }
@@ -98,12 +107,17 @@ namespace RCPSystem.Forms
 
         private void dgvTaskLoad()
         {
+            context.Dispose();
+            context = new EFModel();
 
-            var TaskIds =(from id in context.zadTaskProductions
-                       select id.IdTask).ToList();
+              var TaskIds = (from id in context.zadTaskProductions
+                           select id.IdTask).ToList();
 
             var tasks = (context.zadTaskLists.Where(t => !TaskIds.Any(tp => tp.Value == t.IdTask))).ToList();
 
+            var x = context.zadTaskLists.ToList();
+
+            tasks = tasks.FindAll(t => t.Active == true);
             dgvTask.DataSource = tasks;
             //dodać wszystkie potrzbne ustawienia dgv
 
@@ -116,7 +130,7 @@ namespace RCPSystem.Forms
             var task = context.zadTaskProductions.ToList();
             task = task.FindAll(t => t.IdUser.Equals(UserID));
             dgvMyTasks.DataSource = task;
-            //dodać wszystkie potrzbne ustawienia dgv
+           // dodać wszystkie potrzbne ustawienia dgv
         }
 
         private void btnTaskEnd_Click(object sender, EventArgs e)
@@ -126,7 +140,7 @@ namespace RCPSystem.Forms
             {
                 try
                 {
-                    TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].FormattedValue.ToString());
+                 //   TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].FormattedValue.ToString());
                    // var tas = context.
                     zadTaskProduction task = new zadTaskProduction()
                     {
@@ -145,7 +159,9 @@ namespace RCPSystem.Forms
                 finally
                 {
                     //dgv Reload
+                    dgvTaskLoad();
                     //dgvMyTask Reload
+                    dgvMyTaskLoad();
                 }
 
             }
@@ -180,6 +196,37 @@ namespace RCPSystem.Forms
             catch (Exception ex)
             {
                 errorMessage=ex.Message;
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dgvTaskLoad();
+        }
+
+        private void dgvTask_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
+            else
+            {
+                if (dgvTask.SelectedRows.Count > 0)
+                {
+                    TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].Value.ToString());
+                }
+
+            }
+        }
+
+        private void dgvMyTasks_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
+            else
+            {
+                if (dgvMyTasks.SelectedRows.Count > 0)
+                {
+                    MyTaskID = Convert.ToInt32(dgvMyTasks.SelectedRows[0].Cells["IdTask"].Value.ToString());
+                }
+
             }
         }
     }

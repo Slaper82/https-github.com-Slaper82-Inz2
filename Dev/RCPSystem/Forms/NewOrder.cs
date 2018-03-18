@@ -17,6 +17,7 @@ namespace RCPSystem.Forms
         public int UserId { get; set; }
         public int OrderId { get; set; }
         public int ProdID { get; set; }
+        public int OrderProdID { get; set; }
         public event ReloadValue Reload;
 
         List<zadClient> ClientList = new List<zadClient>();
@@ -80,51 +81,52 @@ namespace RCPSystem.Forms
         //Dodać warunki jeśli Edytujemy
         private void btnSave_Click(object sender, EventArgs e)
         {
-            List<zadProduct> ProdToTask = new List<zadProduct>();
-            ProdToTask = (from prod in context.zadProducts
-                          join ordered in context.zadOrderProducts on prod.IdProduct equals ordered.IdProduct
-                          where ordered.IdOrder == OrderId
-                          select prod).ToList();
-            try
+            if (!EditMode)
             {
-                foreach (var prod in ProdToTask)
+                List<zadProduct> ProdToTask = new List<zadProduct>();
+                ProdToTask = (from prod in context.zadProducts
+                              join ordered in context.zadOrderProducts on prod.IdProduct equals ordered.IdProduct
+                              where ordered.IdOrder == OrderId
+                              select prod).ToList();
+                try
                 {
-                    int quantity = 0;
-                    var temp = from q in context.zadOrderProducts
-                               where q.IdProduct == prod.IdProduct
-                               select q.Quantity;
-                    quantity = Convert.ToInt32(temp.FirstOrDefault().ToString());
-
-                    var elements = new List<zadProdElem>();
-                    elements = (from element in context.zadProdElems
-                                where prod.IdProduct == element.IdProduct
-                                select element).ToList();
-
-                    foreach (var elem in elements)
+                    foreach (var prod in ProdToTask)
                     {
-                        var NewTask = new zadTaskList()
+                        int quantity = 0;
+                        var temp = from q in context.zadOrderProducts
+                                   where q.IdProduct == prod.IdProduct
+                                   select q.Quantity;
+                        quantity = Convert.ToInt32(temp.FirstOrDefault().ToString());
+
+                        var elements = new List<zadProdElem>();
+                        elements = (from element in context.zadProdElems
+                                    where prod.IdProduct == element.IdProduct
+                                    select element).ToList();
+
+                        foreach (var elem in elements)
                         {
-                            Active = true,
-                            Done = false,
-                            IdElement = elem.IdElement,
-                            IdOrder = OrderId,
-                            Quantity = elem.Quantity * quantity
+                            var NewTask = new zadTaskList()
+                            {
+                                Active = true,
+                                Done = false,
+                                IdElement = elem.IdElement,
+                                IdOrder = OrderId,
+                                Quantity = elem.Quantity * quantity
 
-                        };
-                        context.zadTaskLists.Add(NewTask);
-                        context.SaveChanges();
-
+                            };
+                            context.zadTaskLists.Add(NewTask);
+                            context.SaveChanges();
+                        }
                     }
-                }
 
-                Reload();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                    Reload();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             this.Close();
-           
         }
 
         private void FormEditMode()
@@ -251,7 +253,7 @@ namespace RCPSystem.Forms
             var source = (from order in OrderProducts
                           join prod in context.zadProducts on order.IdProduct equals prod.IdProduct
                           where order.IdOrder == OrderId
-                          select new { Nazwa = prod.Name, Ilosc = order.Quantity, Id = order.IdKey }).ToList();
+                          select new { Nazwa = prod.Name, Ilosc = order.Quantity, Id = order.IdKey,IdProd = order.IdProduct }).ToList();
 
             dgvProd.DataSource = source;
         }
@@ -294,13 +296,44 @@ namespace RCPSystem.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-           // var orderProd = context.zadOrderProducts.ToList();
-            var orderProd = context.zadOrderProducts.FirstOrDefault(o => o.IdOrder.Equals(OrderId) && o.IdProduct.Equals(ProdID));
-            context.zadOrderProducts.Attach(orderProd);
-            context.zadOrderProducts.Remove(orderProd);
-            context.SaveChanges();
+            try
+            {
+                // var orderProd = context.zadOrderProducts.ToList();
+                var orderProd = context.zadOrderProducts.FirstOrDefault(o => o.IdOrder.Equals(OrderId) && o.IdKey.Equals(OrderProdID));
+                context.zadOrderProducts.Attach(orderProd);
+                context.zadOrderProducts.Remove(orderProd);
+                context.SaveChanges();
 
-            //usuwanie z tasków
+                //usuwanie z tasków
+                var ElemIds = (from el in context.zadElements
+                               join pr in context.zadProdElems on el.IdElement equals pr.IdElement
+                               where pr.IdProduct == ProdID
+                               select el).ToList();
+
+                var tasks = context.zadTaskLists.ToList();
+                tasks = tasks.FindAll(t => t.IdOrder.Equals(OrderId));
+
+                var tasksDel = (from t in tasks
+                                join el in ElemIds on t.IdElement equals el.IdElement
+                                select t).ToList();
+
+                foreach (var t in tasksDel)
+                {
+                    t.Active = false;
+                    context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dgvLoad(OrderId);
+            }
+
 
         }
 
@@ -311,7 +344,8 @@ namespace RCPSystem.Forms
             {
                 if (dgvProd.SelectedRows.Count > 0)
                 {
-                    ProdID = Convert.ToInt32(dgvProd.SelectedRows[0].Cells["Id"].Value.ToString());
+                    OrderProdID = Convert.ToInt32(dgvProd.SelectedRows[0].Cells["Id"].Value.ToString());
+                    ProdID = Convert.ToInt32(dgvProd.SelectedRows[0].Cells["IdProd"].Value.ToString());
                 }
 
             }

@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvMyTasks = new System.Windows.Forms.DataGridView();
             this.btnTaskEnd = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.gbTimeAttandance.SuspendLayout();
             this.gbTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
@@ -150,6 +151,7 @@
             this.dgvTask.RowTemplate.Height = 24;
             this.dgvTask.Size = new System.Drawing.Size(770, 326);
             this.dgvTask.TabIndex = 8;
+            this.dgvTask.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvTask_RowStateChanged);
             // 
             // label2
             // 
@@ -168,6 +170,7 @@
             this.dgvMyTasks.RowTemplate.Height = 24;
             this.dgvMyTasks.Size = new System.Drawing.Size(523, 783);
             this.dgvMyTasks.TabIndex = 9;
+            this.dgvMyTasks.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvMyTasks_RowStateChanged);
             // 
             // btnTaskEnd
             // 
@@ -179,11 +182,22 @@
             this.btnTaskEnd.UseVisualStyleBackColor = true;
             this.btnTaskEnd.Click += new System.EventHandler(this.btnTaskEnd_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(719, 350);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(147, 41);
+            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.Text = "Odświerz listę";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Transact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1664, 1016);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnTaskEnd);
             this.Controls.Add(this.dgvMyTasks);
             this.Controls.Add(this.label2);
@@ -219,5 +233,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvMyTasks;
         private System.Windows.Forms.Button btnTaskEnd;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

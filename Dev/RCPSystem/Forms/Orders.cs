@@ -70,6 +70,54 @@ namespace RCPSystem.Forms
 
         private void btnDelOrder_Click(object sender, EventArgs e)
         {
+            //dodać potwierdzenie
+            if (OrderID > 0)
+            {
+                try
+                {
+                    //usuwanie z listy zamówień
+                    var order = context.zadOrders.FirstOrDefault(o => o.IdOrder.Equals(OrderID));
+                    order.Active = false;
+                    context.Entry(order).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+
+                    //usuwanie z tasków
+                    var tasks = context.zadTaskLists.ToList();
+                    tasks = tasks.FindAll(t => t.IdOrder.Equals(OrderID));
+
+                    foreach(var t in tasks)
+                    {
+                        t.Active = false;
+                        context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+                        context.SaveChanges();
+                        //kończenie pracy nad taskiem
+                        var zad = context.zadTaskProductions.ToList();
+                        zad = zad.FindAll(z => z.IdTask == t.IdTask);
+                        if (zad.Count > 0)
+                        {
+                            foreach (var z in zad)
+                            {
+                                z.Stop = DateTime.Now;
+                                z.Active = false;
+                                context.Entry(z).State = System.Data.Entity.EntityState.Modified;
+                                context.SaveChanges();
+                            }
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    GridReload();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wybierz zamówienie");
+            }
 
         }
 

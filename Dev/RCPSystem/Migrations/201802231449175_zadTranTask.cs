@@ -10,10 +10,10 @@ namespace RCPSystem.Migrations
             DropForeignKey("dbo.zadTaskProduction", "IdUser", "dbo.genUsers");
             DropIndex("dbo.zadTaskProduction", new[] { "IdUser" });
             DropPrimaryKey("dbo.zadTaskProduction");
-          //  AddColumn("dbo.zadTaskProduction", "genUser_IdUser", c => c.Int(nullable: false));
+            AddColumn("dbo.zadTaskProduction", "genUser_IdUser", c => c.Int(nullable: false));
             AddPrimaryKey("dbo.zadTaskProduction", "IdUser");
-          //  CreateIndex("dbo.zadTaskProduction", "genUser_IdUser");
-           // AddForeignKey("dbo.zadTaskProduction", "genUser_IdUser", "dbo.genUsers", "IdUser");
+            CreateIndex("dbo.zadTaskProduction", "genUser_IdUser");
+            AddForeignKey("dbo.zadTaskProduction", "genUser_IdUser", "dbo.genUsers", "IdUser");
         }
         
         public override void Down()
