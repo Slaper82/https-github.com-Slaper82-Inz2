@@ -31,7 +31,7 @@
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.IdZam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Utworzono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,16 +47,16 @@
             this.dgvOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdZam,
             this.Utworzono,
-            this.Name,
+            this.Names,
             this.Opis,
             this.CLientID,
             this.Done});
-            this.dgvOrders.Location = new System.Drawing.Point(12, 312);
+            this.dgvOrders.Location = new System.Drawing.Point(12, 95);
             this.dgvOrders.MultiSelect = false;
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowTemplate.Height = 24;
             this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrders.Size = new System.Drawing.Size(1709, 485);
+            this.dgvOrders.Size = new System.Drawing.Size(1696, 485);
             this.dgvOrders.TabIndex = 0;
             this.dgvOrders.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvOrders_RowStateChanged);
             // 
@@ -72,11 +72,11 @@
             this.Utworzono.HeaderText = "Utworzone";
             this.Utworzono.Name = "Utworzono";
             // 
-            // Name
+            // Names
             // 
-            this.Name.DataPropertyName = "Names";
-            this.Name.HeaderText = "Kto utworzył";
-            this.Name.Name = "Names";
+            this.Names.DataPropertyName = "Names";
+            this.Names.HeaderText = "Kto utworzył";
+            this.Names.Name = "Names";
             // 
             // Opis
             // 
@@ -98,7 +98,7 @@
             // 
             // btnAddOrder
             // 
-            this.btnAddOrder.Location = new System.Drawing.Point(12, 47);
+            this.btnAddOrder.Location = new System.Drawing.Point(12, 30);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.Size = new System.Drawing.Size(150, 50);
             this.btnAddOrder.TabIndex = 1;
@@ -108,7 +108,7 @@
             // 
             // btnDelOrder
             // 
-            this.btnDelOrder.Location = new System.Drawing.Point(1571, 256);
+            this.btnDelOrder.Location = new System.Drawing.Point(1558, 30);
             this.btnDelOrder.Name = "btnDelOrder";
             this.btnDelOrder.Size = new System.Drawing.Size(150, 50);
             this.btnDelOrder.TabIndex = 2;
@@ -118,7 +118,7 @@
             // 
             // btnEditOrder
             // 
-            this.btnEditOrder.Location = new System.Drawing.Point(1396, 256);
+            this.btnEditOrder.Location = new System.Drawing.Point(1390, 30);
             this.btnEditOrder.Name = "btnEditOrder";
             this.btnEditOrder.Size = new System.Drawing.Size(150, 50);
             this.btnEditOrder.TabIndex = 3;
@@ -130,12 +130,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1733, 809);
+            this.ClientSize = new System.Drawing.Size(1733, 616);
             this.Controls.Add(this.btnEditOrder);
             this.Controls.Add(this.btnDelOrder);
             this.Controls.Add(this.btnAddOrder);
             this.Controls.Add(this.dgvOrders);
-            this.Name.Name = "Orders";
+            this.Name = "Orders";
             this.Text = "Zamówienia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
@@ -150,9 +150,10 @@
         private System.Windows.Forms.Button btnEditOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdZam;
         private System.Windows.Forms.DataGridViewTextBoxColumn Utworzono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+      //  private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Done;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
     }
 }

@@ -22,6 +22,9 @@ namespace RCPSystems
         public genUserDet UserDet { get; set; }
         public List<genOrgUnit> ListaDep { get; set; }
         public List<genUser> UsersList { get; set; }
+
+        public int DutyID { get; set; }
+
         public  bool Open;
         public Users()
         {
@@ -31,10 +34,36 @@ namespace RCPSystems
             ListaDep = context.genOrgUnits.ToList();
             UsersList = context.genUsers.ToList();
             helper = new FrmHelpers(tvUser,TreeImages);
+            comboLoad();
+            dgvLoad();
         }
         private void Users_Load(object sender, EventArgs e)
         {
             helper.TreeLoad();
+        }
+
+        private void comboLoad()
+        {
+            var dut = context.zadDuties.ToList();  
+            cmbObow.DataSource = dut; 
+            cmbObow.ValueMember = "IdDuty";
+            cmbObow.DisplayMember = "Name";
+        }
+
+        private void dgvLoad()
+        {
+            if (UserID > 0)
+            {
+                var usrDuty = (from d in context.zadUserDuties
+                               join u in context.zadDuties on d.IdDuty equals u.IdDuty
+                               where d.IdUser == UserID
+                               select new { u.Name, u.IdDuty }).ToList();
+
+                dgvDuty.DataSource = usrDuty;
+                dgvDuty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvDuty.AutoResizeColumns();
+
+            }
         }
 
         private void Users_FormClosed(object sender, FormClosedEventArgs e)
@@ -78,6 +107,7 @@ namespace RCPSystems
                 cmbDept.DataSource = selected;
                 cmbDept.DisplayMember = "Name";
                 cmbDept.ValueMember = "IdOrgUnit";
+                dgvLoad();
             }           
         }
         private void EnableDisableControls()
@@ -212,6 +242,69 @@ namespace RCPSystems
             catch(Exception ex)
             {
                 MessageBox.Show("Wystąpił problem z zapisem: "+ex.Message);
+            }
+        }
+
+        private void btnObowAdd_Click(object sender, EventArgs e)
+        {
+            if (UserID > 0)
+            {
+                int duty = Convert.ToInt32(cmbObow.SelectedValue);
+                bool isOnList = false;
+                var test = context.zadUserDuties.ToList();
+                test = test.FindAll(t => t.IdDuty == duty && t.IdUser == UserID);
+                isOnList = (test.Count == 0);
+                try
+                {
+                    if (isOnList)
+                    {
+                        var usrDut = new zadUserDuty
+                        {
+                            IdDuty = Convert.ToInt32(cmbObow.SelectedValue),
+                            IdUser = UserID
+                        };
+                        context.zadUserDuties.Add(usrDut);
+                        context.SaveChanges();
+                        dgvLoad();
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (UserID > 0 && DutyID>0)
+            {
+                try
+                {
+                    var usrDut = context.zadUserDuties.ToList();
+                    var selected = usrDut.FirstOrDefault(d => d.IdUser == UserID && d.IdDuty == DutyID);
+                    context.zadUserDuties.Attach(selected);
+                    context.zadUserDuties.Remove(selected);
+                    context.SaveChanges();
+                    dgvLoad();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void dgvDuty_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected && e.Row.Index >= 0) return;
+            else
+            {
+                if (dgvDuty.SelectedRows.Count > 0)
+                {
+                    DutyID = Convert.ToInt32(dgvDuty.SelectedRows[0].Cells["IdDuty"].Value.ToString());
+                }
+
             }
         }
     }

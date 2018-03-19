@@ -65,31 +65,31 @@
             this.tvHarmo.Location = new System.Drawing.Point(16, 20);
             this.tvHarmo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvHarmo.Name = "tvHarmo";
-            this.tvHarmo.Size = new System.Drawing.Size(367, 1380);
+            this.tvHarmo.Size = new System.Drawing.Size(367, 652);
             this.tvHarmo.TabIndex = 0;
             this.tvHarmo.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvHarmo_AfterSelect);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(434, 172);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(434, 142);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 28);
+            this.label1.Size = new System.Drawing.Size(105, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Poniedziałek";
             // 
             // btnDelete
             // 
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDelete.Image = global::RCPSystems.Properties.Resources.Delete;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.Location = new System.Drawing.Point(613, 21);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(177, 47);
+            this.btnDelete.Size = new System.Drawing.Size(160, 47);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Usuń ";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -98,13 +98,13 @@
             // btnAddHarmo
             // 
             this.btnAddHarmo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddHarmo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHarmo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddHarmo.Image = global::RCPSystems.Properties.Resources.Add1;
             this.btnAddHarmo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddHarmo.Location = new System.Drawing.Point(405, 21);
             this.btnAddHarmo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddHarmo.Name = "btnAddHarmo";
-            this.btnAddHarmo.Size = new System.Drawing.Size(185, 47);
+            this.btnAddHarmo.Size = new System.Drawing.Size(164, 47);
             this.btnAddHarmo.TabIndex = 10;
             this.btnAddHarmo.Text = "Dodaj";
             this.btnAddHarmo.UseVisualStyleBackColor = true;
@@ -113,150 +113,159 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(434, 233);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(434, 194);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 28);
+            this.label2.Size = new System.Drawing.Size(65, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Wtorek";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(434, 286);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(434, 234);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 28);
+            this.label3.Size = new System.Drawing.Size(54, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Środa";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(434, 341);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(434, 281);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 28);
+            this.label4.Size = new System.Drawing.Size(79, 23);
             this.label4.TabIndex = 15;
             this.label4.Text = "Czwartek";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(434, 403);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(434, 332);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 28);
+            this.label5.Size = new System.Drawing.Size(56, 23);
             this.label5.TabIndex = 16;
             this.label5.Text = "Piątek";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(434, 469);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(434, 380);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 28);
+            this.label6.Size = new System.Drawing.Size(64, 23);
             this.label6.TabIndex = 17;
             this.label6.Text = "Sobota";
             // 
             // txtHarmoName
             // 
-            this.txtHarmoName.Location = new System.Drawing.Point(643, 121);
+            this.txtHarmoName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtHarmoName.Location = new System.Drawing.Point(643, 92);
             this.txtHarmoName.Name = "txtHarmoName";
-            this.txtHarmoName.Size = new System.Drawing.Size(373, 34);
+            this.txtHarmoName.Size = new System.Drawing.Size(373, 30);
             this.txtHarmoName.TabIndex = 18;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(434, 121);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(434, 92);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 28);
+            this.label7.Size = new System.Drawing.Size(61, 23);
             this.label7.TabIndex = 19;
             this.label7.Text = "Nazwa";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(434, 527);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(434, 418);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 28);
+            this.label8.Size = new System.Drawing.Size(80, 23);
             this.label8.TabIndex = 20;
             this.label8.Text = "Niedziela";
             // 
             // cmbMon
             // 
+            this.cmbMon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbMon.FormattingEnabled = true;
-            this.cmbMon.Location = new System.Drawing.Point(643, 170);
+            this.cmbMon.Location = new System.Drawing.Point(643, 140);
             this.cmbMon.Name = "cmbMon";
-            this.cmbMon.Size = new System.Drawing.Size(373, 36);
+            this.cmbMon.Size = new System.Drawing.Size(373, 31);
             this.cmbMon.TabIndex = 21;
             // 
             // cmbTue
             // 
+            this.cmbTue.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbTue.FormattingEnabled = true;
-            this.cmbTue.Location = new System.Drawing.Point(643, 225);
+            this.cmbTue.Location = new System.Drawing.Point(643, 186);
             this.cmbTue.Name = "cmbTue";
-            this.cmbTue.Size = new System.Drawing.Size(373, 36);
+            this.cmbTue.Size = new System.Drawing.Size(373, 31);
             this.cmbTue.TabIndex = 22;
             // 
             // cmbWed
             // 
+            this.cmbWed.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbWed.FormattingEnabled = true;
-            this.cmbWed.Location = new System.Drawing.Point(643, 283);
+            this.cmbWed.Location = new System.Drawing.Point(643, 231);
             this.cmbWed.Name = "cmbWed";
-            this.cmbWed.Size = new System.Drawing.Size(373, 36);
+            this.cmbWed.Size = new System.Drawing.Size(373, 31);
             this.cmbWed.TabIndex = 23;
             // 
             // cmbThur
             // 
+            this.cmbThur.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbThur.FormattingEnabled = true;
-            this.cmbThur.Location = new System.Drawing.Point(643, 338);
+            this.cmbThur.Location = new System.Drawing.Point(643, 278);
             this.cmbThur.Name = "cmbThur";
-            this.cmbThur.Size = new System.Drawing.Size(373, 36);
+            this.cmbThur.Size = new System.Drawing.Size(373, 31);
             this.cmbThur.TabIndex = 24;
             // 
             // cmbFri
             // 
+            this.cmbFri.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbFri.FormattingEnabled = true;
-            this.cmbFri.Location = new System.Drawing.Point(643, 395);
+            this.cmbFri.Location = new System.Drawing.Point(643, 324);
             this.cmbFri.Name = "cmbFri";
-            this.cmbFri.Size = new System.Drawing.Size(373, 36);
+            this.cmbFri.Size = new System.Drawing.Size(373, 31);
             this.cmbFri.TabIndex = 25;
             // 
             // cmbSat
             // 
+            this.cmbSat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbSat.FormattingEnabled = true;
-            this.cmbSat.Location = new System.Drawing.Point(643, 461);
+            this.cmbSat.Location = new System.Drawing.Point(643, 372);
             this.cmbSat.Name = "cmbSat";
-            this.cmbSat.Size = new System.Drawing.Size(373, 36);
+            this.cmbSat.Size = new System.Drawing.Size(373, 31);
             this.cmbSat.TabIndex = 26;
             // 
             // cmbSun
             // 
+            this.cmbSun.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbSun.FormattingEnabled = true;
-            this.cmbSun.Location = new System.Drawing.Point(643, 527);
+            this.cmbSun.Location = new System.Drawing.Point(643, 418);
             this.cmbSun.Name = "cmbSun";
-            this.cmbSun.Size = new System.Drawing.Size(373, 36);
+            this.cmbSun.Size = new System.Drawing.Size(373, 31);
             this.cmbSun.TabIndex = 27;
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSave.Image = global::RCPSystems.Properties.Resources.Floppy2;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(414, 592);
+            this.btnSave.Location = new System.Drawing.Point(438, 504);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(293, 71);
+            this.btnSave.Size = new System.Drawing.Size(242, 50);
             this.btnSave.TabIndex = 28;
             this.btnSave.Text = "Zapisz zmiany";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -265,9 +274,10 @@
             // chbMonday
             // 
             this.chbMonday.AutoSize = true;
-            this.chbMonday.Location = new System.Drawing.Point(1121, 174);
+            this.chbMonday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbMonday.Location = new System.Drawing.Point(1121, 142);
             this.chbMonday.Name = "chbMonday";
-            this.chbMonday.Size = new System.Drawing.Size(90, 32);
+            this.chbMonday.Size = new System.Drawing.Size(80, 27);
             this.chbMonday.TabIndex = 29;
             this.chbMonday.Text = "Wolne";
             this.chbMonday.UseVisualStyleBackColor = true;
@@ -276,9 +286,10 @@
             // chbTuesday
             // 
             this.chbTuesday.AutoSize = true;
-            this.chbTuesday.Location = new System.Drawing.Point(1121, 231);
+            this.chbTuesday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbTuesday.Location = new System.Drawing.Point(1121, 188);
             this.chbTuesday.Name = "chbTuesday";
-            this.chbTuesday.Size = new System.Drawing.Size(90, 32);
+            this.chbTuesday.Size = new System.Drawing.Size(80, 27);
             this.chbTuesday.TabIndex = 30;
             this.chbTuesday.Text = "Wolne";
             this.chbTuesday.UseVisualStyleBackColor = true;
@@ -287,9 +298,10 @@
             // chbWednesday
             // 
             this.chbWednesday.AutoSize = true;
-            this.chbWednesday.Location = new System.Drawing.Point(1121, 286);
+            this.chbWednesday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbWednesday.Location = new System.Drawing.Point(1121, 233);
             this.chbWednesday.Name = "chbWednesday";
-            this.chbWednesday.Size = new System.Drawing.Size(90, 32);
+            this.chbWednesday.Size = new System.Drawing.Size(80, 27);
             this.chbWednesday.TabIndex = 31;
             this.chbWednesday.Text = "Wolne";
             this.chbWednesday.UseVisualStyleBackColor = true;
@@ -298,9 +310,10 @@
             // chbThursday
             // 
             this.chbThursday.AutoSize = true;
-            this.chbThursday.Location = new System.Drawing.Point(1121, 341);
+            this.chbThursday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbThursday.Location = new System.Drawing.Point(1121, 280);
             this.chbThursday.Name = "chbThursday";
-            this.chbThursday.Size = new System.Drawing.Size(90, 32);
+            this.chbThursday.Size = new System.Drawing.Size(80, 27);
             this.chbThursday.TabIndex = 32;
             this.chbThursday.Text = "Wolne";
             this.chbThursday.UseVisualStyleBackColor = true;
@@ -309,9 +322,10 @@
             // chbFriday
             // 
             this.chbFriday.AutoSize = true;
-            this.chbFriday.Location = new System.Drawing.Point(1121, 399);
+            this.chbFriday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbFriday.Location = new System.Drawing.Point(1121, 326);
             this.chbFriday.Name = "chbFriday";
-            this.chbFriday.Size = new System.Drawing.Size(90, 32);
+            this.chbFriday.Size = new System.Drawing.Size(80, 27);
             this.chbFriday.TabIndex = 33;
             this.chbFriday.Text = "Wolne";
             this.chbFriday.UseVisualStyleBackColor = true;
@@ -320,9 +334,10 @@
             // chbSaturday
             // 
             this.chbSaturday.AutoSize = true;
-            this.chbSaturday.Location = new System.Drawing.Point(1121, 465);
+            this.chbSaturday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbSaturday.Location = new System.Drawing.Point(1121, 374);
             this.chbSaturday.Name = "chbSaturday";
-            this.chbSaturday.Size = new System.Drawing.Size(90, 32);
+            this.chbSaturday.Size = new System.Drawing.Size(80, 27);
             this.chbSaturday.TabIndex = 34;
             this.chbSaturday.Text = "Wolne";
             this.chbSaturday.UseVisualStyleBackColor = true;
@@ -331,9 +346,10 @@
             // chbSunday
             // 
             this.chbSunday.AutoSize = true;
-            this.chbSunday.Location = new System.Drawing.Point(1121, 527);
+            this.chbSunday.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chbSunday.Location = new System.Drawing.Point(1121, 420);
             this.chbSunday.Name = "chbSunday";
-            this.chbSunday.Size = new System.Drawing.Size(90, 32);
+            this.chbSunday.Size = new System.Drawing.Size(80, 27);
             this.chbSunday.TabIndex = 35;
             this.chbSunday.Text = "Wolne";
             this.chbSunday.UseVisualStyleBackColor = true;
@@ -343,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1572, 1415);
+            this.ClientSize = new System.Drawing.Size(1572, 687);
             this.Controls.Add(this.chbSunday);
             this.Controls.Add(this.chbSaturday);
             this.Controls.Add(this.chbFriday);

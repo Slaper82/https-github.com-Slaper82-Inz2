@@ -35,7 +35,6 @@
             this.tHarmo = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbHarChose = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnHarmoAdd = new System.Windows.Forms.Button();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -52,6 +51,7 @@
             this.dgvTranPairs = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvReport = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.gbTime = new System.Windows.Forms.GroupBox();
             this.btnEnd = new System.Windows.Forms.Button();
@@ -62,7 +62,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TreeImages = new System.Windows.Forms.ImageList(this.components);
             this.btnCount = new System.Windows.Forms.Button();
-            this.dgvReport = new System.Windows.Forms.DataGridView();
             this.tcTimeAtt.SuspendLayout();
             this.tHarmo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,18 +71,18 @@
             this.tPairs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTranPairs)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.gbTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
+            this.gbTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // tvUsers
             // 
             this.tvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tvUsers.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tvUsers.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tvUsers.Location = new System.Drawing.Point(16, 226);
             this.tvUsers.Name = "tvUsers";
-            this.tvUsers.Size = new System.Drawing.Size(325, 723);
+            this.tvUsers.Size = new System.Drawing.Size(325, 587);
             this.tvUsers.TabIndex = 0;
             this.tvUsers.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvUsers_AfterSelect);
             // 
@@ -98,12 +97,12 @@
             this.tcTimeAtt.Controls.Add(this.tabPage1);
             this.tcTimeAtt.Controls.Add(this.tabPage2);
             this.tcTimeAtt.Controls.Add(this.tabPage3);
-            this.tcTimeAtt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tcTimeAtt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tcTimeAtt.Location = new System.Drawing.Point(369, 230);
             this.tcTimeAtt.Name = "tcTimeAtt";
             this.tcTimeAtt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tcTimeAtt.SelectedIndex = 0;
-            this.tcTimeAtt.Size = new System.Drawing.Size(1471, 719);
+            this.tcTimeAtt.Size = new System.Drawing.Size(1471, 583);
             this.tcTimeAtt.TabIndex = 1;
             // 
             // tHarmo
@@ -111,10 +110,10 @@
             this.tHarmo.Controls.Add(this.groupBox1);
             this.tHarmo.Controls.Add(this.btnHarmoDel);
             this.tHarmo.Controls.Add(this.dgvUserHarmo);
-            this.tHarmo.Location = new System.Drawing.Point(4, 37);
+            this.tHarmo.Location = new System.Drawing.Point(4, 32);
             this.tHarmo.Name = "tHarmo";
             this.tHarmo.Padding = new System.Windows.Forms.Padding(3);
-            this.tHarmo.Size = new System.Drawing.Size(1463, 678);
+            this.tHarmo.Size = new System.Drawing.Size(1463, 547);
             this.tHarmo.TabIndex = 0;
             this.tHarmo.Text = "Harmonogram";
             this.tHarmo.UseVisualStyleBackColor = true;
@@ -122,13 +121,12 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbHarChose);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnHarmoAdd);
             this.groupBox1.Controls.Add(this.dtpTo);
             this.groupBox1.Controls.Add(this.dtpFrom);
             this.groupBox1.Location = new System.Drawing.Point(31, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(860, 183);
+            this.groupBox1.Size = new System.Drawing.Size(860, 101);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wstaw harmonogram";
@@ -136,19 +134,10 @@
             // cmbHarChose
             // 
             this.cmbHarChose.FormattingEnabled = true;
-            this.cmbHarChose.Location = new System.Drawing.Point(33, 98);
+            this.cmbHarChose.Location = new System.Drawing.Point(33, 36);
             this.cmbHarChose.Name = "cmbHarChose";
-            this.cmbHarChose.Size = new System.Drawing.Size(181, 36);
+            this.cmbHarChose.Size = new System.Drawing.Size(181, 31);
             this.cmbHarChose.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 28);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Wstaw harmonogram";
             // 
             // btnHarmoAdd
             // 
@@ -156,7 +145,7 @@
             this.btnHarmoAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnHarmoAdd.Image = global::RCPSystems.Properties.Resources.Add1;
             this.btnHarmoAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 98);
+            this.btnHarmoAdd.Location = new System.Drawing.Point(649, 36);
             this.btnHarmoAdd.Name = "btnHarmoAdd";
             this.btnHarmoAdd.Size = new System.Drawing.Size(147, 36);
             this.btnHarmoAdd.TabIndex = 20;
@@ -167,17 +156,17 @@
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(450, 98);
+            this.dtpTo.Location = new System.Drawing.Point(450, 36);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(141, 34);
+            this.dtpTo.Size = new System.Drawing.Size(141, 30);
             this.dtpTo.TabIndex = 25;
             // 
             // dtpFrom
             // 
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(265, 98);
+            this.dtpFrom.Location = new System.Drawing.Point(265, 36);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(146, 34);
+            this.dtpFrom.Size = new System.Drawing.Size(146, 30);
             this.dtpFrom.TabIndex = 24;
             // 
             // btnHarmoDel
@@ -197,7 +186,7 @@
             // dgvUserHarmo
             // 
             this.dgvUserHarmo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUserHarmo.Location = new System.Drawing.Point(31, 252);
+            this.dgvUserHarmo.Location = new System.Drawing.Point(31, 143);
             this.dgvUserHarmo.Name = "dgvUserHarmo";
             this.dgvUserHarmo.RowTemplate.Height = 24;
             this.dgvUserHarmo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -207,10 +196,10 @@
             // tTransactions
             // 
             this.tTransactions.Controls.Add(this.dgvTransactions);
-            this.tTransactions.Location = new System.Drawing.Point(4, 37);
+            this.tTransactions.Location = new System.Drawing.Point(4, 32);
             this.tTransactions.Name = "tTransactions";
             this.tTransactions.Padding = new System.Windows.Forms.Padding(3);
-            this.tTransactions.Size = new System.Drawing.Size(1463, 678);
+            this.tTransactions.Size = new System.Drawing.Size(1463, 547);
             this.tTransactions.TabIndex = 1;
             this.tTransactions.Text = "Transakcje";
             this.tTransactions.UseVisualStyleBackColor = true;
@@ -235,7 +224,7 @@
             this.dgvTransactions.Name = "dgvTransactions";
             this.dgvTransactions.RowTemplate.Height = 24;
             this.dgvTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTransactions.Size = new System.Drawing.Size(893, 652);
+            this.dgvTransactions.Size = new System.Drawing.Size(893, 521);
             this.dgvTransactions.TabIndex = 0;
             this.dgvTransactions.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvTransactions_RowPostPaint);
             // 
@@ -278,10 +267,10 @@
             // 
             this.tPairs.Controls.Add(this.dgvTranPairs);
             this.tPairs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tPairs.Location = new System.Drawing.Point(4, 37);
+            this.tPairs.Location = new System.Drawing.Point(4, 32);
             this.tPairs.Name = "tPairs";
             this.tPairs.Padding = new System.Windows.Forms.Padding(3);
-            this.tPairs.Size = new System.Drawing.Size(1463, 678);
+            this.tPairs.Size = new System.Drawing.Size(1463, 547);
             this.tPairs.TabIndex = 2;
             this.tPairs.Text = "Pary transakcji";
             this.tPairs.UseVisualStyleBackColor = true;
@@ -294,15 +283,15 @@
             this.dgvTranPairs.Location = new System.Drawing.Point(25, 23);
             this.dgvTranPairs.Name = "dgvTranPairs";
             this.dgvTranPairs.RowTemplate.Height = 24;
-            this.dgvTranPairs.Size = new System.Drawing.Size(983, 649);
+            this.dgvTranPairs.Size = new System.Drawing.Size(983, 518);
             this.dgvTranPairs.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
+            this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1463, 678);
+            this.tabPage1.Size = new System.Drawing.Size(1463, 547);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Pary przerw";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -310,20 +299,29 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvReport);
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
+            this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1463, 678);
+            this.tabPage2.Size = new System.Drawing.Size(1463, 547);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Raport czasu pracy";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvReport
+            // 
+            this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReport.Location = new System.Drawing.Point(59, 60);
+            this.dgvReport.Name = "dgvReport";
+            this.dgvReport.RowTemplate.Height = 24;
+            this.dgvReport.Size = new System.Drawing.Size(852, 581);
+            this.dgvReport.TabIndex = 0;
+            // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 37);
+            this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1463, 678);
+            this.tabPage3.Size = new System.Drawing.Size(1463, 547);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Raport czasu zadań";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -339,7 +337,7 @@
             this.gbTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.gbTime.Location = new System.Drawing.Point(16, 29);
             this.gbTime.Name = "gbTime";
-            this.gbTime.Size = new System.Drawing.Size(533, 174);
+            this.gbTime.Size = new System.Drawing.Size(531, 178);
             this.gbTime.TabIndex = 2;
             this.gbTime.TabStop = false;
             this.gbTime.Text = "Zakres raportu";
@@ -413,47 +411,37 @@
             // 
             // btnCount
             // 
-            this.btnCount.Location = new System.Drawing.Point(886, 84);
+            this.btnCount.Location = new System.Drawing.Point(615, 39);
             this.btnCount.Name = "btnCount";
-            this.btnCount.Size = new System.Drawing.Size(188, 75);
+            this.btnCount.Size = new System.Drawing.Size(158, 45);
             this.btnCount.TabIndex = 3;
             this.btnCount.Text = "Przelicz";
             this.btnCount.UseVisualStyleBackColor = true;
             this.btnCount.Click += new System.EventHandler(this.btnCount_Click);
             // 
-            // dgvReport
-            // 
-            this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReport.Location = new System.Drawing.Point(59, 60);
-            this.dgvReport.Name = "dgvReport";
-            this.dgvReport.RowTemplate.Height = 24;
-            this.dgvReport.Size = new System.Drawing.Size(852, 581);
-            this.dgvReport.TabIndex = 0;
-            // 
             // TimeAttandance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1874, 961);
+            this.ClientSize = new System.Drawing.Size(1874, 825);
             this.Controls.Add(this.btnCount);
             this.Controls.Add(this.gbTime);
             this.Controls.Add(this.tcTimeAtt);
             this.Controls.Add(this.tvUsers);
             this.Name = "TimeAttandance";
-            this.Text = "TimeAttandance";
+            this.Text = "Czas pracy i raporty";
             this.tcTimeAtt.ResumeLayout(false);
             this.tHarmo.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserHarmo)).EndInit();
             this.tTransactions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.tPairs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTranPairs)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.gbTime.ResumeLayout(false);
             this.gbTime.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,7 +467,6 @@
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.ComboBox cmbHarChose;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvTransactions;
         private System.Windows.Forms.DataGridViewTextBoxColumn lp;
         private System.Windows.Forms.DataGridViewTextBoxColumn TranId;
