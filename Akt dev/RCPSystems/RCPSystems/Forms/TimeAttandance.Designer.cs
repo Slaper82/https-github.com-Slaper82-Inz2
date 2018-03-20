@@ -309,11 +309,13 @@
             // 
             // dgvReport
             // 
+            this.dgvReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReport.Location = new System.Drawing.Point(59, 60);
+            this.dgvReport.Location = new System.Drawing.Point(15, 12);
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.RowTemplate.Height = 24;
-            this.dgvReport.Size = new System.Drawing.Size(852, 581);
+            this.dgvReport.Size = new System.Drawing.Size(1155, 529);
             this.dgvReport.TabIndex = 0;
             // 
             // tabPage3

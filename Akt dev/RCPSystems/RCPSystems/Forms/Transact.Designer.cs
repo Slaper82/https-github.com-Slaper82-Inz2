@@ -196,7 +196,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(1074, 18);
+            this.label2.Location = new System.Drawing.Point(894, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 23);
             this.label2.TabIndex = 9;
@@ -210,7 +210,7 @@
             this.Start,
             this.Stop,
             this.AddInfo});
-            this.dgvMyTasks.Location = new System.Drawing.Point(1078, 59);
+            this.dgvMyTasks.Location = new System.Drawing.Point(898, 59);
             this.dgvMyTasks.Name = "dgvMyTasks";
             this.dgvMyTasks.RowTemplate.Height = 24;
             this.dgvMyTasks.Size = new System.Drawing.Size(523, 480);
@@ -244,7 +244,7 @@
             // btnTaskEnd
             // 
             this.btnTaskEnd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTaskEnd.Location = new System.Drawing.Point(1078, 554);
+            this.btnTaskEnd.Location = new System.Drawing.Point(898, 554);
             this.btnTaskEnd.Name = "btnTaskEnd";
             this.btnTaskEnd.Size = new System.Drawing.Size(185, 47);
             this.btnTaskEnd.TabIndex = 9;
@@ -267,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1664, 853);
+            this.ClientSize = new System.Drawing.Size(1507, 765);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnTaskEnd);
             this.Controls.Add(this.dgvMyTasks);

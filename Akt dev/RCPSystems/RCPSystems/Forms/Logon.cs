@@ -33,7 +33,7 @@ namespace RCPSystems.Forms
             {
                 //genUser user = new genUser();
                 var user = _context.genUsers.FirstOrDefault(u => u.IdUser == (_context.genLogins.FirstOrDefault(d => d.Login == txtLogin.Text).IdUser));
-                var priv = _context.genRoles.FirstOrDefault(p => p.IdRole == user.IdRole);
+                var priv = _context.genRoles.FirstOrDefault(p => p.IdRole == 1);//tmp
                 switch (priv.Name)
                 {
                     case "Administrator":

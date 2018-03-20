@@ -129,7 +129,7 @@
             this.tbDict.Location = new System.Drawing.Point(12, 12);
             this.tbDict.Name = "tbDict";
             this.tbDict.SelectedIndex = 0;
-            this.tbDict.Size = new System.Drawing.Size(1878, 816);
+            this.tbDict.Size = new System.Drawing.Size(1878, 817);
             this.tbDict.TabIndex = 0;
             // 
             // tpStruct
@@ -145,21 +145,19 @@
             this.tpStruct.Location = new System.Drawing.Point(4, 37);
             this.tpStruct.Name = "tpStruct";
             this.tpStruct.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStruct.Size = new System.Drawing.Size(1870, 843);
+            this.tpStruct.Size = new System.Drawing.Size(1870, 776);
             this.tpStruct.TabIndex = 0;
             this.tpStruct.Text = "Struktura przedsiębiorstwa";
             // 
             // btnDeleteStruct
             // 
-            this.btnDeleteStruct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDeleteStruct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteStruct.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDeleteStruct.Image = global::RCPSystems.Properties.Resources.Delete;
             this.btnDeleteStruct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteStruct.Location = new System.Drawing.Point(297, 801);
+            this.btnDeleteStruct.Location = new System.Drawing.Point(297, 214);
             this.btnDeleteStruct.Name = "btnDeleteStruct";
-            this.btnDeleteStruct.Size = new System.Drawing.Size(122, 36);
+            this.btnDeleteStruct.Size = new System.Drawing.Size(199, 36);
             this.btnDeleteStruct.TabIndex = 20;
             this.btnDeleteStruct.Text = "Usuń ";
             this.btnDeleteStruct.UseVisualStyleBackColor = true;
@@ -221,7 +219,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tvStruct.Location = new System.Drawing.Point(6, 9);
             this.tvStruct.Name = "tvStruct";
-            this.tvStruct.Size = new System.Drawing.Size(267, 831);
+            this.tvStruct.Size = new System.Drawing.Size(267, 761);
             this.tvStruct.TabIndex = 0;
             this.tvStruct.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvStruct_AfterSelect);
             // 
@@ -232,6 +230,7 @@
             this.tpProduct.Controls.Add(this.btnProdAdd);
             this.tpProduct.Controls.Add(this.btnProdDel);
             this.tpProduct.Controls.Add(this.label8);
+            this.tpProduct.Controls.Add(this.btnSaveProdData);
             this.tpProduct.Controls.Add(this.btnAddElemnt);
             this.tpProduct.Controls.Add(this.dgvElem);
             this.tpProduct.Controls.Add(this.dgvProducts);
@@ -239,7 +238,7 @@
             this.tpProduct.Location = new System.Drawing.Point(4, 37);
             this.tpProduct.Name = "tpProduct";
             this.tpProduct.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProduct.Size = new System.Drawing.Size(1870, 775);
+            this.tpProduct.Size = new System.Drawing.Size(1870, 776);
             this.tpProduct.TabIndex = 3;
             this.tpProduct.Text = "Produkty";
             // 
@@ -318,7 +317,7 @@
             this.dgvElem.Name = "dgvElem";
             this.dgvElem.RowTemplate.Height = 24;
             this.dgvElem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvElem.Size = new System.Drawing.Size(506, 333);
+            this.dgvElem.Size = new System.Drawing.Size(506, 330);
             this.dgvElem.TabIndex = 32;
             // 
             // IdElem
@@ -355,7 +354,7 @@
             this.dgvProducts.Location = new System.Drawing.Point(14, 334);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(740, 400);
+            this.dgvProducts.Size = new System.Drawing.Size(776, 400);
             this.dgvProducts.TabIndex = 38;
             this.dgvProducts.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProducts_RowPostPaint);
             this.dgvProducts.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvProducts_RowStateChanged);
@@ -384,7 +383,6 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtProdDescript);
             this.groupBox3.Controls.Add(this.txtProdName);
-            this.groupBox3.Controls.Add(this.btnSaveProdData);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox3.Location = new System.Drawing.Point(14, 18);
             this.groupBox3.Name = "groupBox3";
@@ -428,11 +426,12 @@
             // 
             // btnSaveProdData
             // 
+            this.btnSaveProdData.AutoSize = true;
             this.btnSaveProdData.Image = global::RCPSystems.Properties.Resources.Floppy2;
             this.btnSaveProdData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveProdData.Location = new System.Drawing.Point(22, 134);
+            this.btnSaveProdData.Location = new System.Drawing.Point(581, 263);
             this.btnSaveProdData.Name = "btnSaveProdData";
-            this.btnSaveProdData.Size = new System.Drawing.Size(185, 45);
+            this.btnSaveProdData.Size = new System.Drawing.Size(209, 54);
             this.btnSaveProdData.TabIndex = 35;
             this.btnSaveProdData.Text = "Aktualizuj dane";
             this.btnSaveProdData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -837,7 +836,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 840);
+            this.ClientSize = new System.Drawing.Size(1902, 841);
             this.Controls.Add(this.tbDict);
             this.Name = "Dict";
             this.Text = "Słowniki";
