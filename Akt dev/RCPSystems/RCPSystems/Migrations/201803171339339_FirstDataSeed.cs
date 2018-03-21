@@ -129,7 +129,7 @@ namespace RCPSystems.Migrations
 
 
             //loginy
-            Sql("insert into genLogin  values (1,'a','a',0)");
+            Sql("insert into genLogin  values (1,'admin','admin',0)");
             Sql("insert into genLogin  values (2,'b','b',0)");
             Sql("insert into genLogin  values (3,'c','c',0)");
             Sql("insert into genLogin  values (4,'d','d',0)");

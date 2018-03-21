@@ -180,6 +180,10 @@
     <Compile Include="Migrations\201803171913200_TriggerStrtStop.Designer.cs">
       <DependentUpon>201803171913200_TriggerStrtStop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803212238343_TaskProdNullEnable.cs" />
+    <Compile Include="Migrations\201803212238343_TaskProdNullEnable.Designer.cs">
+      <DependentUpon>201803212238343_TaskProdNullEnable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803171913200_TriggerStrtStop.resx">
       <DependentUpon>201803171913200_TriggerStrtStop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803212238343_TaskProdNullEnable.resx">
+      <DependentUpon>201803212238343_TaskProdNullEnable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

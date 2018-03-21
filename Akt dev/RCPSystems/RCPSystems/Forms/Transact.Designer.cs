@@ -50,6 +50,8 @@
             this.AddInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTaskEnd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnRun = new System.Windows.Forms.Button();
             this.gbTimeAttandance.SuspendLayout();
             this.gbTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
@@ -244,7 +246,7 @@
             // btnTaskEnd
             // 
             this.btnTaskEnd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTaskEnd.Location = new System.Drawing.Point(898, 554);
+            this.btnTaskEnd.Location = new System.Drawing.Point(898, 629);
             this.btnTaskEnd.Name = "btnTaskEnd";
             this.btnTaskEnd.Size = new System.Drawing.Size(185, 47);
             this.btnTaskEnd.TabIndex = 9;
@@ -263,11 +265,33 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(898, 557);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(185, 48);
+            this.btnPause.TabIndex = 11;
+            this.btnPause.Text = "Zatrzymaj pracę";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnRun
+            // 
+            this.btnRun.Location = new System.Drawing.Point(1236, 557);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(185, 48);
+            this.btnRun.TabIndex = 12;
+            this.btnRun.Text = "Rozpocznij pracę";
+            this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
             // Transact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1507, 765);
+            this.Controls.Add(this.btnRun);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnTaskEnd);
             this.Controls.Add(this.dgvMyTasks);
@@ -313,5 +337,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stop;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddInfo;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnRun;
     }
 }

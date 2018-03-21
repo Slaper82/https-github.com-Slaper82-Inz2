@@ -69,14 +69,58 @@ namespace RCPSystems.Forms
                 MessageBox.Show(ErrorMessage);
             }
         }
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (MyTaskID > 0)
+            {
+                bool isPaused = (context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID && t.Start == null && t.Stop == null)) != null;
+                
+                if (!isPaused)
+                {
+                    var Mytask = context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID);
+                    Mytask.Stop = DateTime.Now;
+                    Mytask.AddInfo = "Zatrzymano pracę: " + DateTime.Now;
+
+                    context.Entry(Mytask).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+
+                    var MyPauseTask = new zadTaskProduction
+                    {
+                        IdUser = Mytask.IdUser,
+                        IdTask = Mytask.IdTask,
+                        Active = true,
+                        Start = null,
+                        Stop = null
+                    };
+                    context.zadTaskProductions.Add(MyPauseTask);
+                    context.SaveChanges();
+                    dgvMyTaskLoad();
+                }
+            }
+        }
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            if (MyTaskID > 0)
+            {
+                bool isPaused = (context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID && t.Start == null && t.Stop == null)) != null;
+
+                if (isPaused)
+                {
+                    var Mytask = context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID && t.Start == null && t.Stop == null);
+                    Mytask.Start = DateTime.Now;
+                    context.Entry(Mytask).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                    dgvMyTaskLoad();
+                }
+            }
+        }
 
         private void btnStartZad_Click(object sender, EventArgs e)
         {
             if (TaskID > 0)
             {
                 try
-                {
-                   // TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].FormattedValue.ToString());
+                {                 
                     zadTaskProduction task = new zadTaskProduction()
                     {
                         IdUser = UserID,
@@ -115,11 +159,21 @@ namespace RCPSystems.Forms
 
             var tasks = (context.zadTaskLists.Where(t => !TaskIds.Any(tp => tp.Value == t.IdTask))).ToList();
 
-            var x = context.zadTaskLists.ToList();
+            var TaskForUser = (from t in tasks
+                              join elem in context.zadElements on t.IdElement equals elem.IdElement
+                              join type in context.zadTypes on elem.IdType equals type.IdType
+                              join dutTyp in context.zadDutyTypes on type.IdType equals dutTyp.IdType
+                              join userDut in context.zadUserDuties on dutTyp.IdDuty equals userDut.IdDuty
+                              where userDut.IdUser == UserID && t.Active==true
+                              select t).ToList();
 
-            tasks = tasks.FindAll(t => t.Active == true);
 
-            var ds = (from t in tasks
+
+           // tasks = tasks.FindAll(t => t.Active == true);
+
+
+
+            var ds = (from t in TaskForUser
                      select new { t.IdTask, t.IdOrder, t.Quantity, t.Done }).ToList();
 
             
@@ -141,34 +195,20 @@ namespace RCPSystems.Forms
             dgvMyTasks.DataSource = ds;
             dgvMyTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvMyTasks.AutoResizeColumns();
-            // dodać wszystkie potrzbne ustawienia dgv
         }
 
         private void btnTaskEnd_Click(object sender, EventArgs e)
         {
-            //TODO: jak będzie moduł z zadaniami to wtedy 
             if (MyTaskID > 0)
             {
                 try
                 {
-                    //   TaskID = Convert.ToInt32(dgvTask.SelectedRows[0].Cells["IdTask"].FormattedValue.ToString());
                     var Mytask = context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID);
 
                     Mytask.Stop = DateTime.Now;
                     
                     context.Entry(Mytask).State = System.Data.Entity.EntityState.Modified;
-                    context.SaveChanges();
-                  //  context.zadTaskProductions.
-
-                    //zadTaskProduction task = new zadTaskProduction()
-                    //{
-                    //    IdUser = UserID,
-                    //    Start = DateTime.Now,
-                    //    Active = true,
-                    //    Stop = null
-                    //};
-                    //context.zadTaskProductions.Add(task);
-                    //context.SaveChanges();     
+                    context.SaveChanges();    
                 }
                 catch (Exception ex)
                 {
@@ -176,9 +216,7 @@ namespace RCPSystems.Forms
                 }
                 finally
                 {
-                    //dgv Reload
                     dgvTaskLoad();
-                    //dgvMyTask Reload
                     dgvMyTaskLoad();
                 }
 
@@ -247,5 +285,7 @@ namespace RCPSystems.Forms
 
             }
         }
+
+     
     }
 }

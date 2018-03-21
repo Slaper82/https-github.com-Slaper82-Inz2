@@ -56,6 +56,10 @@ namespace RCPSystems.Forms
                 this.Hide();
                 main.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Nieprawidłowy login lub hasło", "Uwaga",  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
     
         }
 

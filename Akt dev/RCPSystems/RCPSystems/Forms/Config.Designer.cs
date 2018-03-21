@@ -41,41 +41,47 @@
             this.TreeImages = new System.Windows.Forms.ImageList(this.components);
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tvUsers
             // 
+            this.tvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tvUsers.Location = new System.Drawing.Point(13, 12);
             this.tvUsers.Name = "tvUsers";
-            this.tvUsers.Size = new System.Drawing.Size(229, 621);
+            this.tvUsers.Size = new System.Drawing.Size(270, 621);
             this.tvUsers.TabIndex = 0;
             this.tvUsers.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvUsers_AfterSelect);
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(343, 64);
+            this.txtLogin.Location = new System.Drawing.Point(47, 70);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(234, 22);
             this.txtLogin.TabIndex = 1;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(343, 124);
+            this.txtPass.Location = new System.Drawing.Point(47, 130);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(234, 22);
             this.txtPass.TabIndex = 2;
             // 
             // txtPassCheck
             // 
-            this.txtPassCheck.Location = new System.Drawing.Point(343, 182);
+            this.txtPassCheck.Location = new System.Drawing.Point(47, 188);
             this.txtPassCheck.Name = "txtPassCheck";
+            this.txtPassCheck.PasswordChar = '*';
             this.txtPassCheck.Size = new System.Drawing.Size(234, 22);
             this.txtPassCheck.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 44);
+            this.label1.Location = new System.Drawing.Point(44, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 4;
@@ -84,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 104);
+            this.label2.Location = new System.Drawing.Point(44, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 17);
             this.label2.TabIndex = 5;
@@ -93,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 162);
+            this.label3.Location = new System.Drawing.Point(44, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 17);
             this.label3.TabIndex = 6;
@@ -101,7 +107,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(343, 298);
+            this.btnSave.Location = new System.Drawing.Point(47, 304);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(104, 31);
             this.btnSave.TabIndex = 7;
@@ -119,7 +125,7 @@
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(343, 242);
+            this.cmbRole.Location = new System.Drawing.Point(47, 248);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(234, 24);
             this.cmbRole.TabIndex = 8;
@@ -127,31 +133,42 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(343, 219);
+            this.label4.Location = new System.Drawing.Point(47, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Rola w programie";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtLogin);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtPass);
+            this.groupBox1.Controls.Add(this.cmbRole);
+            this.groupBox1.Controls.Add(this.txtPassCheck);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(313, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(389, 440);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Wprowadź dane logowania";
             // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1524, 645);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbRole);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPassCheck);
-            this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.txtLogin);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tvUsers);
             this.Name = "Config";
             this.Text = "Konfiguracja";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -168,5 +185,6 @@
         private System.Windows.Forms.ImageList TreeImages;
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

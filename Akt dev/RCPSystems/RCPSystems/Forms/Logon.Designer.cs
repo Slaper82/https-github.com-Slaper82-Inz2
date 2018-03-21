@@ -58,15 +58,16 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(224, 34);
             this.txtLogin.TabIndex = 2;
-            this.txtLogin.Text = "a";
+            this.txtLogin.Text = "admin";
             // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(148, 122);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(224, 34);
             this.txtPass.TabIndex = 3;
-            this.txtPass.Text = "a";
+            this.txtPass.Text = "admin";
             // 
             // label1
             // 

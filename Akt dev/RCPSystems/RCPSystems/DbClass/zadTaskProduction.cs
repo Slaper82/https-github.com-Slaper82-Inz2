@@ -15,7 +15,7 @@ namespace RCPSystems
         public int Id { get; set; }
         public int IdUser { get; set; }
 
-        public DateTime Start { get; set; }
+        public DateTime? Start { get; set; }
 
         public int? IdTask { get; set; }
 
