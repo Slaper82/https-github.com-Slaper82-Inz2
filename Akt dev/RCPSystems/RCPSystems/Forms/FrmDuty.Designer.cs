@@ -31,13 +31,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvTyp = new System.Windows.Forms.DataGridView();
-            this.IdTypeL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DutyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSelected = new System.Windows.Forms.DataGridView();
-            this.IdTypeR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeNameR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.IdTypeL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DutyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTypeR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeNameR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTyp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelected)).BeginInit();
             this.SuspendLayout();
@@ -74,18 +74,6 @@
             this.dgvTyp.TabIndex = 20;
             this.dgvTyp.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvTyp_RowStateChanged);
             // 
-            // IdTypeL
-            // 
-            this.IdTypeL.DataPropertyName = "IdType";
-            this.IdTypeL.HeaderText = "Id";
-            this.IdTypeL.Name = "IdTypeL";
-            // 
-            // DutyName
-            // 
-            this.DutyName.DataPropertyName = "TypeName";
-            this.DutyName.HeaderText = "Nazwa";
-            this.DutyName.Name = "DutyName";
-            // 
             // dgvSelected
             // 
             this.dgvSelected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -98,18 +86,6 @@
             this.dgvSelected.Size = new System.Drawing.Size(302, 464);
             this.dgvSelected.TabIndex = 21;
             this.dgvSelected.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvSelected_RowStateChanged);
-            // 
-            // IdTypeR
-            // 
-            this.IdTypeR.DataPropertyName = "IdType";
-            this.IdTypeR.HeaderText = "Id";
-            this.IdTypeR.Name = "IdTypeR";
-            // 
-            // TypeNameR
-            // 
-            this.TypeNameR.DataPropertyName = "TypeName";
-            this.TypeNameR.HeaderText = "Nazwa";
-            this.TypeNameR.Name = "TypeNameR";
             // 
             // btnAdd
             // 
@@ -130,6 +106,32 @@
             this.btnRemove.Text = "<<";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // IdTypeL
+            // 
+            this.IdTypeL.DataPropertyName = "IdType";
+            this.IdTypeL.HeaderText = "Id";
+            this.IdTypeL.Name = "IdTypeL";
+            this.IdTypeL.Visible = false;
+            // 
+            // DutyName
+            // 
+            this.DutyName.DataPropertyName = "TypeName";
+            this.DutyName.HeaderText = "Nazwa";
+            this.DutyName.Name = "DutyName";
+            // 
+            // IdTypeR
+            // 
+            this.IdTypeR.DataPropertyName = "IdType";
+            this.IdTypeR.HeaderText = "Id";
+            this.IdTypeR.Name = "IdTypeR";
+            this.IdTypeR.Visible = false;
+            // 
+            // TypeNameR
+            // 
+            this.TypeNameR.DataPropertyName = "TypeName";
+            this.TypeNameR.HeaderText = "Nazwa";
+            this.TypeNameR.Name = "TypeNameR";
             // 
             // FrmDuty
             // 

@@ -256,6 +256,9 @@ namespace RCPSystems.Forms
                           select new { Nazwa = prod.Name, Ilosc = order.Quantity, Id = order.IdKey,IdProd = order.IdProduct }).ToList();
 
             dgvProd.DataSource = source;
+            dgvProd.AutoGenerateColumns = false;
+            dgvProd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvProd.AutoResizeColumns();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

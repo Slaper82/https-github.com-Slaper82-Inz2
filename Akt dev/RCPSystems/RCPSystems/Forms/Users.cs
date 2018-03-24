@@ -57,7 +57,7 @@ namespace RCPSystems
                 var usrDuty = (from d in context.zadUserDuties
                                join u in context.zadDuties on d.IdDuty equals u.IdDuty
                                where d.IdUser == UserID
-                               select new { u.Name, u.IdDuty }).ToList();
+                               select new { Nazwa=u.Name, u.IdDuty }).ToList();
 
                 dgvDuty.DataSource = usrDuty;
                 dgvDuty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

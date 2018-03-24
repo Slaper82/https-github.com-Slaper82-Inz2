@@ -38,20 +38,21 @@
             this.gbTask = new System.Windows.Forms.GroupBox();
             this.btnStartZad = new System.Windows.Forms.Button();
             this.dgvTask = new System.Windows.Forms.DataGridView();
-            this.IdTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvMyTasks = new System.Windows.Forms.DataGridView();
-            this.IdMyTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTaskEnd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnRun = new System.Windows.Forms.Button();
+            this.IdMyTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbTimeAttandance.SuspendLayout();
             this.gbTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
@@ -160,6 +161,7 @@
             this.dgvTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdTask,
+            this.Nazwa,
             this.IdOrder,
             this.Quantity,
             this.Done});
@@ -169,30 +171,6 @@
             this.dgvTask.Size = new System.Drawing.Size(770, 326);
             this.dgvTask.TabIndex = 8;
             this.dgvTask.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvTask_RowStateChanged);
-            // 
-            // IdTask
-            // 
-            this.IdTask.DataPropertyName = "IdTask";
-            this.IdTask.HeaderText = "Id zadania";
-            this.IdTask.Name = "IdTask";
-            // 
-            // IdOrder
-            // 
-            this.IdOrder.DataPropertyName = "IdOrder";
-            this.IdOrder.HeaderText = "Id Zamówienia";
-            this.IdOrder.Name = "IdOrder";
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Ilość";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Done
-            // 
-            this.Done.DataPropertyName = "Done";
-            this.Done.HeaderText = "Zakończone";
-            this.Done.Name = "Done";
             // 
             // label2
             // 
@@ -218,30 +196,6 @@
             this.dgvMyTasks.Size = new System.Drawing.Size(523, 480);
             this.dgvMyTasks.TabIndex = 9;
             this.dgvMyTasks.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvMyTasks_RowStateChanged);
-            // 
-            // IdMyTask
-            // 
-            this.IdMyTask.DataPropertyName = "IdTask";
-            this.IdMyTask.HeaderText = "Id zadania";
-            this.IdMyTask.Name = "IdMyTask";
-            // 
-            // Start
-            // 
-            this.Start.DataPropertyName = "Start";
-            this.Start.HeaderText = "Start";
-            this.Start.Name = "Start";
-            // 
-            // Stop
-            // 
-            this.Stop.DataPropertyName = "Stop";
-            this.Stop.HeaderText = "Stop";
-            this.Stop.Name = "Stop";
-            // 
-            // AddInfo
-            // 
-            this.AddInfo.DataPropertyName = "AddInfo";
-            this.AddInfo.HeaderText = "Dodatkowa informacja";
-            this.AddInfo.Name = "AddInfo";
             // 
             // btnTaskEnd
             // 
@@ -284,6 +238,60 @@
             this.btnRun.Text = "Rozpocznij pracę";
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // IdMyTask
+            // 
+            this.IdMyTask.DataPropertyName = "IdTask";
+            this.IdMyTask.HeaderText = "Nr zadania";
+            this.IdMyTask.Name = "IdMyTask";
+            // 
+            // Start
+            // 
+            this.Start.DataPropertyName = "Start";
+            this.Start.HeaderText = "Start";
+            this.Start.Name = "Start";
+            // 
+            // Stop
+            // 
+            this.Stop.DataPropertyName = "Stop";
+            this.Stop.HeaderText = "Stop";
+            this.Stop.Name = "Stop";
+            // 
+            // AddInfo
+            // 
+            this.AddInfo.DataPropertyName = "AddInfo";
+            this.AddInfo.HeaderText = "Dodatkowa informacja";
+            this.AddInfo.Name = "AddInfo";
+            // 
+            // IdTask
+            // 
+            this.IdTask.DataPropertyName = "NrZadania";
+            this.IdTask.HeaderText = "Nr zadania";
+            this.IdTask.Name = "IdTask";
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.DataPropertyName = "Nazwa";
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            // 
+            // IdOrder
+            // 
+            this.IdOrder.DataPropertyName = "NrZamowienia";
+            this.IdOrder.HeaderText = "Nr Zamówienia";
+            this.IdOrder.Name = "IdOrder";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Ilosc";
+            this.Quantity.HeaderText = "Ilość";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Done
+            // 
+            this.Done.DataPropertyName = "Status";
+            this.Done.HeaderText = "Status";
+            this.Done.Name = "Done";
             // 
             // Transact
             // 
@@ -329,15 +337,16 @@
         private System.Windows.Forms.DataGridView dgvMyTasks;
         private System.Windows.Forms.Button btnTaskEnd;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdTask;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Done;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMyTask;
         private System.Windows.Forms.DataGridViewTextBoxColumn Start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stop;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddInfo;
-        private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.Button btnRun;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTask;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Done;
     }
 }

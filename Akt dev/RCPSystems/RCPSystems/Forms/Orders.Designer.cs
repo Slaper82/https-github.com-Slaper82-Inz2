@@ -38,6 +38,7 @@
             this.btnAddOrder = new System.Windows.Forms.Button();
             this.btnDelOrder = new System.Windows.Forms.Button();
             this.btnEditOrder = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,11 +127,22 @@
             this.btnEditOrder.UseVisualStyleBackColor = true;
             this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(201, 30);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(150, 50);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Odśwież";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1733, 616);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnEditOrder);
             this.Controls.Add(this.btnDelOrder);
             this.Controls.Add(this.btnAddOrder);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CLientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Done;
         private System.Windows.Forms.DataGridViewTextBoxColumn Names;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

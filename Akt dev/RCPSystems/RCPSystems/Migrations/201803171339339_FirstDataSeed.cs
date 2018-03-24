@@ -9,10 +9,10 @@ namespace RCPSystems.Migrations
         {
             //grupy uprawnieñ
             Sql("insert into genRoles (IdRole,Name,Active) values (1,'Administrator',1)");
-            Sql("insert into genRoles (IdRole,Name,Active) values (2,'Boss',1)");
-            Sql("insert into genRoles (IdRole,Name,Active) values (3,'Supervisor',1)");
-            Sql("insert into genRoles(IdRole,Name,Active) values (4,'HumanResorces',1)");
-            Sql("insert into genRoles (IdRole,Name,Active) values (5,'Worker',1)");
+            Sql("insert into genRoles (IdRole,Name,Active) values (2,'Szef',1)");
+            Sql("insert into genRoles (IdRole,Name,Active) values (3,'Kierownik',1)");
+            Sql("insert into genRoles(IdRole,Name,Active) values (4,'Kadrowa',1)");
+            Sql("insert into genRoles (IdRole,Name,Active) values (5,'Pracownik',1)");
 
             //Struktura
             Sql("insert into genOrgUnit (Name,IdHigherOrgUnit) values ('Meblex',null)");
@@ -423,6 +423,14 @@ namespace RCPSystems.Migrations
             Sql("insert into zadDutyTypes( Name,IdType,IdDuty) values ('',25,8)");
             Sql("insert into zadDutyTypes( Name,IdType,IdDuty) values ('',30,9)");
             Sql("insert into zadDutyTypes( Name,IdType,IdDuty) values ('',31,9)");
+
+            //harmonogramy
+            Sql("insert into rcpUserHarmo (IdUser,IdHarmo,ValidFrom,ValidTo) values(	1,	1,	'2018-01-01 23:44:59.000','2018-12-31 23:44:59.000')");
+            Sql("insert into rcpUserHarmo (IdUser,IdHarmo,ValidFrom,ValidTo) values(	2,	2,	'2018-01-01 00:14:59.000','2018-12-31 00:14:59.000')");
+            Sql("insert into rcpUserHarmo (IdUser,IdHarmo,ValidFrom,ValidTo) values(	3,	3,	'2018-01-01 00:14:59.000','2018-12-31 00:14:59.000')");
+            Sql("insert into rcpUserHarmo (IdUser,IdHarmo,ValidFrom,ValidTo) values(	4,	5,	'2018-01-01 00:14:59.000','2018-12-31 00:14:59.000')");
+            Sql("insert into rcpUserHarmo (IdUser,IdHarmo,ValidFrom,ValidTo) values(	5,	2,	'2018-01-01 00:14:59.000','2018-12-31 00:14:59.000')");
+
 
 
         }

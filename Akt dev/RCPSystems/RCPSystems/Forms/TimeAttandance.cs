@@ -67,7 +67,16 @@ namespace RCPSystems
                 var pairs = (from p in context.rcpPairsIOs
                              join u in context.genUsers on p.IdUser equals u.IdUser
                              where p.IdUser == UserID && p.Start>=dtpStart.Value && p.Stop<=dtpStop.Value
-                             select new { Name = u.Name + " " + u.Surname, Wej = p.Start, Wyj = p.Stop }).ToList();
+                             select new { Nazwa = u.Name + " " + u.Surname, Poczatek = p.Start, Koniec = p.Stop }).ToList();
+
+                dgv.DataSource = pairs;
+            }
+            if (dgv.Name == "dgvTimeBreak")
+            {
+                var pairs = (from p in context.rcpPairsOnBs
+                             join u in context.genUsers on p.IdUser equals u.IdUser
+                             where p.IdUser == UserID && p.Start >= dtpStart.Value && p.Stop <= dtpStop.Value
+                             select new { Nazwa = u.Name + " " + u.Surname, Poczatek = p.Start, Koniec = p.Stop }).ToList();
 
                 dgv.DataSource = pairs;
             }
@@ -97,6 +106,7 @@ namespace RCPSystems
                 DgvTranReload(UserID,dgvTransactions);
                 DgvTranReload(UserID, dgvTranPairs);
                 DgvTranReload(UserID, dgvUserHarmo);
+                DgvTranReload(UserID, dgvTimeBreak);
             }
         }
 
@@ -183,6 +193,53 @@ namespace RCPSystems
 
         private void btnCount_Click(object sender, EventArgs e)
         {
+
+            //var Id = new SqlParameter("@Id", this.UserID);
+            //var Start = new SqlParameter("@Start", dtpStart.Value.ToString("yyyyMMdd"));
+            //var Stop = new SqlParameter("@Stop", dtpStop.Value.ToString("yyyyMMdd"));
+
+            //var result = context.Database
+            //    .SqlQuery<ReportClass>("rcpRaport @Id,@Start,@Stop", Id, Start, Stop)
+            //    .ToList();
+
+            RcpZadRep();
+            RcpReport();
+            RcpSum();
+                //var res = (from r in result
+                //           join u in context.genUsers on r.IdUser equals u.IdUser
+                //           select new { User = u.Name + " " + u.Surname, Data = r.Date, r.Norma, r.Odczytane, r.Przerwa, r.Braki, r.Nadgodziny, r.Transakcje }).ToList();
+
+            //dgvReport.DataSource = res;
+            //dgvReport.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+            //dgvReport.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+            //dgvReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvReport.AutoResizeColumns();
+
+        }
+        private void RcpZadRep()
+        {
+            using (var context = new EFModel())
+            {
+                var Id = new SqlParameter("@Id", this.UserID);
+                var Start = new SqlParameter("@Start", dtpStart.Value.ToString("yyyyMMdd"));
+                var Stop = new SqlParameter("@Stop", dtpStop.Value.ToString("yyyyMMdd"));
+
+
+                var result = context.Database
+                   .SqlQuery<RepZad>("ZadPodsumowania @Id,@Start,@Stop", Id, Start, Stop)
+                   .ToList();
+
+
+                dgvZad.DataSource = result;
+                dgvZad.RowsDefaultCellStyle.BackColor = Color.LightBlue;
+                dgvZad.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+                dgvZad.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvZad.AutoResizeColumns();
+            }
+        }
+
+        private void RcpReport()
+        {
             using (var context = new EFModel())
             {
                 var Id = new SqlParameter("@Id", this.UserID);
@@ -193,12 +250,35 @@ namespace RCPSystems
                     .SqlQuery<ReportClass>("rcpRaport @Id,@Start,@Stop", Id, Start, Stop)
                     .ToList();
 
-                dgvReport.DataSource = result;
+                var res = (from r in result
+                           join u in context.genUsers on r.IdUser equals u.IdUser
+                           select new { User = u.Name + " " + u.Surname, Data = r.Date, r.Norma, r.Odczytane, r.Przerwa, r.Braki, r.Nadgodziny, r.Transakcje }).ToList();
+
+                dgvReport.DataSource = res;
                 dgvReport.RowsDefaultCellStyle.BackColor = Color.LightBlue;
                 dgvReport.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
                 dgvReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgvReport.AutoResizeColumns();
             }
         }
+        private void RcpSum()
+        {
+            using (var context = new EFModel())
+            {
+                var IdS = new SqlParameter("@Id", this.UserID);
+                var StartS = new SqlParameter("@Start", dtpStart.Value.ToString("yyyyMMdd"));
+                var StopS = new SqlParameter("@Stop", dtpStop.Value.ToString("yyyyMMdd"));
+
+                var sum = context.Database
+                    .SqlQuery<SumClass>("RcpPodsumowania @Id,@Start,@Stop", IdS, StartS, StopS)
+                    .ToList();
+
+                lblBraki.Text = sum[0].Braki == "0:0" ? "00:00" : sum[0].Braki;
+                lblNadgodziny.Text = sum[0].Nadgodziny == "*:0" ? "00:00" : sum[0].Nadgodziny;
+                lblNorma.Text = sum[0].Norma;
+                lblOdczytane.Text = sum[0].Odczytane;
+            }
+        }
+
     }
 }

@@ -129,6 +129,7 @@
             // 
             this.tsbManage.AutoSize = false;
             this.tsbManage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbManage.Enabled = false;
             this.tsbManage.Image = global::RCPSystems.Properties.Resources.Tools;
             this.tsbManage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbManage.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -154,6 +155,7 @@
             // 
             this.tsbOrder.AutoSize = false;
             this.tsbOrder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbOrder.Enabled = false;
             this.tsbOrder.Image = ((System.Drawing.Image)(resources.GetObject("tsbOrder.Image")));
             this.tsbOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbOrder.ImageTransparentColor = System.Drawing.Color.Magenta;

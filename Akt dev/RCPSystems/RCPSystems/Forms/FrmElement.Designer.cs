@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnPodElemeDel = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSymbol = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.dgvElem = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElementName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAddElem = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtQuan = new System.Windows.Forms.TextBox();
-            this.cmbElem = new System.Windows.Forms.ComboBox();
-            this.btnAddList = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtSymbol = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSymOld = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuantOld = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAddList = new System.Windows.Forms.Button();
+            this.cmbElem = new System.Windows.Forms.ComboBox();
+            this.btnPodElemeDel = new System.Windows.Forms.Button();
+            this.dgvElem = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElementName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -76,91 +76,21 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Wprowadź elementy";
             // 
-            // btnPodElemeDel
+            // groupBox1
             // 
-            this.btnPodElemeDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPodElemeDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPodElemeDel.Image = global::RCPSystems.Properties.Resources.Delete;
-            this.btnPodElemeDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPodElemeDel.Location = new System.Drawing.Point(616, 87);
-            this.btnPodElemeDel.Name = "btnPodElemeDel";
-            this.btnPodElemeDel.Size = new System.Drawing.Size(147, 36);
-            this.btnPodElemeDel.TabIndex = 39;
-            this.btnPodElemeDel.Text = "Usuń ";
-            this.btnPodElemeDel.UseVisualStyleBackColor = true;
-            this.btnPodElemeDel.Click += new System.EventHandler(this.btnPodElemeDel_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(309, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 17);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Symbol";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Nazwa";
-            // 
-            // txtSymbol
-            // 
-            this.txtSymbol.Location = new System.Drawing.Point(312, 52);
-            this.txtSymbol.Name = "txtSymbol";
-            this.txtSymbol.Size = new System.Drawing.Size(100, 22);
-            this.txtSymbol.TabIndex = 34;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(10, 52);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(251, 22);
-            this.txtName.TabIndex = 33;
-            // 
-            // dgvElem
-            // 
-            this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvElem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Symbol,
-            this.ElementName,
-            this.Quantity});
-            this.dgvElem.Location = new System.Drawing.Point(16, 87);
-            this.dgvElem.Name = "dgvElem";
-            this.dgvElem.RowTemplate.Height = 24;
-            this.dgvElem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvElem.Size = new System.Drawing.Size(577, 296);
-            this.dgvElem.TabIndex = 32;
-            this.dgvElem.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvElem_RowStateChanged);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            // 
-            // Symbol
-            // 
-            this.Symbol.DataPropertyName = "Symbol";
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.Name = "Symbol";
-            // 
-            // ElementName
-            // 
-            this.ElementName.DataPropertyName = "Name";
-            this.ElementName.HeaderText = "Nazwa elementu";
-            this.ElementName.Name = "ElementName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Ilość";
-            this.Quantity.Name = "Quantity";
+            this.groupBox1.Controls.Add(this.btnAddElem);
+            this.groupBox1.Controls.Add(this.txtQuan);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.txtSymbol);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(16, 503);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(823, 100);
+            this.groupBox1.TabIndex = 39;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dodaj nowy";
             // 
             // btnAddElem
             // 
@@ -176,14 +106,12 @@
             this.btnAddElem.UseVisualStyleBackColor = true;
             this.btnAddElem.Click += new System.EventHandler(this.btnAddElem_Click);
             // 
-            // label11
+            // txtQuan
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 17);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Elementy";
+            this.txtQuan.Location = new System.Drawing.Point(459, 52);
+            this.txtQuan.Name = "txtQuan";
+            this.txtQuan.Size = new System.Drawing.Size(100, 22);
+            this.txtQuan.TabIndex = 27;
             // 
             // label9
             // 
@@ -194,45 +122,37 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Ilość";
             // 
-            // txtQuan
+            // txtName
             // 
-            this.txtQuan.Location = new System.Drawing.Point(459, 52);
-            this.txtQuan.Name = "txtQuan";
-            this.txtQuan.Size = new System.Drawing.Size(100, 22);
-            this.txtQuan.TabIndex = 27;
+            this.txtName.Location = new System.Drawing.Point(10, 52);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(251, 22);
+            this.txtName.TabIndex = 33;
             // 
-            // cmbElem
+            // txtSymbol
             // 
-            this.cmbElem.FormattingEnabled = true;
-            this.cmbElem.Location = new System.Drawing.Point(30, 447);
-            this.cmbElem.Name = "cmbElem";
-            this.cmbElem.Size = new System.Drawing.Size(247, 24);
-            this.cmbElem.TabIndex = 40;
-            this.cmbElem.SelectedIndexChanged += new System.EventHandler(this.cmbElem_SelectedIndexChanged);
-            this.cmbElem.SelectedValueChanged += new System.EventHandler(this.cmbElem_SelectedValueChanged);
+            this.txtSymbol.Location = new System.Drawing.Point(312, 52);
+            this.txtSymbol.Name = "txtSymbol";
+            this.txtSymbol.Size = new System.Drawing.Size(100, 22);
+            this.txtSymbol.TabIndex = 34;
             // 
-            // btnAddList
+            // label1
             // 
-            this.btnAddList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddList.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddList.Image = global::RCPSystems.Properties.Resources.Add1;
-            this.btnAddList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddList.Location = new System.Drawing.Point(616, 435);
-            this.btnAddList.Name = "btnAddList";
-            this.btnAddList.Size = new System.Drawing.Size(147, 36);
-            this.btnAddList.TabIndex = 41;
-            this.btnAddList.Text = "Dodaj";
-            this.btnAddList.UseVisualStyleBackColor = true;
-            this.btnAddList.Click += new System.EventHandler(this.btnAddList_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Nazwa";
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 417);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Wybierz z listy";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(309, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 17);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Symbol";
             // 
             // label4
             // 
@@ -266,21 +186,102 @@
             this.txtQuantOld.Size = new System.Drawing.Size(100, 22);
             this.txtQuantOld.TabIndex = 44;
             // 
-            // groupBox1
+            // label3
             // 
-            this.groupBox1.Controls.Add(this.btnAddElem);
-            this.groupBox1.Controls.Add(this.txtQuan);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.txtSymbol);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(16, 503);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(823, 100);
-            this.groupBox1.TabIndex = 39;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dodaj nowy";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 417);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Wybierz z listy";
+            // 
+            // btnAddList
+            // 
+            this.btnAddList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddList.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddList.Image = global::RCPSystems.Properties.Resources.Add1;
+            this.btnAddList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddList.Location = new System.Drawing.Point(616, 435);
+            this.btnAddList.Name = "btnAddList";
+            this.btnAddList.Size = new System.Drawing.Size(147, 36);
+            this.btnAddList.TabIndex = 41;
+            this.btnAddList.Text = "Dodaj";
+            this.btnAddList.UseVisualStyleBackColor = true;
+            this.btnAddList.Click += new System.EventHandler(this.btnAddList_Click);
+            // 
+            // cmbElem
+            // 
+            this.cmbElem.FormattingEnabled = true;
+            this.cmbElem.Location = new System.Drawing.Point(30, 447);
+            this.cmbElem.Name = "cmbElem";
+            this.cmbElem.Size = new System.Drawing.Size(247, 24);
+            this.cmbElem.TabIndex = 40;
+            this.cmbElem.SelectedIndexChanged += new System.EventHandler(this.cmbElem_SelectedIndexChanged);
+            this.cmbElem.SelectedValueChanged += new System.EventHandler(this.cmbElem_SelectedValueChanged);
+            // 
+            // btnPodElemeDel
+            // 
+            this.btnPodElemeDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPodElemeDel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPodElemeDel.Image = global::RCPSystems.Properties.Resources.Delete;
+            this.btnPodElemeDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPodElemeDel.Location = new System.Drawing.Point(616, 87);
+            this.btnPodElemeDel.Name = "btnPodElemeDel";
+            this.btnPodElemeDel.Size = new System.Drawing.Size(147, 36);
+            this.btnPodElemeDel.TabIndex = 39;
+            this.btnPodElemeDel.Text = "Usuń ";
+            this.btnPodElemeDel.UseVisualStyleBackColor = true;
+            this.btnPodElemeDel.Click += new System.EventHandler(this.btnPodElemeDel_Click);
+            // 
+            // dgvElem
+            // 
+            this.dgvElem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Symbol,
+            this.ElementName,
+            this.Quantity});
+            this.dgvElem.Location = new System.Drawing.Point(16, 87);
+            this.dgvElem.Name = "dgvElem";
+            this.dgvElem.RowTemplate.Height = 24;
+            this.dgvElem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvElem.Size = new System.Drawing.Size(577, 296);
+            this.dgvElem.TabIndex = 32;
+            this.dgvElem.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvElem_RowStateChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 51);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 17);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Elementy";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // Symbol
+            // 
+            this.Symbol.DataPropertyName = "Symbol";
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
+            // 
+            // ElementName
+            // 
+            this.ElementName.DataPropertyName = "Name";
+            this.ElementName.HeaderText = "Nazwa elementu";
+            this.ElementName.Name = "ElementName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Ilość";
+            this.Quantity.Name = "Quantity";
             // 
             // FrmElement
             // 
@@ -292,9 +293,9 @@
             this.Text = "Dodaj element";
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,10 +313,6 @@
         private System.Windows.Forms.TextBox txtSymbol;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnPodElemeDel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ElementName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSymOld;
@@ -324,5 +321,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddList;
         private System.Windows.Forms.ComboBox cmbElem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElementName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }

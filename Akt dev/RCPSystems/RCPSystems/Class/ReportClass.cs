@@ -13,6 +13,7 @@ namespace RCPSystems.Class
         public DateTime Date { get; set; }
         public string Norma { get; set; }
         public string Odczytane { get; set; }
+        public int? Przerwa { get; set; }
         public string  Braki { get; set; }
         public string Nadgodziny { get; set; }
         public string Transakcje { get; set; }

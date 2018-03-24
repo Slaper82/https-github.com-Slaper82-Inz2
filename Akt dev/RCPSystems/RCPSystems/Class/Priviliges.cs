@@ -49,42 +49,49 @@ namespace RCPSystems.Class
             retval.Add("tsbHarmo");
             retval.Add("tsbDict");
             retval.Add("tsbTA");
-            retval.Add("tsbHarmo");
+            retval.Add("tsbManage");
+            retval.Add("tsbOrder");
             return retval;
         }
         public List<string> Boss()
         {
             List<string> retval = new List<string>();
-            retval.Add("");
-            retval.Add("");
-            retval.Add("");
+            retval.Add("tsbTA");
+            retval.Add("tsbUsers");
+            retval.Add("tsbTimeAtt");
+            retval.Add("tsbHarmo");
+            retval.Add("tsbDay");
+            retval.Add("tsbOrder");
             retval.Add("");
             return retval;
         }
         public List<string> Supervisor()
         {
             List<string> retval = new List<string>();
-            retval.Add("");
-            retval.Add("");
-            retval.Add("");
+            retval.Add("tsbHarmo");
+            retval.Add("tsbUsers");
+            retval.Add("tsbOrder");
+            retval.Add("tsbTA");
+            retval.Add("tsbTimeAtt");
             retval.Add("");
             return retval;
         }
         public List<string> HumnaResorces()
         {
             List<string> retval = new List<string>();
-            retval.Add("");
-            retval.Add("");
-            retval.Add("");
-            retval.Add("");
+            retval.Add("tsbDay");
+            retval.Add("tsbHarmo");
+            retval.Add("tsbTA");
+            retval.Add("tsbTimeAtt");
+            retval.Add("tsbUsers");
             return retval;
         }
         public List<string> Worker()
         {
             List<string> retval = new List<string>();
-            retval.Add("");
-            retval.Add("");
-            retval.Add("");
+            retval.Add("tsbUsers");
+            retval.Add("tsbTA");
+            retval.Add("tsbTimeAtt");
             retval.Add("");
             return retval;
         }

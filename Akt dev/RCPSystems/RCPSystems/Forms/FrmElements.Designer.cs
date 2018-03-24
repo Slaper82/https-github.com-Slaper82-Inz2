@@ -65,6 +65,7 @@
             this.IdElement.DataPropertyName = "IdElement";
             this.IdElement.HeaderText = "Id";
             this.IdElement.Name = "IdElement";
+            this.IdElement.Visible = false;
             // 
             // ElemName
             // 

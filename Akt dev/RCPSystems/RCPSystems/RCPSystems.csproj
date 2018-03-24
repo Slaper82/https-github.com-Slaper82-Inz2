@@ -61,6 +61,8 @@
     <Compile Include="Class\ProdTypes.cs" />
     <Compile Include="Class\Product.cs" />
     <Compile Include="Class\ReportClass.cs" />
+    <Compile Include="Class\RepZad.cs" />
+    <Compile Include="Class\SumClass.cs" />
     <Compile Include="DbClass\Calendar.cs" />
     <Compile Include="DbClass\EFModel.cs" />
     <Compile Include="DbClass\genLogin.cs" />
@@ -184,6 +186,30 @@
     <Compile Include="Migrations\201803212238343_TaskProdNullEnable.Designer.cs">
       <DependentUpon>201803212238343_TaskProdNullEnable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803232058150_AddReportProcedure.cs" />
+    <Compile Include="Migrations\201803232058150_AddReportProcedure.Designer.cs">
+      <DependentUpon>201803232058150_AddReportProcedure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232101005_CalendarSeed.cs" />
+    <Compile Include="Migrations\201803232101005_CalendarSeed.Designer.cs">
+      <DependentUpon>201803232101005_CalendarSeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232109288_InsertUserTran.cs" />
+    <Compile Include="Migrations\201803232109288_InsertUserTran.Designer.cs">
+      <DependentUpon>201803232109288_InsertUserTran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232201548_AddReportSumProcedure.cs" />
+    <Compile Include="Migrations\201803232201548_AddReportSumProcedure.Designer.cs">
+      <DependentUpon>201803232201548_AddReportSumProcedure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232237029_TriggerBreak.cs" />
+    <Compile Include="Migrations\201803232237029_TriggerBreak.Designer.cs">
+      <DependentUpon>201803232237029_TriggerBreak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803232322377_TranBreakAdd.cs" />
+    <Compile Include="Migrations\201803232322377_TranBreakAdd.Designer.cs">
+      <DependentUpon>201803232322377_TranBreakAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -272,6 +298,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803212238343_TaskProdNullEnable.resx">
       <DependentUpon>201803212238343_TaskProdNullEnable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232058150_AddReportProcedure.resx">
+      <DependentUpon>201803232058150_AddReportProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232101005_CalendarSeed.resx">
+      <DependentUpon>201803232101005_CalendarSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232109288_InsertUserTran.resx">
+      <DependentUpon>201803232109288_InsertUserTran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232201548_AddReportSumProcedure.resx">
+      <DependentUpon>201803232201548_AddReportSumProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232237029_TriggerBreak.resx">
+      <DependentUpon>201803232237029_TriggerBreak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803232322377_TranBreakAdd.resx">
+      <DependentUpon>201803232322377_TranBreakAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

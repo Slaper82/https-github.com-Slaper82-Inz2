@@ -165,7 +165,7 @@ namespace RCPSystems.Forms
                               join dutTyp in context.zadDutyTypes on type.IdType equals dutTyp.IdType
                               join userDut in context.zadUserDuties on dutTyp.IdDuty equals userDut.IdDuty
                               where userDut.IdUser == UserID && t.Active==true
-                              select t).ToList();
+                              select new {t.IdOrder,elem.Name ,t.Quantity,t.Done,t.IdTask }).ToList();
 
 
 
@@ -174,7 +174,7 @@ namespace RCPSystems.Forms
 
 
             var ds = (from t in TaskForUser
-                     select new { t.IdTask, t.IdOrder, t.Quantity, t.Done }).ToList();
+                     select new { NrZadania=t.IdTask, NrZamowienia=t.IdOrder, Ilosc=t.Quantity, Status=t.Done,Nazwa = t.Name}).ToList();
 
             
             dgvTask.AutoGenerateColumns = false;
@@ -204,11 +204,15 @@ namespace RCPSystems.Forms
                 try
                 {
                     var Mytask = context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID);
-
                     Mytask.Stop = DateTime.Now;
-                    
+                    Mytask.Active = false;
                     context.Entry(Mytask).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();    
+                    //zamykanie zamówienia
+                    if(OrderDone(MyTaskID,out int Order))
+                    {   
+                        CloseOrder(Order);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -226,7 +230,36 @@ namespace RCPSystems.Forms
                 MessageBox.Show("Wybierz zadanie z listy");
             }
         }
+        private void CloseOrder(int orderID)
+        {
+            var order = context.zadOrders.FirstOrDefault(o => o.IdOrder == orderID);
+            try
+            {
+                order.Done = true;
+                context.Entry(order).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private bool OrderDone(int taskID,out int OrderID)
+        {
 
+            bool Done = false;
+            var ord = context.zadTaskLists.FirstOrDefault(z => z.IdTask == taskID);
+            var Task = (from t in context.zadTaskProductions
+                       join o in context.zadTaskLists on t.IdTask equals o.IdTask
+                       where o.IdOrder==ord.IdOrder&& t.Active==true
+                       select t).ToList();
+            Done = (Task.Count == 0);
+
+         
+            OrderID = ord.IdOrder;
+
+            return Done;
+        }
         private void TranAdd(int TranType,out string errorMessage)
         {
             errorMessage = String.Empty;
