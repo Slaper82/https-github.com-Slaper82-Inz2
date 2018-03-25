@@ -15,7 +15,9 @@ namespace RCPSystems
     public partial class TimeAttandance : Form
     {
         EFModel context;
+
         TreeNode Node;
+
         FrmHelpers helper;
         public int UserID { get; set; }
         public genUser Users { get; set; }
@@ -149,10 +151,7 @@ namespace RCPSystems
                 }
             }
         }
-
-
         
-        //ElemeID= Convert.ToInt32(dgvElem.SelectedRows[0].Cells["ElemId"].FormattedValue .ToString())
         private void btnHarmoDel_Click(object sender, EventArgs e)
         {
             if (dgvUserHarmo.SelectedRows.Count > 0)
@@ -161,14 +160,6 @@ namespace RCPSystems
                 {
                     int ID = Convert.ToInt32(dgvUserHarmo.SelectedRows[0].Cells["Id"].FormattedValue.ToString());
                     var harmo = context.rcpUserHarmoes.FirstOrDefault(h => h.Id == ID);
-                    //rcpUserHarmo harmo = new rcpUserHarmo()
-                    //{
-
-                    //    IdHarmo = Convert.ToInt32(dgvUserHarmo.SelectedRows[0].Cells["Id"].FormattedValue.ToString()),
-                    //    ValidFrom = Convert.ToDateTime(dgvUserHarmo.SelectedRows[0].Cells["Od"].FormattedValue.ToString()),
-                    //    ValidTo = Convert.ToDateTime(dgvUserHarmo.SelectedRows[0].Cells["Do"].FormattedValue.ToString()),
-                    //    IdUser = UserID
-                    //};
                     context.rcpUserHarmoes.Attach(harmo);
                     context.rcpUserHarmoes.Remove(harmo);
                     context.SaveChanges();
@@ -193,28 +184,9 @@ namespace RCPSystems
 
         private void btnCount_Click(object sender, EventArgs e)
         {
-
-            //var Id = new SqlParameter("@Id", this.UserID);
-            //var Start = new SqlParameter("@Start", dtpStart.Value.ToString("yyyyMMdd"));
-            //var Stop = new SqlParameter("@Stop", dtpStop.Value.ToString("yyyyMMdd"));
-
-            //var result = context.Database
-            //    .SqlQuery<ReportClass>("rcpRaport @Id,@Start,@Stop", Id, Start, Stop)
-            //    .ToList();
-
             RcpZadRep();
             RcpReport();
             RcpSum();
-                //var res = (from r in result
-                //           join u in context.genUsers on r.IdUser equals u.IdUser
-                //           select new { User = u.Name + " " + u.Surname, Data = r.Date, r.Norma, r.Odczytane, r.Przerwa, r.Braki, r.Nadgodziny, r.Transakcje }).ToList();
-
-            //dgvReport.DataSource = res;
-            //dgvReport.RowsDefaultCellStyle.BackColor = Color.LightBlue;
-            //dgvReport.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
-            //dgvReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //dgvReport.AutoResizeColumns();
-
         }
         private void RcpZadRep()
         {
@@ -228,7 +200,6 @@ namespace RCPSystems
                 var result = context.Database
                    .SqlQuery<RepZad>("ZadPodsumowania @Id,@Start,@Stop", Id, Start, Stop)
                    .ToList();
-
 
                 dgvZad.DataSource = result;
                 dgvZad.RowsDefaultCellStyle.BackColor = Color.LightBlue;

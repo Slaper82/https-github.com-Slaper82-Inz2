@@ -168,11 +168,6 @@ namespace RCPSystems.Forms
                               select new {t.IdOrder,elem.Name ,t.Quantity,t.Done,t.IdTask }).ToList();
 
 
-
-           // tasks = tasks.FindAll(t => t.Active == true);
-
-
-
             var ds = (from t in TaskForUser
                      select new { NrZadania=t.IdTask, NrZamowienia=t.IdOrder, Ilosc=t.Quantity, Status=t.Done,Nazwa = t.Name}).ToList();
 

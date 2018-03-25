@@ -8,7 +8,7 @@ namespace RCPSystems.Migrations
         public override void Up()
         {
             Sql(@"CREATE PROCEDURE [dbo].[RcpPodsumowania](@Id as int,@Start as nvarchar(8),@Stop as nvarchar(8))
-                    AS
+                   AS
                     BEGIN
     		            ;WITH KALHARMO AS(
                             SELECT uh.IDUSER
@@ -34,12 +34,14 @@ namespace RCPSystems.Migrations
                                 , 
                                 --SUMOWANIE CZASU NA PODSTAWIE DATY TABLICY PAR
                      PARYTMP AS(
-                                SELECT rp.*
-	                                ,DATEDIFF(S,rp.Start,rp.Stop) AS CZAS
-	                                ,CONVERT(DATE,rp.Start) AS DATA
-						            ,DATEDIFF(Mi,b.Start,b.Stop) AS PRZERWA					
-                                FROM rcpPairsIO as rp
-					            Join rcpPairsOnB as b on Convert(Date,rp.Start)=Convert(Date,b.Start)
+                                    SELECT distinct rp.Lp,rp.IdUser,rp.Start,rp.Stop
+	                                    ,DATEDIFF(S,rp.Start,rp.Stop) AS CZAS
+	                                    ,CONVERT(DATE,rp.Start) AS DATA
+						                ,ISNULL(DATEDIFF(Mi,b.Start,b.Stop),0) AS PRZERWA					
+                                    FROM rcpPairsIO as rp
+					                Left Join rcpPairsOnB as b on Convert(Date,rp.Start)=Convert(Date,b.Start)
+					                Join KALHARMO as k on rp.IdUser=k.IdUser
+					                where rp.IdUser=k.IdUser and rp.Start>@Start and rp.Stop<@Stop
 
                                  )
 					            -- Select * from PARYTMP

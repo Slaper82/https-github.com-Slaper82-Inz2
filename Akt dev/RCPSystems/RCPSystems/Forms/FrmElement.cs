@@ -58,15 +58,6 @@ namespace RCPSystems.Forms
             {
                 try
                 {
-                    //var elem = new zadElement()
-                    //{
-                    //    Name = txtName.Text,
-                    //    Active = true,
-                    //    Symbol = txtSymbol.Text,
-                    //    IdType = 1
-                    //};
-                    //context.zadElements.Add(elem);
-                    //context.SaveChanges();
                     int idelement = ElemeIDCmb;
                     var prodElem = new zadProdElem()
                     {
@@ -85,8 +76,6 @@ namespace RCPSystems.Forms
                 {
                     GridLoad();                
                     Added(ProdId);
-                 //   txtName.Text = String.Empty;
-                  //  txtSymbol.Text = String.Empty;
                     txtQuantOld.Text = String.Empty;
                 }
             }
@@ -179,11 +168,6 @@ namespace RCPSystems.Forms
         private void cmbElem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //string t = cmbElem.SelectedValue.ToString();
-            //ElemeIDCmb = Convert.ToInt32(cmbElem.SelectedValue.ToString());
-
-            //var el = context.zadElements.FirstOrDefault(elem => elem.IdElement.Equals(ElemeIDCmb));
-            //txtSymOld.Text = el.Symbol;
         }
 
         private void cmbElem_SelectedValueChanged(object sender, EventArgs e)

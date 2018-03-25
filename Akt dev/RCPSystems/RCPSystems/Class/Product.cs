@@ -119,51 +119,7 @@ namespace RCPSystems.Class
 
             }
         }
-        //public void ButtonElemAdd(int ProductId,int ElementId,int Quantity)
-        //{
-
-        //    try
-        //    {
-        //        zadProdElem ProdElem = new zadProdElem
-        //        {
-        //            IdProduct = ProductId,
-        //            IdElement = ElementId,
-        //            Quantity = Quantity
-        //        };
-        //        context.zadProdElems.Add(ProdElem);
-        //        context.SaveChanges();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        dgv.DataSource = null;
-        //        BindGrid(ProductId);
-        //        this.Quant.Text = String.Empty;
-        //    }
-        //}
-        //public void ButtonElemDelete(int ProductId, int ElemId)
-        //{
-        //    var elem = context.zadProdElems.FirstOrDefault(e => e.IdProduct == ProductId && e.IdElement == ElemId);
-
-        //    try
-        //    {
-        //       context.zadProdElems.Attach(elem);
-        //       context.zadProdElems.Remove(elem);
-        //       context.SaveChanges();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        this.Name.Text = String.Empty;
-        //        BindData(ProductId);
-        //    }
-        //}
+ 
         public void ButtonSave(int ProductID)
         {
             try

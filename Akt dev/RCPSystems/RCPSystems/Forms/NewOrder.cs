@@ -23,15 +23,12 @@ namespace RCPSystems.Forms
         List<zadClient> ClientList = new List<zadClient>();
         List<zadProduct> ProductList= new List<zadProduct>();
         List<zadProduct> SelectedProduct = new List<zadProduct>();
-        List<zadOrderProduct> OrderProducts; //= new List<zadOrderProduct>();
+        List<zadOrderProduct> OrderProducts; 
         List<int> ProdQuant = new List<int>();
 
         zadClient Client = new zadClient();
         zadProduct Product = new zadProduct();
         zadOrder NewOrderClick;
-      //  zadOrderProduct NewProduct;
-
-
 
         public NewOrder(int userId)
         {
@@ -151,11 +148,11 @@ namespace RCPSystems.Forms
                     cmbProduct.Enabled = true;
                     txtQuant.Enabled = true;
                     btnAddProduct.Enabled = true;
-                    //wyłączamy
+             
                     btnAccept.Enabled = false;
                     cmbClient.Enabled = false;
                     txtDescription.Enabled = false;
-                    //
+                 
 
                     NewOrderClick = new zadOrder()
                     {

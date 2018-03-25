@@ -28,14 +28,12 @@ namespace RCPSystems.Forms
 
         public void GridReload()
         {
-            //var OrdersList = new List<zadOrder>();
             var OrderList = (from o in context.zadOrders
                             join c in context.zadClients on o.IdClient equals c.IdClient
                             join u in context.genUsers on o.IdUser equals u.IdUser
                             where o.Active==true
                             select new {IdZamowienia=o.IdOrder,Utworzono=o.CreateDate,u.Name,Opis=o.Description,Klient=c.Name,o.Active,o.Done}).ToList();
-            //OrderList = context.zadOrders.ToList();
-            //OrderList = OrdersList.FindAll(o => o.Active == true);
+
             dgvOrders.AutoGenerateColumns = false;
             dgvOrders.DataSource = OrderList;
             dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -50,14 +48,6 @@ namespace RCPSystems.Forms
             NewOrder.ShowDialog();
         }
 
-        //private void GridReload(object sender, EventArgs e)
-        //{
-        //    var OrdersList = new List<zadOrder>();
-        //    OrdersList = context.zadOrders.ToList();
-        //    OrdersList = OrdersList.FindAll(o => o.Active == true);
-
-        //    dgvOrders.DataSource = OrdersList;
-        //}
 
         private void btnEditOrder_Click(object sender, EventArgs e)
         {
