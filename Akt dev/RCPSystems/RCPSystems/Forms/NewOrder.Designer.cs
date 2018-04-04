@@ -36,6 +36,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.dgvProd = new System.Windows.Forms.DataGridView();
+            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.txtQuant = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
@@ -45,10 +49,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -129,6 +129,32 @@
             this.dgvProd.Size = new System.Drawing.Size(641, 206);
             this.dgvProd.TabIndex = 8;
             this.dgvProd.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvProd_RowStateChanged);
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.DataPropertyName = "Nazwa";
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            // 
+            // Ilosc
+            // 
+            this.Ilosc.DataPropertyName = "Ilosc";
+            this.Ilosc.HeaderText = "Ilość";
+            this.Ilosc.Name = "Ilosc";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // IdProd
+            // 
+            this.IdProd.DataPropertyName = "IdProd";
+            this.IdProd.HeaderText = "IdProd";
+            this.IdProd.Name = "IdProd";
+            this.IdProd.Visible = false;
             // 
             // cmbProduct
             // 
@@ -226,32 +252,6 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // Nazwa
-            // 
-            this.Nazwa.DataPropertyName = "Nazwa";
-            this.Nazwa.HeaderText = "Nazwa";
-            this.Nazwa.Name = "Nazwa";
-            // 
-            // Ilosc
-            // 
-            this.Ilosc.DataPropertyName = "Ilosc";
-            this.Ilosc.HeaderText = "Ilość";
-            this.Ilosc.Name = "Ilosc";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // IdProd
-            // 
-            this.IdProd.DataPropertyName = "IdProd";
-            this.IdProd.HeaderText = "IdProd";
-            this.IdProd.Name = "IdProd";
-            this.IdProd.Visible = false;
-            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,7 +267,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewOrder";
-            this.Text = "NewOrder";
+            this.Text = "Nowe zamówienie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

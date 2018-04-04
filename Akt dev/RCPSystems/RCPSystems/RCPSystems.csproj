@@ -210,6 +210,14 @@
     <Compile Include="Migrations\201803232322377_TranBreakAdd.Designer.cs">
       <DependentUpon>201803232322377_TranBreakAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804031818226_LastChange.cs" />
+    <Compile Include="Migrations\201804031818226_LastChange.Designer.cs">
+      <DependentUpon>201804031818226_LastChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804031914417_LastChange1.cs" />
+    <Compile Include="Migrations\201804031914417_LastChange1.Designer.cs">
+      <DependentUpon>201804031914417_LastChange1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -316,6 +324,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803232322377_TranBreakAdd.resx">
       <DependentUpon>201803232322377_TranBreakAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804031818226_LastChange.resx">
+      <DependentUpon>201804031818226_LastChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804031914417_LastChange1.resx">
+      <DependentUpon>201804031914417_LastChange1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

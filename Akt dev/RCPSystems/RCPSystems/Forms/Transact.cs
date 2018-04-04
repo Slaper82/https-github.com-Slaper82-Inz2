@@ -37,6 +37,10 @@ namespace RCPSystems.Forms
             {
                 MessageBox.Show(ErrorMessage);
             }
+            else
+            {
+                MessageBox.Show("Rozpoczęto pracę","Transakcja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -47,6 +51,10 @@ namespace RCPSystems.Forms
             if (ErrorMessage != String.Empty)
             {
                 MessageBox.Show(ErrorMessage);
+            }
+            else
+            {
+                MessageBox.Show("Zakończono pracę", "Transakcja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -198,7 +206,7 @@ namespace RCPSystems.Forms
             {
                 try
                 {
-                    var Mytask = context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID);
+                    var Mytask = context.zadTaskProductions.FirstOrDefault(t => t.IdTask == MyTaskID && t.Stop==null);
                     Mytask.Stop = DateTime.Now;
                     Mytask.Active = false;
                     context.Entry(Mytask).State = System.Data.Entity.EntityState.Modified;

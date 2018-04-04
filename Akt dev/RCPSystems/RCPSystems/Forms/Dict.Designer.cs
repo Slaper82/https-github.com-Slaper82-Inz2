@@ -45,6 +45,10 @@
             this.btnSaveProdData = new System.Windows.Forms.Button();
             this.btnAddElemnt = new System.Windows.Forms.Button();
             this.dgvElem = new System.Windows.Forms.DataGridView();
+            this.IdElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.ProdLp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +61,10 @@
             this.tpElement = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvElemList = new System.Windows.Forms.DataGridView();
+            this.lpElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElemIdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnElemAdd = new System.Windows.Forms.Button();
             this.cmbElem = new System.Windows.Forms.ComboBox();
@@ -66,6 +74,10 @@
             this.btnElemDel = new System.Windows.Forms.Button();
             this.tpProdTask = new System.Windows.Forms.TabPage();
             this.dgvProd = new System.Windows.Forms.DataGridView();
+            this.lp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Binded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnAddType = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -74,29 +86,19 @@
             this.tpDuty = new System.Windows.Forms.TabPage();
             this.btnDictManage = new System.Windows.Forms.Button();
             this.dgvDutyList = new System.Windows.Forms.DataGridView();
+            this.IdTypeDict = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeNameDict = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDuty = new System.Windows.Forms.DataGridView();
+            this.LpDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DutyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDutyDelete = new System.Windows.Forms.Button();
             this.txtDutyName = new System.Windows.Forms.TextBox();
             this.btnDutySave = new System.Windows.Forms.Button();
-            this.lpElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdElement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElemIdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Binded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LpDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdDuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DutyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTypeDict = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeNameDict = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameElem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbDict.SuspendLayout();
             this.tpStruct.SuspendLayout();
             this.tpProduct.SuspendLayout();
@@ -135,6 +137,8 @@
             // tpStruct
             // 
             this.tpStruct.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpStruct.Controls.Add(this.label10);
+            this.tpStruct.Controls.Add(this.label6);
             this.tpStruct.Controls.Add(this.btnDeleteStruct);
             this.tpStruct.Controls.Add(this.btnAddBranchLow);
             this.tpStruct.Controls.Add(this.cmbBranch);
@@ -189,14 +193,14 @@
             // 
             this.txtBranchLow.Location = new System.Drawing.Point(297, 144);
             this.txtBranchLow.Name = "txtBranchLow";
-            this.txtBranchLow.Size = new System.Drawing.Size(235, 34);
+            this.txtBranchLow.Size = new System.Drawing.Size(245, 34);
             this.txtBranchLow.TabIndex = 17;
             // 
             // txtBranch
             // 
             this.txtBranch.Location = new System.Drawing.Point(297, 53);
             this.txtBranch.Name = "txtBranch";
-            this.txtBranch.Size = new System.Drawing.Size(235, 34);
+            this.txtBranch.Size = new System.Drawing.Size(245, 34);
             this.txtBranch.TabIndex = 16;
             // 
             // btnAddBranch
@@ -334,6 +338,31 @@
             this.dgvElem.Size = new System.Drawing.Size(506, 330);
             this.dgvElem.TabIndex = 32;
             // 
+            // IdElem
+            // 
+            this.IdElem.DataPropertyName = "Id";
+            this.IdElem.HeaderText = "Id";
+            this.IdElem.Name = "IdElem";
+            this.IdElem.Visible = false;
+            // 
+            // Symbol
+            // 
+            this.Symbol.DataPropertyName = "Symbol";
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.Name = "Symbol";
+            // 
+            // NameElem
+            // 
+            this.NameElem.DataPropertyName = "Name";
+            this.NameElem.HeaderText = "Nazwa";
+            this.NameElem.Name = "NameElem";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Ilość";
+            this.Quantity.Name = "Quantity";
+            // 
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -456,6 +485,31 @@
             this.dgvElemList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvElemList_RowPostPaint);
             this.dgvElemList.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvElemList_RowStateChanged);
             // 
+            // lpElem
+            // 
+            this.lpElem.HeaderText = "Lp";
+            this.lpElem.Name = "lpElem";
+            // 
+            // ElemName
+            // 
+            this.ElemName.DataPropertyName = "Name";
+            this.ElemName.HeaderText = "Nazwa";
+            this.ElemName.Name = "ElemName";
+            // 
+            // IdElement
+            // 
+            this.IdElement.DataPropertyName = "IdElement";
+            this.IdElement.HeaderText = "IdElement";
+            this.IdElement.Name = "IdElement";
+            this.IdElement.Visible = false;
+            // 
+            // ElemIdType
+            // 
+            this.ElemIdType.DataPropertyName = "IdType";
+            this.ElemIdType.HeaderText = "IdType";
+            this.ElemIdType.Name = "ElemIdType";
+            this.ElemIdType.Visible = false;
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnElemAdd);
@@ -563,6 +617,30 @@
             this.dgvProd.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProd_RowPostPaint);
             this.dgvProd.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvProd_RowStateChanged);
             // 
+            // lp
+            // 
+            this.lp.HeaderText = "Lp";
+            this.lp.Name = "lp";
+            // 
+            // TypeName
+            // 
+            this.TypeName.DataPropertyName = "Nazwa";
+            this.TypeName.HeaderText = "Nazwa zadania";
+            this.TypeName.Name = "TypeName";
+            // 
+            // IdType
+            // 
+            this.IdType.DataPropertyName = "IdType";
+            this.IdType.HeaderText = "Id";
+            this.IdType.Name = "IdType";
+            this.IdType.Visible = false;
+            // 
+            // Binded
+            // 
+            this.Binded.DataPropertyName = "Przypisany";
+            this.Binded.HeaderText = "Przypisany element";
+            this.Binded.Name = "Binded";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnAddType);
@@ -637,9 +715,9 @@
             // btnDictManage
             // 
             this.btnDictManage.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDictManage.Location = new System.Drawing.Point(1008, 354);
+            this.btnDictManage.Location = new System.Drawing.Point(979, 354);
             this.btnDictManage.Name = "btnDictManage";
-            this.btnDictManage.Size = new System.Drawing.Size(206, 43);
+            this.btnDictManage.Size = new System.Drawing.Size(235, 60);
             this.btnDictManage.TabIndex = 26;
             this.btnDictManage.Text = "Zarządzaj obowiązkami";
             this.btnDictManage.UseVisualStyleBackColor = true;
@@ -657,6 +735,18 @@
             this.dgvDutyList.Size = new System.Drawing.Size(465, 313);
             this.dgvDutyList.TabIndex = 25;
             // 
+            // IdTypeDict
+            // 
+            this.IdTypeDict.DataPropertyName = "IdType";
+            this.IdTypeDict.HeaderText = "Nr";
+            this.IdTypeDict.Name = "IdTypeDict";
+            // 
+            // TypeNameDict
+            // 
+            this.TypeNameDict.DataPropertyName = "TypeName";
+            this.TypeNameDict.HeaderText = "Nazwa ";
+            this.TypeNameDict.Name = "TypeNameDict";
+            // 
             // dgvDuty
             // 
             this.dgvDuty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -672,6 +762,23 @@
             this.dgvDuty.TabIndex = 24;
             this.dgvDuty.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDuty_RowPostPaint);
             this.dgvDuty.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvDuty_RowStateChanged);
+            // 
+            // LpDuty
+            // 
+            this.LpDuty.HeaderText = "Lp";
+            this.LpDuty.Name = "LpDuty";
+            // 
+            // IdDuty
+            // 
+            this.IdDuty.DataPropertyName = "IdDuty";
+            this.IdDuty.HeaderText = "Nr";
+            this.IdDuty.Name = "IdDuty";
+            // 
+            // DutyName
+            // 
+            this.DutyName.DataPropertyName = "Name";
+            this.DutyName.HeaderText = "Nazwa";
+            this.DutyName.Name = "DutyName";
             // 
             // groupBox2
             // 
@@ -733,108 +840,23 @@
             this.btnDutySave.UseVisualStyleBackColor = true;
             this.btnDutySave.Click += new System.EventHandler(this.btnDutySave_Click);
             // 
-            // lpElem
+            // label6
             // 
-            this.lpElem.HeaderText = "Lp";
-            this.lpElem.Name = "lpElem";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(292, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(250, 28);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Wprowadź dział nadrzędny";
             // 
-            // ElemName
+            // label10
             // 
-            this.ElemName.DataPropertyName = "Name";
-            this.ElemName.HeaderText = "Nazwa";
-            this.ElemName.Name = "ElemName";
-            // 
-            // IdElement
-            // 
-            this.IdElement.DataPropertyName = "IdElement";
-            this.IdElement.HeaderText = "IdElement";
-            this.IdElement.Name = "IdElement";
-            this.IdElement.Visible = false;
-            // 
-            // ElemIdType
-            // 
-            this.ElemIdType.DataPropertyName = "IdType";
-            this.ElemIdType.HeaderText = "IdType";
-            this.ElemIdType.Name = "ElemIdType";
-            this.ElemIdType.Visible = false;
-            // 
-            // lp
-            // 
-            this.lp.HeaderText = "Lp";
-            this.lp.Name = "lp";
-            // 
-            // TypeName
-            // 
-            this.TypeName.DataPropertyName = "Nazwa";
-            this.TypeName.HeaderText = "Nazwa zadania";
-            this.TypeName.Name = "TypeName";
-            // 
-            // IdType
-            // 
-            this.IdType.DataPropertyName = "IdType";
-            this.IdType.HeaderText = "Id";
-            this.IdType.Name = "IdType";
-            this.IdType.Visible = false;
-            // 
-            // Binded
-            // 
-            this.Binded.DataPropertyName = "Przypisany";
-            this.Binded.HeaderText = "Przypisany element";
-            this.Binded.Name = "Binded";
-            // 
-            // LpDuty
-            // 
-            this.LpDuty.HeaderText = "Lp";
-            this.LpDuty.Name = "LpDuty";
-            // 
-            // IdDuty
-            // 
-            this.IdDuty.DataPropertyName = "IdDuty";
-            this.IdDuty.HeaderText = "Nr";
-            this.IdDuty.Name = "IdDuty";
-            // 
-            // DutyName
-            // 
-            this.DutyName.DataPropertyName = "Name";
-            this.DutyName.HeaderText = "Nazwa";
-            this.DutyName.Name = "DutyName";
-            // 
-            // IdTypeDict
-            // 
-            this.IdTypeDict.DataPropertyName = "IdType";
-            this.IdTypeDict.HeaderText = "Nr";
-            this.IdTypeDict.Name = "IdTypeDict";
-            // 
-            // TypeNameDict
-            // 
-            this.TypeNameDict.DataPropertyName = "TypeName";
-            this.TypeNameDict.HeaderText = "Nazwa ";
-            this.TypeNameDict.Name = "TypeNameDict";
-            // 
-            // IdElem
-            // 
-            this.IdElem.DataPropertyName = "Id";
-            this.IdElem.HeaderText = "Id";
-            this.IdElem.Name = "IdElem";
-            this.IdElem.Visible = false;
-            // 
-            // Symbol
-            // 
-            this.Symbol.DataPropertyName = "Symbol";
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.Name = "Symbol";
-            // 
-            // NameElem
-            // 
-            this.NameElem.DataPropertyName = "Name";
-            this.NameElem.HeaderText = "Nazwa";
-            this.NameElem.Name = "NameElem";
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Ilość";
-            this.Quantity.Name = "Quantity";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(292, 113);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(253, 28);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Wprowadź dział podrzędny";
             // 
             // Dict
             // 
@@ -942,5 +964,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LpDuty;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdDuty;
         private System.Windows.Forms.DataGridViewTextBoxColumn DutyName;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label6;
     }
 }

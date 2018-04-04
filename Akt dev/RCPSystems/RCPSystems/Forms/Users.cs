@@ -214,34 +214,43 @@ namespace RCPSystems
                     User.IdRole = 5;
                     User.Active = 1;
                     if(!IsEdited) context.genUsers.Add(User);
-                    
-                    context.SaveChanges();
-                    
 
-                    UserDet.PlaceBirth = txtBirthPlace.Text;
-                    UserDet.IsWoman = cmbGender.Text == "Kobieta" ? true : false;
-                    UserDet.ZipCode = mtxtPost.Text;
-                    UserDet.IdUser = User.IdUser;
-                    UserDet.DateBirth = dtpBirthDate.Value;
-                    UserDet.Adrress = txtAddress.Text;
-                    UserDet.City = txtCity.Text;
-                    if (!IsEdited) context.genUserDets.Add(UserDet);
-                    context.SaveChanges();
+                    if (User.Surname == String.Empty) MessageBox.Show("Wystąpił problem z zapisem, ponieważ brakuje pola: Nazwisko ", "Nieprawidłowe dane", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        context.SaveChanges();
 
-                    Org.IdUser = User.IdUser;
-                    Org.IdOrgUnit = Convert.ToInt32(cmbDept.SelectedValue);
-                    Org.Active = true;
-                    if (!IsEdited) context.genOrgUnitPrivs.Add(Org);
-                    context.SaveChanges();
+
+                        UserDet.PlaceBirth = txtBirthPlace.Text;
+                        UserDet.IsWoman = cmbGender.Text == "Kobieta" ? true : false;
+                        UserDet.ZipCode = mtxtPost.Text;
+                        UserDet.IdUser = User.IdUser;
+                        UserDet.DateBirth = dtpBirthDate.Value;
+                        UserDet.Adrress = txtAddress.Text;
+                        UserDet.City = txtCity.Text;
+                        if (!IsEdited) context.genUserDets.Add(UserDet);
+                        context.SaveChanges();
+
+                        Org.IdUser = User.IdUser;
+                        Org.IdOrgUnit = Convert.ToInt32(cmbDept.SelectedValue);
+                        Org.Active = true;
+                        if (!IsEdited) context.genOrgUnitPrivs.Add(Org);
+                        context.SaveChanges();
+                        MessageBox.Show("Dane zostały zapisane", "Nowy pracownik", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
                 else
                 {
                     MessageBox.Show("Wystąpiły problemy....");
                 }
+            
+           
+               
             }
-            catch(Exception ex)
+            catch (Exception exc)
             {
-                MessageBox.Show("Wystąpił problem z zapisem: "+ex.Message);
+                    MessageBox.Show("Wystąpił problem z zapisem, ponieważ: " + exc.Data, "Nieprawidłowe dane", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

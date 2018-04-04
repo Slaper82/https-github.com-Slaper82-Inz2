@@ -237,7 +237,7 @@ namespace RCPSystems.Forms
             }
             else
             {
-                MessageBox.Show("Podaj wartość liczbową w polu!");
+                MessageBox.Show("Podaj wartość liczbową w polu!","Uwaga",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
         }
